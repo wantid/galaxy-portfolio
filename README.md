@@ -102,3 +102,8 @@ base: '/your-repo-name/',
 
 After the workflow succeeds, the site is available at `https://<username>.github.io/<repo>/`.
 
+## TODO
+
+- [ ] Add sample content for the planets/tabs
+- [ ] Animate modal opening/closing transitions
+
