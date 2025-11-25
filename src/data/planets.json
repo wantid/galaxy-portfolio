@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Sample Project",
+    "startDate": "2024-01-01",
+    "endDate": "2024-06-01",
+    "tabs": [
+      {
+        "title": "Overview",
+        "content": "content/example/description.md"
+      },
+      {
+        "title": "Stack",
+        "content": "content/example/technologies.md"
+      }
+    ]
+  },
+  {
+    "name": "Legacy Project",
+    "startDate": "2013-01-01",
+    "endDate": "2021-06-01",
+    "tabs": [
+      {
+        "title": "Overview",
+        "content": "content/example/description.md"
+      },
+      {
+        "title": "Stack",
+        "content": "content/example/technologies.md"
+      }
+    ]
+  }
+]
+

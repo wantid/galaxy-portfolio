@@ -1,0 +1,23 @@
+[
+  {
+    "label": "About",
+    "name": "About",
+    "type": "modal",
+    "tabs": [
+      {
+        "title": "Profile",
+        "content": "content/example/description.md"
+      },
+      {
+        "title": "Skills",
+        "content": "content/example/technologies.md"
+      }
+    ]
+  },
+  {
+    "label": "GitHub",
+    "type": "link",
+    "href": "https://github.com/"
+  }
+]
+

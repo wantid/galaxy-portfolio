@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Portfolio</title>
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="global-tabs" class="global-tabs"></div>
+        <canvas id="canvas"></canvas>
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="modal-header">
+                    <h2 id="modal-title"></h2>
+                    <div id="modal-dates"></div>
+                </div>
+                <div class="modal-tabs">
+                    <div class="tab-buttons" id="tab-buttons"></div>
+                    <div class="tab-content" id="tab-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="author-link" href="https://github.com/wantid" target="_blank" rel="noopener">made by wantid</a>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+
