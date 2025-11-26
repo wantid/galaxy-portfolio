@@ -181,7 +181,14 @@ export class Scene3D {
             this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
         });
 
+        const isModalOpen = () => {
+            const modal = document.getElementById('modal');
+            return modal && !modal.classList.contains('hidden');
+        };
+
         const handleClick = (clientX, clientY) => {
+            if (isModalOpen()) return;
+            
             this.mouse.x = (clientX / window.innerWidth) * 2 - 1;
             this.mouse.y = -(clientY / window.innerHeight) * 2 + 1;
             
