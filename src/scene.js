@@ -181,7 +181,10 @@ export class Scene3D {
             this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
         });
 
-        window.addEventListener('click', () => {
+        const handleClick = (clientX, clientY) => {
+            this.mouse.x = (clientX / window.innerWidth) * 2 - 1;
+            this.mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+            
             this.raycaster.setFromCamera(this.mouse, this.camera);
             const allMeshes = [];
             this.planets.forEach(planet => {
@@ -205,6 +208,17 @@ export class Scene3D {
                     }
                     clickedMesh = clickedMesh.parent;
                 }
+            }
+        };
+
+        window.addEventListener('click', (event) => {
+            handleClick(event.clientX, event.clientY);
+        });
+
+        window.addEventListener('touchend', (event) => {
+            if (event.changedTouches.length > 0) {
+                const touch = event.changedTouches[0];
+                handleClick(touch.clientX, touch.clientY);
             }
         });
     }
