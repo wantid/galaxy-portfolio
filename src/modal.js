@@ -103,7 +103,13 @@ export class Modal {
         }
         
         const tab = this.currentPlanet.tabs[index];
-        this.tabContent.innerHTML = '<div style="text-align: center; padding: 20px;">Loading…</div>';
+        
+        const currentHeight = this.tabContent.offsetHeight;
+        this.tabContent.style.minHeight = currentHeight + 'px';
+        
+        this.tabContent.innerHTML = '<div class="loader-container"><div class="loader"></div></div>';
+        
+        const startTime = Date.now();
         
         try {
             const response = await fetch(tab.content);
@@ -116,10 +122,23 @@ export class Modal {
             content = marked.parse(content);
             content = this.processMedia(content);
             
+            const elapsed = Date.now() - startTime;
+            if (elapsed < 500) {
+                await new Promise(resolve => setTimeout(resolve, 500 - elapsed));
+            }
+            
             this.tabContent.innerHTML = content;
+            this.tabContent.style.minHeight = '';
         } catch (error) {
             console.error('Error loading tab content:', error);
+            
+            const elapsed = Date.now() - startTime;
+            if (elapsed < 500) {
+                await new Promise(resolve => setTimeout(resolve, 500 - elapsed));
+            }
+            
             this.tabContent.innerHTML = `<p style="color: #ff6b6b;">Failed to load content: ${error.message}</p>`;
+            this.tabContent.style.minHeight = '';
         }
     }
 

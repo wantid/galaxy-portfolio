@@ -105,7 +105,7 @@ After the workflow succeeds, the site is available at `https://<username>.github
 ## TODO
 
 - [x] Add sample content for the planets/tabs
-- [ ] Animate modal opening/closing transitions
+- [x] Animate modal opening/closing transitions
 - [ ] Add touch support for planet clicks on mobile
 - [x] Overlapping elements over modals
 - [ ] Loader for modal content
