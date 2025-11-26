@@ -227,7 +227,7 @@ class Planet3D {
         const normalizedDuration = Math.min(duration / maxDuration, 1);
         this.rotationSpeed = data.rotationSpeed !== undefined
             ? data.rotationSpeed
-            : 0.008 / (normalizedDuration + 0.1);
+            : 0.001 / (normalizedDuration + 0.1);
         
         this.angle = (index / totalPlanets) * Math.PI * 2;
         

@@ -6,18 +6,18 @@
     "tabs": [
       {
         "title": "Profile",
-        "content": "content/example/description.md"
+        "content": "content/about/profile.md"
       },
       {
         "title": "Skills",
-        "content": "content/example/technologies.md"
+        "content": "content/about/skills.md"
       }
     ]
   },
   {
     "label": "GitHub",
     "type": "link",
-    "href": "https://github.com/"
+    "href": "https://github.com/wantid"
   }
 ]
 

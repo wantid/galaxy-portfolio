@@ -290,7 +290,10 @@ body {
 
 .tab-content img {
     max-width: 100%;
+    max-height: 300px;
+    width: auto;
     height: auto;
+    object-fit: contain;
     border-radius: 5px;
     margin: 15px 0;
     border: 1px solid rgba(0, 255, 255, 0.3);
@@ -355,5 +358,89 @@ body {
 
 .modal-content::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 255, 255, 0.7);
+}
+
+.webgl-error {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, #0a1628 0%, #000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.webgl-error.hidden {
+    display: none;
+}
+
+.webgl-error-content {
+    background: rgba(0, 20, 40, 0.95);
+    border: 2px solid #ff4444;
+    box-shadow: 0 0 30px rgba(255, 68, 68, 0.4), inset 0 0 30px rgba(255, 68, 68, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.webgl-error-content h1 {
+    color: #ff6666;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.webgl-error-content h2 {
+    color: #00ffff;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.webgl-error-content p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.webgl-error-content ul {
+    color: #bbb;
+    margin-left: 20px;
+    line-height: 1.8;
+}
+
+.webgl-error-content li {
+    margin-bottom: 10px;
+}
+
+.webgl-error-content strong {
+    color: #fff;
+}
+
+.webgl-error-content code {
+    background: rgba(0, 255, 255, 0.15);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #0ff;
+}
+
+.webgl-test-link {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 24px;
+    background: rgba(0, 255, 255, 0.15);
+    border: 1px solid #0ff;
+    border-radius: 6px;
+    color: #0ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.webgl-test-link:hover {
+    background: rgba(0, 255, 255, 0.25);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
 }
 

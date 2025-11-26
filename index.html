@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="/src/styles.css">
 </head>
 <body>
+    <div id="webgl-error" class="webgl-error hidden">
+        <div class="webgl-error-content">
+            <h1>WebGL is not available</h1>
+            <p>This application requires WebGL to run. Your browser or device does not support WebGL or it is disabled.</p>
+            <h2>How to fix:</h2>
+            <ul>
+                <li><strong>Enable hardware acceleration:</strong> Go to browser settings → System → Enable "Use hardware acceleration"</li>
+                <li><strong>Check WebGL status:</strong> Open <code>chrome://gpu</code> in Chrome or <code>about:support</code> in Firefox</li>
+                <li><strong>Update GPU drivers:</strong> Install the latest drivers for your graphics card</li>
+                <li><strong>Try a different browser:</strong> Chrome, Firefox, or Edge usually have good WebGL support</li>
+            </ul>
+            <a href="https://get.webgl.org/" target="_blank" rel="noopener" class="webgl-test-link">Test WebGL Support</a>
+        </div>
+    </div>
     <div id="app">
         <div id="global-tabs" class="global-tabs"></div>
         <canvas id="canvas"></canvas>

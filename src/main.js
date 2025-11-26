@@ -4,6 +4,16 @@ import { Modal } from './modal.js';
 import planetsData from './data/planets.json';
 import globalTabsData from './data/tabs.json';
 
+function checkWebGL() {
+    try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        return !!gl;
+    } catch (e) {
+        return false;
+    }
+}
+
 class App {
     constructor() {
         this.scene3D = null;
@@ -11,10 +21,17 @@ class App {
         this.planetLabels = [];
         this.modal = new Modal();
         this.globalTabsElement = document.getElementById('global-tabs');
+        this.webglError = document.getElementById('webgl-error');
+        this.appElement = document.getElementById('app');
         this.init();
     }
 
     init() {
+        if (!checkWebGL()) {
+            this.showWebGLError();
+            return;
+        }
+
         let data = planetsData;
         
         if (!data || data.length === 0) {
@@ -80,6 +97,15 @@ class App {
     updateLabels() {
         requestAnimationFrame(() => this.updateLabels());
         this.planetLabels.forEach(label => label.update());
+    }
+
+    showWebGLError() {
+        if (this.webglError) {
+            this.webglError.classList.remove('hidden');
+        }
+        if (this.appElement) {
+            this.appElement.style.display = 'none';
+        }
     }
 }
 
