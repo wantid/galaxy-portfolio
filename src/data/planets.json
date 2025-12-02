@@ -54,7 +54,7 @@
     ]
   },
   {
-    "name": "notifier-tg-bot",
+    "name": "Notifier",
     "startDate": "2025-07-26",
     "endDate": "2025-08-09",
     "tabs": [

@@ -100,7 +100,7 @@ body {
 
 .planet-label {
     position: absolute;
-    pointer-events: none;
+    pointer-events: auto;
     font-size: 12px;
     color: #00ffff;
     text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
@@ -108,18 +108,43 @@ body {
     white-space: nowrap;
     transform: translate(-50%, -100%);
     margin-top: -10px;
+    cursor: pointer;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.planet-label:hover {
+    background: rgba(0, 40, 80, 0.9);
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+    transform: translate(-50%, -100%) scale(1.1);
+    text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+    z-index: 101;
 }
 
 .planet-label .name {
     font-size: 14px;
     color: #ffffff;
     text-shadow: 0 0 10px #ffffff;
+    transition: all 0.3s ease;
+}
+
+.planet-label:hover .name {
+    color: #00ffff;
+    text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
 }
 
 .planet-label .date {
     font-size: 10px;
     color: #00ffff;
     opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.planet-label:hover .date {
+    opacity: 1;
 }
 
 .modal {

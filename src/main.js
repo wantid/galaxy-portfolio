@@ -1,5 +1,4 @@
 import { Scene3D } from './scene.js';
-import { PlanetLabel } from './planet.js';
 import { Modal } from './modal.js';
 import planetsData from './data/planets.json';
 import globalTabsData from './data/tabs.json';
@@ -18,7 +17,6 @@ class App {
     constructor() {
         this.scene3D = null;
         this.planets = [];
-        this.planetLabels = [];
         this.modal = new Modal();
         this.globalTabsElement = document.getElementById('global-tabs');
         this.webglError = document.getElementById('webgl-error');
@@ -48,16 +46,11 @@ class App {
         data.forEach((planetData, index) => {
             const planet = this.scene3D.addPlanet(planetData, index, data.length);
             this.planets.push(planet);
-            
-            const label = new PlanetLabel(planetData, planet.mesh, this.scene3D);
-            this.planetLabels.push(label);
         });
         
         this.scene3D.onPlanetClick = (planetData) => {
             this.modal.show(planetData);
         };
-        
-        this.updateLabels();
 
         this.setupGlobalTabs(globalTabsData);
     }
@@ -92,11 +85,6 @@ class App {
             }
             this.globalTabsElement.appendChild(button);
         });
-    }
-
-    updateLabels() {
-        requestAnimationFrame(() => this.updateLabels());
-        this.planetLabels.forEach(label => label.update());
     }
 
     showWebGLError() {

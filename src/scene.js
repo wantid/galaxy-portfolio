@@ -147,7 +147,7 @@ export class Scene3D {
     }
 
     addPlanet(planetData, index, totalPlanets) {
-        const planet = new Planet3D(planetData, index, totalPlanets);
+        const planet = new Planet3D(planetData, index, totalPlanets, this.labelsLayer, this.camera, this);
         this.scene.add(planet.orbitGroup);
         this.planets.push(planet);
         return planet;
@@ -170,6 +170,9 @@ export class Scene3D {
 
         this.planets.forEach(planet => {
             planet.update();
+            if (planet.labelElement) {
+                planet.updateLabelPosition(this.camera);
+            }
         });
 
         this.renderer.render(this.scene, this.camera);
@@ -219,6 +222,10 @@ export class Scene3D {
         };
 
         window.addEventListener('click', (event) => {
+            // Не обрабатывать клики по лейблам
+            if (event.target.closest('.planet-label')) {
+                return;
+            }
             handleClick(event.clientX, event.clientY);
         });
 
@@ -232,9 +239,13 @@ export class Scene3D {
 }
 
 class Planet3D {
-    constructor(data, index, totalPlanets) {
+    constructor(data, index, totalPlanets, labelsLayer, camera, scene3D) {
         this.data = data;
         this.index = index;
+        this.labelsLayer = labelsLayer;
+        this.camera = camera;
+        this.scene3D = scene3D;
+        this.labelElement = null;
         
         const startDate = new Date(data.startDate);
         const endDate = data.endDate ? new Date(data.endDate) : new Date();
@@ -288,6 +299,7 @@ class Planet3D {
         this.orbitGroup.add(this.mesh);
         
         this.createOrbit();
+        this.createLabel();
     }
 
     getPlanetColor(data) {
@@ -336,6 +348,59 @@ class Planet3D {
         this.angle += this.rotationSpeed;
         this.updatePosition();
         this.mesh.rotation.y += 0.02;
+    }
+
+    createLabel() {
+        if (!this.labelsLayer) return;
+
+        const label = document.createElement('div');
+        label.className = 'planet-label';
+        label.innerHTML = `
+            <div class="name">${this.data.name}</div>
+            <div class="date">${this.formatDate(this.data.startDate)} - ${this.data.endDate ? this.formatDate(this.data.endDate) : 'Present'}</div>
+        `;
+        
+        label.style.pointerEvents = 'auto';
+        label.style.cursor = 'pointer';
+        
+        label.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (this.scene3D && this.scene3D.onPlanetClick) {
+                this.scene3D.onPlanetClick(this.data);
+            }
+        });
+
+        this.labelsLayer.appendChild(label);
+        this.labelElement = label;
+    }
+
+    formatDate(dateString) {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    }
+
+    updateLabelPosition(camera) {
+        if (!this.labelElement || !camera) return;
+
+        const worldPosition = new THREE.Vector3();
+        this.mesh.getWorldPosition(worldPosition);
+        
+        const screenPosition = worldPosition.project(camera);
+        const x = (screenPosition.x * 0.5 + 0.5) * window.innerWidth;
+        const y = (screenPosition.y * -0.5 + 0.5) * window.innerHeight;
+
+        const isVisible = screenPosition.z < 1 && 
+                         screenPosition.x > -1 && screenPosition.x < 1 &&
+                         screenPosition.y > -1 && screenPosition.y < 1;
+
+        if (isVisible) {
+            this.labelElement.style.display = 'block';
+            this.labelElement.style.left = `${x}px`;
+            this.labelElement.style.top = `${y}px`;
+        } else {
+            this.labelElement.style.display = 'none';
+        }
     }
 }
 
