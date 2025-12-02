@@ -65,13 +65,24 @@
     ]
   },
   {
-    "name": "Vanilla Bomj Simulator",
+    "name": "VBS",
     "startDate": "2022-03-13",
     "endDate": "2023-12-08",
     "tabs": [
       {
         "title": "Описание",
         "content": "content/vbs/description.md"
+      }
+    ]
+  },
+  {
+    "name": "Idle Action Farm",
+    "startDate": "2022-08-03",
+    "endDate": "2022-08-03",
+    "tabs": [
+      {
+        "title": "Описание",
+        "content": "content/idle-action-farm/description.md"
       }
     ]
   }

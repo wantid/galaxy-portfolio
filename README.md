@@ -111,4 +111,5 @@ After the workflow succeeds, the site is available at `https://<username>.github
 - [x] Loader for modal content
 - [ ] Planet tags
 - [ ] Clickable planet labels
+- [ ] Update planets date format (13 Aug 2025, 13-15 Aug 2025, Aug - Sep 2025 etc.)
 

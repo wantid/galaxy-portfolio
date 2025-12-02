@@ -74,5 +74,16 @@
         "content": "content/vbs/description.md"
       }
     ]
+  },
+  {
+    "name": "Idle Action Farm",
+    "startDate": "2022-08-03",
+    "endDate": "2022-08-03",
+    "tabs": [
+      {
+        "title": "Описание",
+        "content": "content/idle-action-farm/description.md"
+      }
+    ]
   }
 ]
