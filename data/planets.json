@@ -54,7 +54,7 @@
     ]
   },
   {
-    "name": "notifier-tg-bot",
+    "name": "Notifier",
     "startDate": "2025-07-26",
     "endDate": "2025-08-09",
     "tabs": [
@@ -83,6 +83,17 @@
       {
         "title": "Описание",
         "content": "content/idle-action-farm/description.md"
+      }
+    ]
+  },
+  {
+    "name": "Unity Prototypes",
+    "startDate": "2019-07-09",
+    "endDate": "2021-03-27",
+    "tabs": [
+      {
+        "title": "Описание",
+        "content": "content/unity-prototypes/description.md"
       }
     ]
   }
