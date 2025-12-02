@@ -5,12 +5,20 @@
     "type": "modal",
     "tabs": [
       {
-        "title": "Profile",
-        "content": "content/about/profile.md"
+        "title": "Profile (EN)",
+        "content": "content/about/profile.en.md"
       },
       {
-        "title": "Skills",
-        "content": "content/about/skills.md"
+        "title": "Skills (EN)",
+        "content": "content/about/skills.en.md"
+      },
+      {
+        "title": "Profile (RU)",
+        "content": "content/about/profile.ru.md"
+      },
+      {
+        "title": "Skills (RU)",
+        "content": "content/about/skills.ru.md"
       }
     ]
   },
