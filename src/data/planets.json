@@ -63,5 +63,16 @@
         "content": "content/notifier-tg-bot/description.md"
       }
     ]
+  },
+  {
+    "name": "Vanilla Bomj Simulator",
+    "startDate": "2022-03-13",
+    "endDate": "2023-12-08",
+    "tabs": [
+      {
+        "title": "Описание",
+        "content": "content/vbs/description.md"
+      }
+    ]
   }
 ]

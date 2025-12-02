@@ -110,4 +110,5 @@ After the workflow succeeds, the site is available at `https://<username>.github
 - [x] Overlapping elements over modals
 - [x] Loader for modal content
 - [ ] Planet tags
+- [ ] Clickable planet labels
 
