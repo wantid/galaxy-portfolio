@@ -6,10 +6,6 @@
       {
         "title": "Описание",
         "content": "content/anima-technologies/description.md"
-      },
-      {
-        "title": "Стек",
-        "content": "content/anima-technologies/stack.md"
       }
     ]
   },
@@ -36,13 +32,35 @@
     ]
   },
   {
-    "name": "Газпром автоматизация",
+    "name": "Gazprom Automation",
     "startDate": "2022-04-01",
     "endDate": "2022-10-01",
     "tabs": [
       {
         "title": "Описание",
         "content": "content/gazprom/description.md"
+      }
+    ]
+  },
+  {
+    "name": "Galaxy Portfolio",
+    "startDate": "2025-11-25",
+    "endDate": "2025-11-25",
+    "tabs": [
+      {
+        "title": "Описание",
+        "content": "content/galaxy-portfolio/description.md"
+      }
+    ]
+  },
+  {
+    "name": "notifier-tg-bot",
+    "startDate": "2025-07-26",
+    "endDate": "2025-08-09",
+    "tabs": [
+      {
+        "title": "Описание",
+        "content": "content/notifier-tg-bot/description.md"
       }
     ]
   }

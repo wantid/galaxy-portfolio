@@ -26,3 +26,27 @@
 - Реализовал интеграции с протоколами KNX и MQTT с использованием Node.js
 - Разработал скрипты на Google Apps Script для экспорта данных в Google Таблицы и Telegram-ботов (Telegraf) для уведомлений
 
+# Стек технологий
+
+## Frontend
+- React.js
+- React Native (iOS/Android)
+- Next.js
+
+## Backend
+- Django
+- Express.js
+- Node.js
+
+## DevOps
+- GitLab Enterprise
+- CI/CD пайплайны
+
+## Интеграции
+- KNX
+- MQTT
+- iRidium Studio
+
+## Инструменты
+- Google Apps Script
+- Telegraf (Telegram боты)
