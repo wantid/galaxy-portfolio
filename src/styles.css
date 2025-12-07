@@ -938,6 +938,13 @@ body {
     pointer-events: none;
 }
 
+.welcome-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
 .welcome-bottom-actions.hidden {
     display: none;
 }
@@ -996,6 +1003,32 @@ body {
     border-color: #0052a3;
 }
 
+.export-pdf-button {
+    padding: 14px 32px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #0066cc;
+    color: #0066cc;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    white-space: nowrap;
+}
+
+.export-pdf-button:hover {
+    background: #0066cc;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    transform: translateY(-2px);
+}
+
+.export-pdf-button:active {
+    transform: translateY(0);
+}
+
 .explore-button {
     padding: 14px 32px;
     background: #0066cc;
@@ -1007,6 +1040,7 @@ body {
     border-radius: 6px;
     transition: all 0.2s ease;
     box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    white-space: nowrap;
 }
 
 .welcome-page {

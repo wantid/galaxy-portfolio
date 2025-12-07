@@ -18,6 +18,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "jspdf": "^3.0.4",
     "marked": "^11.1.1",
     "three": "^0.160.1"
   },

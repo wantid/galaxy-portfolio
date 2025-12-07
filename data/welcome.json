@@ -105,7 +105,8 @@
         }
       ]
     },
-    "moreButton": "Explore My Work"
+    "moreButton": "Explore My Work",
+    "exportButton": "Download CV"
   },
   "🇷🇺": {
     "hero": {
@@ -213,6 +214,7 @@
         }
       ]
     },
-    "moreButton": "Изучить мои работы"
+    "moreButton": "Изучить мои работы",
+    "exportButton": "Скачать резюме"
   }
 }

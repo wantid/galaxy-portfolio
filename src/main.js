@@ -3,6 +3,7 @@ import { Modal } from './modal.js';
 import planetsData from './data/planets.json';
 import globalTabsData from './data/tabs.json';
 import welcomeData from './data/welcome.json';
+import { jsPDF } from 'jspdf';
 
 function checkWebGL() {
     try {
@@ -25,6 +26,7 @@ class App {
         this.welcomePage = document.getElementById('welcome-page');
         this.universeScene = document.getElementById('universe-scene');
         this.exploreButton = document.getElementById('explore-button');
+        this.exportPdfButton = document.getElementById('export-pdf-button');
         this.authorLink = document.getElementById('author-link');
         this.languageSwitcher = document.getElementById('language-switcher');
         this.currentView = 'welcome';
@@ -81,6 +83,9 @@ class App {
         if (this.exploreButton && langData.moreButton) {
             this.exploreButton.textContent = langData.moreButton;
         }
+        if (this.exportPdfButton) {
+            this.exportPdfButton.textContent = langData.exportButton || 'Download CV';
+        }
     }
 
     setupLanguageSwitcher() {
@@ -124,6 +129,192 @@ class App {
         if (this.welcomePage) {
             this.welcomePage.scrollTop = 0;
         }
+    }
+
+    exportToPDF() {
+        const langData = this.getCurrentLanguageData();
+        if (!langData) return;
+
+        const doc = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+        });
+
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const margin = 20;
+        const contentWidth = pageWidth - (margin * 2);
+        let yPos = margin;
+
+        const addSection = (title, content, fontSize = 16) => {
+            if (yPos > pageHeight - 40) {
+                doc.addPage();
+                yPos = margin;
+            }
+            doc.setFontSize(fontSize);
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor(0, 102, 204);
+            doc.text(title, margin, yPos);
+            yPos += 8;
+            
+            doc.setFontSize(11);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor(0, 0, 0);
+            return yPos;
+        };
+
+        const addText = (text, maxWidth = contentWidth) => {
+            if (yPos > pageHeight - 30) {
+                doc.addPage();
+                yPos = margin;
+            }
+            const lines = doc.splitTextToSize(text, maxWidth);
+            doc.text(lines, margin, yPos);
+            yPos += lines.length * 6;
+        };
+
+        doc.setFontSize(24);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(0, 0, 0);
+        doc.text(langData.hero.name || '', margin, yPos);
+        yPos += 10;
+
+        doc.setFontSize(14);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(0, 102, 204);
+        doc.text(langData.hero.title || '', margin, yPos);
+        yPos += 8;
+
+        if (langData.hero.location || langData.hero.email) {
+            doc.setFontSize(10);
+            doc.setTextColor(100, 100, 100);
+            const contactInfo = [
+                langData.hero.location || '',
+                langData.hero.email || ''
+            ].filter(Boolean).join(' • ');
+            doc.text(contactInfo, margin, yPos);
+            yPos += 10;
+        }
+
+        if (langData.about && langData.about.content) {
+            yPos = addSection(langData.about.title || 'About', '');
+            addText(langData.about.content);
+            yPos += 5;
+        }
+
+        if (langData.workExperience && langData.workExperience.items) {
+            yPos = addSection(langData.workExperience.title || 'Work Experience', '');
+            langData.workExperience.items.forEach(item => {
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text(item.name || '', margin, yPos);
+                yPos += 6;
+
+                if (item.startDate || item.endDate) {
+                    const startDate = item.startDate ? new Date(item.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : '';
+                    const endDate = item.endDate ? new Date(item.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : 'Present';
+                    const period = `${startDate} - ${endDate}`;
+                    doc.setFontSize(10);
+                    doc.setFont(undefined, 'italic');
+                    doc.setTextColor(100, 100, 100);
+                    doc.text(period, margin, yPos);
+                    yPos += 6;
+                }
+
+                if (item.description) {
+                    doc.setFontSize(10);
+                    doc.setFont(undefined, 'normal');
+                    doc.setTextColor(0, 0, 0);
+                    addText(item.description);
+                }
+                yPos += 5;
+            });
+        }
+
+        if (langData.projects && langData.projects.items) {
+            yPos = addSection(langData.projects.title || 'Projects', '');
+            langData.projects.items.forEach(project => {
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text(project.name || '', margin, yPos);
+                yPos += 6;
+
+                if (project.description) {
+                    doc.setFontSize(10);
+                    doc.setFont(undefined, 'normal');
+                    addText(project.description);
+                }
+
+                if (project.technologies && project.technologies.length > 0) {
+                    doc.setFontSize(9);
+                    doc.setTextColor(0, 102, 204);
+                    const techText = project.technologies.join(' • ');
+                    addText(techText);
+                }
+                yPos += 5;
+            });
+        }
+
+        if (langData.technicalSkills && langData.technicalSkills.categories) {
+            yPos = addSection(langData.technicalSkills.title || 'Technical Skills', '');
+            langData.technicalSkills.categories.forEach(category => {
+                doc.setFontSize(11);
+                doc.setFont(undefined, 'bold');
+                doc.text(category.name + ':', margin, yPos);
+                yPos += 6;
+
+                if (category.items && category.items.length > 0) {
+                    doc.setFontSize(10);
+                    doc.setFont(undefined, 'normal');
+                    const skillsText = category.items.join(', ');
+                    addText(skillsText);
+                }
+                yPos += 3;
+            });
+        }
+
+        if (langData.education && langData.education.items) {
+            yPos = addSection(langData.education.title || 'Education', '');
+            langData.education.items.forEach(edu => {
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text(edu.degree || '', margin, yPos);
+                yPos += 6;
+
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'normal');
+                doc.text(edu.institution || '', margin, yPos);
+                yPos += 5;
+
+                if (edu.period) {
+                    doc.setFontSize(9);
+                    doc.setTextColor(100, 100, 100);
+                    doc.text(edu.period, margin, yPos);
+                    yPos += 5;
+                }
+
+                if (edu.description) {
+                    doc.setFontSize(9);
+                    doc.setTextColor(0, 0, 0);
+                    addText(edu.description);
+                }
+                yPos += 5;
+            });
+        }
+
+        if (langData.contacts && langData.contacts.links) {
+            yPos = addSection(langData.contacts.title || 'Contact', '');
+            langData.contacts.links.forEach(link => {
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'normal');
+                doc.text(`${link.name}: ${link.url}`, margin, yPos);
+                yPos += 6;
+            });
+        }
+
+        const fileName = `CV_${langData.hero.name?.replace(/\s+/g, '_') || 'Resume'}_${this.currentLanguage}.pdf`;
+        doc.save(fileName);
     }
 
     setupHero() {
@@ -319,6 +510,11 @@ class App {
         if (this.exploreButton) {
             this.exploreButton.addEventListener('click', () => {
                 this.transitionToUniverse();
+            });
+        }
+        if (this.exportPdfButton) {
+            this.exportPdfButton.addEventListener('click', () => {
+                this.exportToPDF();
             });
         }
     }
