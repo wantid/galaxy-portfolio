@@ -30,6 +30,44 @@ body {
     overflow: hidden;
 }
 
+#pause-time-button {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(0, 16, 32, 0.65);
+    color: #9ff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.25), inset 0 0 12px rgba(0, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+    z-index: 1100;
+    transition: all 0.25s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+#pause-time-button:hover {
+    background: rgba(0, 40, 80, 0.85);
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), inset 0 0 20px rgba(0, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+#pause-time-button:active {
+    transform: scale(0.95);
+}
+
+#pause-time-button.hidden {
+    display: none;
+}
+
 #author-link {
     position: fixed;
     bottom: 12px;

@@ -59,6 +59,10 @@ class App {
         if (this.languageSwitcher) {
             this.languageSwitcher.classList.remove('hidden');
         }
+        const pauseButton = document.getElementById('pause-time-button');
+        if (pauseButton) {
+            pauseButton.classList.add('hidden');
+        }
         const bottomActions = document.getElementById('welcome-bottom-actions');
         if (bottomActions) {
             bottomActions.classList.remove('hidden');
@@ -831,6 +835,11 @@ class App {
             this.languageSwitcher.classList.add('hidden');
         }
 
+        const pauseButton = document.getElementById('pause-time-button');
+        if (pauseButton) {
+            pauseButton.classList.remove('hidden');
+        }
+
         const bottomActions = document.getElementById('welcome-bottom-actions');
         if (bottomActions) {
             bottomActions.classList.add('hidden');
@@ -866,6 +875,11 @@ class App {
 
         if (this.languageSwitcher) {
             this.languageSwitcher.classList.remove('hidden');
+        }
+
+        const pauseButton = document.getElementById('pause-time-button');
+        if (pauseButton) {
+            pauseButton.classList.add('hidden');
         }
 
         const bottomActions = document.getElementById('welcome-bottom-actions');

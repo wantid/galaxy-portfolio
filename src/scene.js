@@ -16,6 +16,8 @@ export class Scene3D {
         this.mouse = new THREE.Vector2();
         this.onPlanetClick = null;
         this.isAnimating = true;
+        this.isPaused = false;
+        this.pauseButton = null;
         
         this.init();
         this.createLabelLayer();
@@ -23,6 +25,7 @@ export class Scene3D {
         this.setupLights();
         this.createSun();
         this.setupControls();
+        this.createPauseButton();
         this.startAnimation();
         this.setupEventListeners();
     }
@@ -103,6 +106,27 @@ export class Scene3D {
         this.labelsLayer = layer;
     }
 
+    createPauseButton() {
+        const button = document.createElement('button');
+        button.id = 'pause-time-button';
+        button.className = 'pause-time-button';
+        button.innerHTML = '⏸';
+        button.title = 'Pause/Resume Time';
+        button.addEventListener('click', () => {
+            this.togglePause();
+        });
+        this.container.appendChild(button);
+        this.pauseButton = button;
+    }
+
+    togglePause() {
+        this.isPaused = !this.isPaused;
+        if (this.pauseButton) {
+            this.pauseButton.innerHTML = this.isPaused ? '▶' : '⏸';
+            this.pauseButton.title = this.isPaused ? 'Resume Time' : 'Pause Time';
+        }
+    }
+
     createStarfield() {
         const starCount = 500;
         const radiusMin = 150;
@@ -163,16 +187,20 @@ export class Scene3D {
             this.controls.update();
         }
         
-        if (this.sun) {
-            this.sun.rotation.y += 0.005;
-        }
+        if (!this.isPaused) {
+            if (this.sun) {
+                this.sun.rotation.y += 0.005;
+            }
 
-        if (this.starfield) {
-            this.starfield.rotation.y += 0.0002;
+            if (this.starfield) {
+                this.starfield.rotation.y += 0.0002;
+            }
         }
 
         this.planets.forEach(planet => {
-            planet.update();
+            if (!this.isPaused) {
+                planet.update();
+            }
             if (planet.labelElement) {
                 planet.updateLabelPosition(this.camera);
             }
