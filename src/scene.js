@@ -15,6 +15,9 @@ export class Scene3D {
         this.raycaster = new THREE.Raycaster();
         this.mouse = new THREE.Vector2();
         this.onPlanetClick = null;
+        this.isAnimating = true;
+        this.isPaused = false;
+        this.pauseButton = null;
         
         this.init();
         this.createLabelLayer();
@@ -22,7 +25,8 @@ export class Scene3D {
         this.setupLights();
         this.createSun();
         this.setupControls();
-        this.animate();
+        this.createPauseButton();
+        this.startAnimation();
         this.setupEventListeners();
     }
 
@@ -102,6 +106,27 @@ export class Scene3D {
         this.labelsLayer = layer;
     }
 
+    createPauseButton() {
+        const button = document.createElement('button');
+        button.id = 'pause-time-button';
+        button.className = 'pause-time-button';
+        button.innerHTML = '⏸';
+        button.title = 'Pause/Resume Time';
+        button.addEventListener('click', () => {
+            this.togglePause();
+        });
+        this.container.appendChild(button);
+        this.pauseButton = button;
+    }
+
+    togglePause() {
+        this.isPaused = !this.isPaused;
+        if (this.pauseButton) {
+            this.pauseButton.innerHTML = this.isPaused ? '▶' : '⏸';
+            this.pauseButton.title = this.isPaused ? 'Resume Time' : 'Pause Time';
+        }
+    }
+
     createStarfield() {
         const starCount = 500;
         const radiusMin = 150;
@@ -154,28 +179,49 @@ export class Scene3D {
     }
 
     animate() {
+        if (!this.isAnimating) return;
+        
         requestAnimationFrame(() => this.animate());
         
         if (this.controls) {
             this.controls.update();
         }
         
-        if (this.sun) {
-            this.sun.rotation.y += 0.005;
-        }
+        if (!this.isPaused) {
+            if (this.sun) {
+                this.sun.rotation.y += 0.005;
+            }
 
-        if (this.starfield) {
-            this.starfield.rotation.y += 0.0002;
+            if (this.starfield) {
+                this.starfield.rotation.y += 0.0002;
+            }
         }
 
         this.planets.forEach(planet => {
-            planet.update();
+            if (!this.isPaused) {
+                planet.update();
+            }
             if (planet.labelElement) {
                 planet.updateLabelPosition(this.camera);
             }
         });
 
         this.renderer.render(this.scene, this.camera);
+    }
+
+    startAnimation() {
+        this.isAnimating = true;
+        this.animate();
+    }
+
+    stopAnimation() {
+        this.isAnimating = false;
+    }
+
+    setLabelsVisible(visible) {
+        if (this.labelsLayer) {
+            this.labelsLayer.style.display = visible ? 'block' : 'none';
+        }
     }
 
     setupEventListeners() {
@@ -362,6 +408,7 @@ class Planet3D {
         
         label.style.pointerEvents = 'auto';
         label.style.cursor = 'pointer';
+        label.style.willChange = 'transform';
         
         label.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -398,6 +445,7 @@ class Planet3D {
             this.labelElement.style.display = 'block';
             this.labelElement.style.left = `${x}px`;
             this.labelElement.style.top = `${y}px`;
+            this.labelElement.style.transform = 'translate(-50%, -100%)';
         } else {
             this.labelElement.style.display = 'none';
         }

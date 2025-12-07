@@ -22,9 +22,22 @@
         </div>
     </div>
     <div id="app">
-        <div id="global-tabs" class="global-tabs"></div>
-        <canvas id="canvas"></canvas>
-        <div id="modal" class="modal hidden">
+        <div id="welcome-page" class="welcome-page">
+            <div class="language-switcher" id="language-switcher"></div>
+            <div class="welcome-content">
+                <section id="welcome-hero" class="welcome-hero"></section>
+                <section id="welcome-about" class="welcome-about"></section>
+                <section id="welcome-work" class="welcome-work"></section>
+                <section id="welcome-projects" class="welcome-projects"></section>
+                <section id="welcome-skills" class="welcome-skills"></section>
+                <section id="welcome-education" class="welcome-education"></section>
+                <section id="welcome-contacts" class="welcome-contacts"></section>
+            </div>
+        </div>
+        <div id="universe-scene" class="universe-scene hidden">
+            <div id="global-tabs" class="global-tabs"></div>
+            <canvas id="canvas"></canvas>
+            <div id="modal" class="modal hidden">
             <div class="modal-wrapper">
                 <button class="modal-close">&times;</button>
                 <div class="modal-content">
@@ -38,6 +51,14 @@
                 </div>
             </div>
             </div>
+        </div>
+        </div>
+    </div>
+    <div id="transition-overlay" class="transition-overlay hidden"></div>
+    <div id="welcome-bottom-actions" class="welcome-bottom-actions">
+        <div class="welcome-actions">
+            <button id="export-pdf-button" class="export-pdf-button">Download CV</button>
+            <button id="explore-button" class="explore-button">Explore My Work</button>
         </div>
     </div>
     <a id="author-link" href="https://github.com/wantid" target="_blank" rel="noopener">made by wantid</a>

@@ -1,5 +1,9 @@
 [
   {
+    "label": "Home",
+    "type": "home"
+  },
+  {
     "label": "About",
     "name": "About",
     "type": "modal",
