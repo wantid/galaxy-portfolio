@@ -5,7 +5,7 @@
       "title": "Full-Stack Developer & Tech Lead",
       "tagline": "Building scalable solutions with passion and precision",
       "image": "content/about/photo.webp",
-      "location": "Russia",
+      "location": "Moscow, Russia",
       "email": ""
     },
     "about": {
@@ -99,7 +99,20 @@
     },
     "education": {
       "title": "Education",
-      "items": []
+      "items": [
+        {
+          "degree": "Master's Degree",
+          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow",
+          "period": "2022",
+          "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects"
+        },
+        {
+          "degree": "Bachelor's Degree",
+          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow",
+          "period": "2020",
+          "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects"
+        }
+      ]
     },
     "contacts": {
       "title": "Get In Touch",
@@ -123,7 +136,7 @@
       "title": "Full-Stack Developer & Tech Lead",
       "tagline": "Создаю масштабируемые решения с увлечением и точностью",
       "image": "content/about/photo.webp",
-      "location": "Россия",
+      "location": "Москва, Россия",
       "email": ""
     },
     "about": {
@@ -219,16 +232,16 @@
       "title": "Образование",
       "items": [
         {
-          "degree": "Бакалавр компьютерных наук",
-          "institution": "Название университета",
-          "period": "2015 - 2019",
-          "description": "Релевантные курсы и достижения"
+          "degree": "Магистр",
+          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва",
+          "period": "2022",
+          "description": "Электротехнические, электромеханические и электронные системы автономных объектов"
         },
         {
-          "degree": "Магистр программной инженерии",
-          "institution": "Название университета",
-          "period": "2019 - 2021",
-          "description": "Специализация в распределенных системах и облачных вычислениях"
+          "degree": "Бакалавр",
+          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва",
+          "period": "2020",
+          "description": "Электротехнические, электромеханические и электронные системы автономных объектов"
         }
       ]
     },
