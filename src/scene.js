@@ -15,6 +15,7 @@ export class Scene3D {
         this.raycaster = new THREE.Raycaster();
         this.mouse = new THREE.Vector2();
         this.onPlanetClick = null;
+        this.isAnimating = true;
         
         this.init();
         this.createLabelLayer();
@@ -22,7 +23,7 @@ export class Scene3D {
         this.setupLights();
         this.createSun();
         this.setupControls();
-        this.animate();
+        this.startAnimation();
         this.setupEventListeners();
     }
 
@@ -154,6 +155,8 @@ export class Scene3D {
     }
 
     animate() {
+        if (!this.isAnimating) return;
+        
         requestAnimationFrame(() => this.animate());
         
         if (this.controls) {
@@ -176,6 +179,21 @@ export class Scene3D {
         });
 
         this.renderer.render(this.scene, this.camera);
+    }
+
+    startAnimation() {
+        this.isAnimating = true;
+        this.animate();
+    }
+
+    stopAnimation() {
+        this.isAnimating = false;
+    }
+
+    setLabelsVisible(visible) {
+        if (this.labelsLayer) {
+            this.labelsLayer.style.display = visible ? 'block' : 'none';
+        }
     }
 
     setupEventListeners() {

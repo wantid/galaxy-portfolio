@@ -1,0 +1,218 @@
+{
+  "🇺🇸": {
+    "hero": {
+      "name": "Your Name",
+      "title": "Full Stack Developer",
+      "tagline": "Building digital experiences with passion and precision",
+      "image": "content/about/photo.webp",
+      "location": "City, Country",
+      "email": "your.email@example.com"
+    },
+    "about": {
+      "title": "About Me",
+      "content": "I'm a passionate developer with expertise in creating innovative solutions. I love turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you can find me exploring new technologies or contributing to open-source projects."
+    },
+    "workExperience": {
+      "title": "Work Experience",
+      "items": [
+        {
+          "name": "Company Name",
+          "startDate": "2023-01-01",
+          "endDate": null,
+          "description": "Job description and responsibilities"
+        }
+      ]
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "items": [
+        {
+          "name": "Project Name 1",
+          "description": "Short description of the project and what it does",
+          "technologies": ["React", "Node.js", "PostgreSQL"],
+          "link": "https://github.com/yourusername/project1"
+        },
+        {
+          "name": "Project Name 2",
+          "description": "Short description of the project and what it does",
+          "technologies": ["Vue.js", "Python", "MongoDB"],
+          "link": "https://github.com/yourusername/project2"
+        },
+        {
+          "name": "Project Name 3",
+          "description": "Short description of the project and what it does",
+          "technologies": ["TypeScript", "Express", "Docker"],
+          "link": "https://github.com/yourusername/project3"
+        }
+      ]
+    },
+    "technicalSkills": {
+      "title": "Technical Skills",
+      "categories": [
+        {
+          "name": "Frontend",
+          "items": ["React", "Vue.js", "TypeScript", "JavaScript", "HTML/CSS", "Three.js", "WebGL"]
+        },
+        {
+          "name": "Backend",
+          "items": ["Node.js", "Python", "PostgreSQL", "MongoDB", "Express", "REST APIs"]
+        },
+        {
+          "name": "DevOps & Tools",
+          "items": ["Git", "Docker", "Webpack", "Vite", "Linux", "AWS", "CI/CD"]
+        },
+        {
+          "name": "Other",
+          "items": ["Agile", "Scrum", "Code Review", "Testing", "Documentation"]
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "items": [
+        {
+          "degree": "Bachelor of Science in Computer Science",
+          "institution": "University Name",
+          "period": "2015 - 2019",
+          "description": "Relevant coursework and achievements"
+        },
+        {
+          "degree": "Master of Science in Software Engineering",
+          "institution": "University Name",
+          "period": "2019 - 2021",
+          "description": "Specialized in distributed systems and cloud computing"
+        }
+      ]
+    },
+    "contacts": {
+      "title": "Get In Touch",
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/wantid"
+        },
+        {
+          "name": "LinkedIn",
+          "url": "https://linkedin.com/in/yourprofile"
+        },
+        {
+          "name": "Email",
+          "url": "mailto:your.email@example.com"
+        },
+        {
+          "name": "Telegram",
+          "url": "https://t.me/yourusername"
+        }
+      ]
+    },
+    "moreButton": "Explore My Work"
+  },
+  "🇷🇺": {
+    "hero": {
+      "name": "Ваше Имя",
+      "title": "Full Stack Разработчик",
+      "tagline": "Создаю цифровые решения с увлечением и точностью",
+      "image": "content/about/photo.webp",
+      "location": "Город, Страна",
+      "email": "your.email@example.com"
+    },
+    "about": {
+      "title": "Обо мне",
+      "content": "Я увлеченный разработчик с опытом создания инновационных решений. Люблю превращать сложные задачи в простые, красивые и интуитивные решения. Когда не пишу код, меня можно найти изучающим новые технологии или вносящим вклад в open-source проекты."
+    },
+    "workExperience": {
+      "title": "Опыт работы",
+      "items": [
+        {
+          "name": "Название компании",
+          "startDate": "2023-01-01",
+          "endDate": null,
+          "description": "Описание должности и обязанностей"
+        }
+      ]
+    },
+    "projects": {
+      "title": "Избранные проекты",
+      "items": [
+        {
+          "name": "Название проекта 1",
+          "description": "Краткое описание проекта и что он делает",
+          "technologies": ["React", "Node.js", "PostgreSQL"],
+          "link": "https://github.com/yourusername/project1"
+        },
+        {
+          "name": "Название проекта 2",
+          "description": "Краткое описание проекта и что он делает",
+          "technologies": ["Vue.js", "Python", "MongoDB"],
+          "link": "https://github.com/yourusername/project2"
+        },
+        {
+          "name": "Название проекта 3",
+          "description": "Краткое описание проекта и что он делает",
+          "technologies": ["TypeScript", "Express", "Docker"],
+          "link": "https://github.com/yourusername/project3"
+        }
+      ]
+    },
+    "technicalSkills": {
+      "title": "Технические навыки",
+      "categories": [
+        {
+          "name": "Frontend",
+          "items": ["React", "Vue.js", "TypeScript", "JavaScript", "HTML/CSS", "Three.js", "WebGL"]
+        },
+        {
+          "name": "Backend",
+          "items": ["Node.js", "Python", "PostgreSQL", "MongoDB", "Express", "REST APIs"]
+        },
+        {
+          "name": "DevOps & Инструменты",
+          "items": ["Git", "Docker", "Webpack", "Vite", "Linux", "AWS", "CI/CD"]
+        },
+        {
+          "name": "Прочее",
+          "items": ["Agile", "Scrum", "Code Review", "Testing", "Documentation"]
+        }
+      ]
+    },
+    "education": {
+      "title": "Образование",
+      "items": [
+        {
+          "degree": "Бакалавр компьютерных наук",
+          "institution": "Название университета",
+          "period": "2015 - 2019",
+          "description": "Релевантные курсы и достижения"
+        },
+        {
+          "degree": "Магистр программной инженерии",
+          "institution": "Название университета",
+          "period": "2019 - 2021",
+          "description": "Специализация в распределенных системах и облачных вычислениях"
+        }
+      ]
+    },
+    "contacts": {
+      "title": "Связаться со мной",
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/wantid"
+        },
+        {
+          "name": "LinkedIn",
+          "url": "https://linkedin.com/in/yourprofile"
+        },
+        {
+          "name": "Email",
+          "url": "mailto:your.email@example.com"
+        },
+        {
+          "name": "Telegram",
+          "url": "https://t.me/yourusername"
+        }
+      ]
+    },
+    "moreButton": "Изучить мои работы"
+  }
+}

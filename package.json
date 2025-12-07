@@ -4,7 +4,7 @@
   "description": "3D Portfolio/Resume Constructor with Three.js",
   "main": "index.html",
   "scripts": {
-    "copy-data": "mkdir -p src/data public/content && cp data/planets.json src/data/planets.json 2>/dev/null || true && cp data/tabs.json src/data/tabs.json 2>/dev/null || true && cp -r content/* public/content/ 2>/dev/null || true",
+    "copy-data": "mkdir -p src/data public/content && cp data/planets.json src/data/planets.json 2>/dev/null || true && cp data/tabs.json src/data/tabs.json 2>/dev/null || true && cp data/welcome.json src/data/welcome.json 2>/dev/null || true && cp -r content/* public/content/ 2>/dev/null || true",
     "dev": "npm run copy-data && vite",
     "build": "npm run copy-data && vite build",
     "preview": "vite preview"
