@@ -380,6 +380,7 @@ class Planet3D {
         
         label.style.pointerEvents = 'auto';
         label.style.cursor = 'pointer';
+        label.style.willChange = 'transform';
         
         label.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -416,6 +417,7 @@ class Planet3D {
             this.labelElement.style.display = 'block';
             this.labelElement.style.left = `${x}px`;
             this.labelElement.style.top = `${y}px`;
+            this.labelElement.style.transform = 'translate(-50%, -100%)';
         } else {
             this.labelElement.style.display = 'none';
         }

@@ -114,7 +114,6 @@ After the workflow succeeds, the site is available at `https://<username>.github
 - [ ] Update planets date format (13 Aug 2025, 13-15 Aug 2025, Aug - Sep 2025 etc.)
 - [ ] Add button freezing time
 - [x] Add static welcome page ("Explore ->")
-- [ ] Clamp planet label distance
 - [ ] Add welcome page example
 - [x] Export welcome page to pdf
 
