@@ -116,5 +116,5 @@ After the workflow succeeds, the site is available at `https://<username>.github
 - [x] Add static welcome page ("Explore ->")
 - [ ] Clamp planet label distance
 - [ ] Add welcome page example
-- [ ] Export welcome page to pdf
+- [x] Export welcome page to pdf
 
