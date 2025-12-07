@@ -1,6 +1,6 @@
 # Last Shift
 
-A Telegram bot game written during military service.
+A Telegram bot game written during mandatory military service under limited conditions.
 
 ## Idea
 
