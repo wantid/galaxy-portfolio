@@ -53,25 +53,40 @@
         {
           "name": "Galaxy Portfolio",
           "description": "Experimental 3D portfolio on Three.js",
-          "technologies": ["Three.js", "JavaScript", "WebGL"],
+          "technologies": [
+            "Three.js",
+            "JavaScript",
+            "WebGL"
+          ],
           "link": "https://github.com/wantid/galaxy-portfolio"
         },
         {
           "name": "VBS",
           "description": "Student project, action-adventure game on Unity",
-          "technologies": ["Unity", "C#"],
+          "technologies": [
+            "Unity",
+            "C#"
+          ],
           "link": "https://github.com/wantid"
         },
         {
           "name": "Last Shift",
           "description": "Telegram bot game with multiplayer",
-          "technologies": ["Node.js", "Telegraf", "Telegram Bot API"],
+          "technologies": [
+            "Node.js",
+            "Telegraf",
+            "Telegram Bot API"
+          ],
           "link": "https://github.com/wantid"
         },
         {
           "name": "Notifier",
           "description": "Telegram bot for task reminders",
-          "technologies": ["Node.js", "Telegraf", "Telegram Bot API"],
+          "technologies": [
+            "Node.js",
+            "Telegraf",
+            "Telegram Bot API"
+          ],
           "link": "https://github.com/wantid"
         }
       ]
@@ -81,19 +96,50 @@
       "categories": [
         {
           "name": "Frontend",
-          "items": ["JavaScript", "TypeScript", "React.js", "Next.js", "React Native", "HTML/CSS"]
+          "items": [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "Next.js",
+            "React Native",
+            "HTML/CSS"
+          ]
         },
         {
           "name": "Backend",
-          "items": ["Node.js", "Express.js", "Django", "Python", "PostgreSQL", "MongoDB", "Telegram Bots", "REST API"]
+          "items": [
+            "Node.js",
+            "Express.js",
+            "Django",
+            "Python",
+            "PostgreSQL",
+            "MongoDB",
+            "Telegram Bots",
+            "REST API"
+          ]
         },
         {
           "name": "Game Development",
-          "items": ["Unity", "Godot", "C#", "GDScript", "Procedural Generation"]
+          "items": [
+            "Unity",
+            "Godot",
+            "C#",
+            "GDScript",
+            "Procedural Generation"
+          ]
         },
         {
           "name": "DevOps & Tools",
-          "items": ["Git", "GitLab Enterprise", "GitHub", "Docker", "Docker Compose", "CI/CD", "Linux", "Bash"]
+          "items": [
+            "Git",
+            "GitLab Enterprise",
+            "GitHub",
+            "Docker",
+            "Docker Compose",
+            "CI/CD",
+            "Linux",
+            "Bash"
+          ]
         }
       ]
     },
@@ -137,44 +183,32 @@
       "tagline": "Создаю масштабируемые решения с увлечением и точностью",
       "image": "content/about/photo.webp",
       "location": "Москва, Россия",
-      "email": ""
+      "email": "mrwantid@gmail.com"
     },
     "about": {
       "title": "Обо мне",
-      "content": "Full-Stack разработчик с опытом работы в веб-разработке, мобильных приложениях, промышленной автоматизации и игровой индустрии. Специализируюсь на создании масштабируемых решений, автоматизации процессов и разработке пользовательских интерфейсов. Имею опыт руководства командами, организации процессов разработки и работы с аутсорс-командами. Активно занимаюсь экспериментальными проектами в свободное время, включая разработку игр, Telegram-ботов и прототипов различных механик."
+      "content": "Мне 26 лет. Я Full-Stack разработчик с опытом работы в веб-разработке, мобильных приложениях, автоматизации и игровой индустрии. Специализируюсь на создании масштабируемых решений, автоматизации процессов и разработке пользовательских интерфейсов. Имею опыт руководства командами, организации процессов разработки и работы с аутсорс-командами. Активно занимаюсь экспериментальными проектами в свободное время, включая разработку игр, Telegram-ботов и различных прототипов."
     },
     "workExperience": {
       "title": "Опыт работы",
       "items": [
         {
           "name": "Anima Technologies",
-          "startDate": "2025-08-01",
-          "endDate": null,
-          "description": "Руководитель группы разработки - Возглавил переход от аутсорс- к инхаус-разработке, сформировав и возглавив команду для создания системы бронирования. Организовал и внедрил процессы разработки: настроил GitLab Enterprise с CI/CD пайплайнами. Разработал мобильное приложение на React Native (iOS/Android) с публикацией в сторы. Выступал в роли технического консультанта по архитектурным решениям."
-        },
-        {
-          "name": "Anima Technologies",
-          "startDate": "2024-01-01",
-          "endDate": "2025-08-01",
-          "description": "Full-Stack Разработчик - Спроектировал архитектуру и ключевые процессы для нового стартап-проекта. Создал рабочие прототипы на React.js/Express.js для валидации гипотез. Руководил аутсорс-командой, принимая стратегические решения по развитию продукта."
-        },
-        {
-          "name": "Anima Technologies",
           "startDate": "2023-06-01",
-          "endDate": "2024-01-01",
-          "description": "Разработчик инструментов - Автоматизировал внутренние процессы компании. Реализовал интеграции с протоколами KNX и MQTT. Разработал Telegram-ботов для уведомлений."
+          "endDate": null,
+          "description": "<b>Руководитель группы разработки</b> - Возглавил переход от аутсорс- к инхаус-разработке, сформировав и возглавив команду для создания системы бронирования. Организовал и внедрил процессы разработки: настроил GitLab Enterprise с CI/CD пайплайнами для сборки, тестирования и деплоя приложений. Разработал мобильное приложение на React Native (iOS/Android) с публикацией в сторы. Выступал в роли технического консультанта по архитектурным решениям внутри компании.<br><i>с 1 июля 2025 года</i><br><br><b>Full-Stack Разработчик</b> - Спроектировал архитектуру и ключевые процессы для нового стартап-проекта. Создал рабочие прототипы на React.js/Express.js для валидации гипотез. Руководил аутсорс-командой, принимая стратегические решения по развитию продукта.<br><i>с 1 января 2024 года</i><br><br><b>Разработчик инструментов</b> - Автоматизировал внутренние процессы компании. Реализовал интеграции с протоколами KNX и MQTT. Разработал Telegram-ботов для уведомлений.<br><i>с 1 июля 2023 года</i>"
         },
         {
           "name": "UNECOM Engineering",
           "startDate": "2022-10-01",
           "endDate": "2023-08-01",
-          "description": "Программист - Разработка инструментария и переиспользуемых модулей для платформы iRidium (Smart Home). Создал JavaScript-фреймворк для ускоренной разработки UI панелей управления умным домом. Разработал библиотеку универсальных серверных модулей на JavaScript."
+          "description": "<b>Программист</b> - Разработка инструментария и переиспользуемых модулей для платформы iRidium (Smart Home). Создал JavaScript-фреймворк для ускоренной разработки UI панелей управления умным домом. Разработал библиотеку универсальных серверных модулей на JavaScript."
         },
         {
           "name": "Газпром автоматизация",
           "startDate": "2022-04-01",
           "endDate": "2022-10-01",
-          "description": "Инженер-программист 1 категории - Разработка переиспользуемых решений для промышленных систем автоматизации. Создал универсальный фреймворк для разработки интерфейсов операторских панелей. Разработал библиотеку переиспользуемых функциональных блоков на языке Structured Text."
+          "description": "<b>Инженер-программист 1 категории</b> - Разработка переиспользуемых решений для промышленных систем автоматизации. Создал универсальный фреймворк для разработки интерфейсов операторских панелей. Разработал библиотеку переиспользуемых функциональных блоков на языке ST."
         }
       ]
     },
@@ -182,28 +216,80 @@
       "title": "Избранные проекты",
       "items": [
         {
-          "name": "Galaxy Portfolio",
-          "description": "Экспериментальное 3D портфолио на Three.js",
-          "technologies": ["Three.js", "JavaScript", "WebGL"],
-          "link": "https://github.com/wantid/galaxy-portfolio"
+          "name": "Экосистема умного офиса Anima",
+          "description": "Масштабируемая платформа для управления умным офисом, доступная в форматах SaaS и On-premise. Построена на микросервисной архитектуре и обеспечивает оптимизацию гибридной рабочей среды за счет автоматизированного управления пространством, аналитики в реальном времени и интеллектуальной автоматизации процессов.<br><b>Компоненты системы:</b><br><i>Модуль бронирования, Модуль аналитики, Service Desk, Управление оборудованием, Веб-приложение, Дашборд администратора</i>",
+          "technologies": [
+            "Python/Django",
+            "React/Next.js",
+            "VictoriaMetrics",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+            "Gitlab CI/CD"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
         },
         {
-          "name": "VBS",
-          "description": "Студенческий проект, action-adventure игра на Unity",
-          "technologies": ["Unity", "C#"],
-          "link": "https://github.com/wantid"
+          "name": "Приложение для выставки OfficeNext, стенд «Интерпретация»",
+          "description": "Интерактивное выставочное приложение для сбора и визуализации эмоциональных реакций посетителей в режиме реального времени. Реализован MVP за 2 недели для демонстрации на выставке OfficeNext. Приложение интегрировано с инженерными системами через протоколы MQTT и WebSocket, обеспечивая инновационный подход к аналитике пользовательского опыта и повышению вовлеченности.<br><b>Особенности:</b><br><i>Панель аналитики, 2-недельный цикл разработки, Интеграция с инженерными системами, 500+ посетителей стенда</i>",
+          "technologies": [
+            "React.js",
+            "Recharts",
+            "Mqtt.js",
+            "mobx"
+          ],
+          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
         },
         {
-          "name": "Last Shift",
-          "description": "Telegram-бот игра с мультиплеером",
-          "technologies": ["Node.js", "Telegraf", "Telegram Bot API"],
-          "link": "https://github.com/wantid"
+          "name": "Мобильное приложение Anima",
+          "description": "Мобильное приложение для платформы Anima, доступное в форматах SaaS и On-premise. Позволяет управлять умным офисом через мобильное устройство, обеспечивая гибкость и удобство в использовании.<br><b>Особенности:</b><br><i>iOS/Android, Бронирования/Заявки через QR-код</i>",
+          "technologies": [
+            "React Native",
+            "Redux Toolkit",
+            "React Navigation 6",
+            "TypeScript",
+            "Redux Persist",
+            "RN Vision Camera"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
+        },
+        {
+          "name": "Панель бронирования Anima",
+          "description": "Адаптивное приложение для настенных и настольных устройств на Android. Позволяет совершать быстрые бронирования прямо на устройстве. С обновлением из self-hosted Gitlab Releases<br><b>Особенности:</b><br><i>Android, Подтверждение через QR-код</i>",
+          "technologies": [
+            "React Native",
+            "Expo",
+            "Redux",
+            "Expo intent launcher"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
         },
         {
           "name": "Notifier",
-          "description": "Telegram-бот для напоминаний о задачах",
-          "technologies": ["Node.js", "Telegraf", "Telegram Bot API"],
-          "link": "https://github.com/wantid"
+          "description": "Telegram-бот для напоминаний о задачах, который помогает человеку двигаться к большой цели маленькими шагами. В боте можно настраивать настроение напоминаний (от мягкой поддержки до жёсткой дисциплины) и периодичность уведомлений, чтобы подобрать оптимальный темп и тон общения именно под себя.",
+          "technologies": [
+            "Node.js",
+            "Telegraf",
+            "Telegram Bot API",
+            "GitHub Actions",
+            "PostgreSQL",
+            "Docker"
+          ],
+          "link": "https://t.me/notifier_exersitus_bot"
+        },
+        {
+          "name": "Last Shift",
+          "description": "Пошаговая двухмерная игра-клон Lethal Company с мультиплеером, реализованная как Telegram-бот. Проект был разработан во время срочной службы в армии в ограниченных условиях с использованием мобильных инструментов разработки. Игра демонстрирует возможность создания полноценных игровых проектов даже в стеснённых обстоятельствах.<br><b>Особенности:</b><br><i>Пошаговый геймплей, Мультиплеер через Telegram, Область видимости, Интерактивные объекты и инструменты, Система лобби, Процедурная генерация уровней</i>",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "Telegraf",
+            "PostgreSQL",
+            "Docker",
+            "Jimp",
+            "dungeon-generator"
+          ],
+          "link": "https://t.me/lastShiftBot"
         }
       ]
     },
@@ -212,19 +298,74 @@
       "categories": [
         {
           "name": "Frontend",
-          "items": ["JavaScript", "TypeScript", "React.js", "Next.js", "React Native", "HTML/CSS"]
+          "items": [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "Next.js",
+            "React Native",
+            "Redux Toolkit",
+            "Redux",
+            "Redux Persist",
+            "React Navigation",
+            "Expo",
+            "MobX",
+            "Recharts",
+            "HTML/CSS"
+          ]
         },
         {
           "name": "Backend",
-          "items": ["Node.js", "Express.js", "Django", "Python", "PostgreSQL", "MongoDB", "Telegram Bots", "REST API"]
+          "items": [
+            "Node.js",
+            "Express.js",
+            "Django",
+            "Python",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis",
+            "VictoriaMetrics",
+            "Telegram Bots",
+            "Telegraf",
+            "REST API",
+            "MQTT",
+            "WebSocket"
+          ]
         },
         {
           "name": "Game Development",
-          "items": ["Unity", "Godot", "C#", "GDScript", "Процедурная генерация"]
+          "items": [
+            "Unity",
+            "Godot",
+            "C#",
+            "GDScript",
+            "Процедурная генерация",
+            "Jimp"
+          ]
         },
         {
           "name": "DevOps & Инструменты",
-          "items": ["Git", "GitLab Enterprise", "GitHub", "Docker", "Docker Compose", "CI/CD", "Linux", "Bash"]
+          "items": [
+            "Git",
+            "GitLab Enterprise",
+            "GitHub",
+            "GitHub Actions",
+            "Docker",
+            "Docker Compose",
+            "CI/CD",
+            "Linux",
+            "Bash"
+          ]
+        },
+        {
+          "name": "Софт скиллы",
+          "items": [
+            "Руководство командой",
+            "Организация процессов разработки",
+            "Техническое консультирование",
+            "Управление аутсорс-командами",
+            "Архитектурное проектирование"
+          ]
         }
       ]
     },
@@ -232,14 +373,20 @@
       "title": "Образование",
       "items": [
         {
+          "degree": "Курсы",
+          "institution": "Wroclaw University of Science and Technology, Wroclaw Poland",
+          "period": "2021",
+          "description": "Summer School 3E+, Computer Science and Management"
+        },
+        {
           "degree": "Магистр",
-          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва",
+          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва Россия",
           "period": "2022",
           "description": "Электротехнические, электромеханические и электронные системы автономных объектов"
         },
         {
           "degree": "Бакалавр",
-          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва",
+          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва Россия",
           "period": "2020",
           "description": "Электротехнические, электромеханические и электронные системы автономных объектов"
         }
@@ -255,10 +402,14 @@
         {
           "name": "Telegram",
           "url": "https://t.me/DemasikOnFlex"
+        },
+        {
+          "name": "WhatsApp",
+          "url": "https://wa.me/79175743220"
         }
       ]
     },
-    "moreButton": "Изучить мои работы",
+    "moreButton": "Все проекты",
     "exportButton": "Скачать резюме"
   }
 }
