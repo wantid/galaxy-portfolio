@@ -10,40 +10,28 @@
     },
     "about": {
       "title": "About Me",
-      "content": "Full-Stack developer with experience in web development, mobile applications, industrial automation, and game industry. I specialize in creating scalable solutions, process automation, and user interface development. I have experience leading teams, organizing development processes, and working with outsourced teams. I actively work on experimental projects in my free time, including game development, Telegram bots, and prototypes of various mechanics."
+      "content": "I'm 26 years old. I'm a developer with experience in web development, mobile applications, automation, and game industry. I specialize in creating scalable solutions, process automation, and user interface development. I have experience leading teams, organizing development processes, and working with outsourced teams. I actively work on experimental projects in my free time, including game development, Telegram bots, and various prototypes."
     },
     "workExperience": {
       "title": "Work Experience",
       "items": [
         {
           "name": "Anima Technologies",
-          "startDate": "2025-08-01",
-          "endDate": null,
-          "description": "Development Team Lead - Led the transition from outsourcing to in-house development, forming and leading a team to create a booking system. Organized and implemented development processes: set up GitLab Enterprise with CI/CD pipelines. Developed a mobile application on React Native (iOS/Android) with publication to app stores. Acted as a technical consultant on architectural decisions."
-        },
-        {
-          "name": "Anima Technologies",
-          "startDate": "2024-01-01",
-          "endDate": "2025-08-01",
-          "description": "Full-Stack Developer - Designed architecture and key processes for a new startup project. Created working prototypes on React.js/Express.js for hypothesis validation. Managed an outsourced team, making strategic decisions on product development."
-        },
-        {
-          "name": "Anima Technologies",
           "startDate": "2023-06-01",
-          "endDate": "2024-01-01",
-          "description": "Tools Developer - Automated internal company processes. Implemented integrations with KNX and MQTT protocols. Developed Telegram bots for notifications."
+          "endDate": null,
+          "description": "<b>Development Team Lead</b> - Led the transition from outsourcing to in-house development, forming and leading a team to create a booking system. Organized and implemented development processes: set up GitLab Enterprise with CI/CD pipelines for building, testing, and deploying applications. Developed a mobile application on React Native (iOS/Android) with publication to app stores. Acted as a technical consultant on architectural decisions within the company.<br><i>since July 1, 2025</i><br><br><b>Full-Stack Developer</b> - Designed architecture and key processes for a new startup project. Created working prototypes on React.js/Express.js for hypothesis validation. Managed an outsourced team, making strategic decisions on product development.<br><i>since January 1, 2024</i><br><br><b>Tools Developer</b> - Automated internal company processes. Implemented integrations with KNX and MQTT protocols. Developed Telegram bots for notifications.<br><i>since July 1, 2023</i>"
         },
         {
           "name": "UNECOM Engineering",
           "startDate": "2022-10-01",
           "endDate": "2023-08-01",
-          "description": "Programmer - Development of tooling and reusable modules for the iRidium platform (Smart Home). Created a JavaScript framework for accelerated development of UI control panels for smart homes. Developed a library of universal server modules in JavaScript."
+          "description": "<b>Programmer</b> - Development of tooling and reusable modules for the iRidium platform (Smart Home). Created a JavaScript framework for accelerated development of UI control panels for smart homes. Developed a library of universal server modules in JavaScript."
         },
         {
           "name": "Gazprom Automation",
           "startDate": "2022-04-01",
           "endDate": "2022-10-01",
-          "description": "1st Category Engineer-Programmer - Development of reusable solutions for industrial automation systems. Created a universal framework for developing operator panel interfaces. Developed a library of reusable function blocks in Structured Text."
+          "description": "<b>1st Category Engineer-Programmer</b> - Development of reusable solutions for industrial automation systems. Created a universal framework for developing operator panel interfaces. Developed a library of reusable function blocks in Structured Text."
         }
       ]
     },
@@ -51,28 +39,80 @@
       "title": "Featured Projects",
       "items": [
         {
-          "name": "Galaxy Portfolio",
-          "description": "Experimental 3D portfolio on Three.js",
-          "technologies": ["Three.js", "JavaScript", "WebGL"],
-          "link": "https://github.com/wantid/galaxy-portfolio"
+          "name": "Anima Smart Office Ecosystem",
+          "description": "Scalable platform for smart office management, available in SaaS and On-premise formats. Built on microservices architecture and optimizes hybrid work environments through automated space management, real-time analytics, and intelligent process automation.<br><b>System Components:</b><br><i>Booking Module, Analytics Module, Service Desk, Equipment Management, Web Application, Admin Dashboard</i>",
+          "technologies": [
+            "Python/Django",
+            "React/Next.js",
+            "VictoriaMetrics",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+            "Gitlab CI/CD"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
         },
         {
-          "name": "VBS",
-          "description": "Student project, action-adventure game on Unity",
-          "technologies": ["Unity", "C#"],
-          "link": "https://github.com/wantid"
+          "name": "OfficeNext Exhibition App, 'Interpretation' Stand",
+          "description": "Interactive exhibition application for collecting and visualizing visitor emotional reactions in real-time. MVP implemented in 2 weeks for demonstration at OfficeNext exhibition. The app is integrated with engineering systems via MQTT and WebSocket protocols, providing an innovative approach to user experience analytics and engagement enhancement.<br><b>Features:</b><br><i>Analytics Dashboard, 2-week development cycle, Engineering systems integration, 500+ stand visitors</i>",
+          "technologies": [
+            "React.js",
+            "Recharts",
+            "Mqtt.js",
+            "mobx"
+          ],
+          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
         },
         {
-          "name": "Last Shift",
-          "description": "Telegram bot game with multiplayer",
-          "technologies": ["Node.js", "Telegraf", "Telegram Bot API"],
-          "link": "https://github.com/wantid"
+          "name": "Anima Mobile Application",
+          "description": "Mobile application for the Anima platform, available in SaaS and On-premise formats. Allows managing smart office through mobile device, providing flexibility and convenience.<br><b>Features:</b><br><i>iOS/Android, Bookings/Requests via QR-code</i>",
+          "technologies": [
+            "React Native",
+            "Redux Toolkit",
+            "React Navigation 6",
+            "TypeScript",
+            "Redux Persist",
+            "RN Vision Camera"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
+        },
+        {
+          "name": "Anima Booking Panel",
+          "description": "Adaptive application for wall-mounted and desktop Android devices. Allows quick bookings directly on the device. With updates from self-hosted Gitlab Releases<br><b>Features:</b><br><i>Android, Confirmation via QR-code</i>",
+          "technologies": [
+            "React Native",
+            "Expo",
+            "Redux",
+            "Expo intent launcher"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
         },
         {
           "name": "Notifier",
-          "description": "Telegram bot for task reminders",
-          "technologies": ["Node.js", "Telegraf", "Telegram Bot API"],
-          "link": "https://github.com/wantid"
+          "description": "Telegram bot for task reminders that helps people move towards big goals in small steps. The bot allows configuring reminder moods (from gentle support to strict discipline) and notification frequency to find the optimal pace and tone of communication.",
+          "technologies": [
+            "Node.js",
+            "Telegraf",
+            "Telegram Bot API",
+            "GitHub Actions",
+            "PostgreSQL",
+            "Docker"
+          ],
+          "link": "https://t.me/notifier_exersitus_bot"
+        },
+        {
+          "name": "Last Shift",
+          "description": "Turn-based 2D Lethal Company clone with multiplayer, implemented as a Telegram bot. The project was developed during military service in limited conditions using mobile development tools. The game demonstrates the possibility of creating full-fledged game projects even in constrained circumstances.<br><b>Features:</b><br><i>Turn-based gameplay, Multiplayer via Telegram, Visibility area, Interactive objects and tools, Lobby system, Procedural level generation</i>",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "Telegraf",
+            "PostgreSQL",
+            "Docker",
+            "Jimp",
+            "dungeon-generator"
+          ],
+          "link": "https://t.me/lastShiftBot"
         }
       ]
     },
@@ -81,19 +121,74 @@
       "categories": [
         {
           "name": "Frontend",
-          "items": ["JavaScript", "TypeScript", "React.js", "Next.js", "React Native", "HTML/CSS"]
+          "items": [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "Next.js",
+            "React Native",
+            "Redux Toolkit",
+            "Redux",
+            "Redux Persist",
+            "React Navigation",
+            "Expo",
+            "MobX",
+            "Recharts",
+            "HTML/CSS"
+          ]
         },
         {
           "name": "Backend",
-          "items": ["Node.js", "Express.js", "Django", "Python", "PostgreSQL", "MongoDB", "Telegram Bots", "REST API"]
+          "items": [
+            "Node.js",
+            "Express.js",
+            "Django",
+            "Python",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis",
+            "VictoriaMetrics",
+            "Telegram Bots",
+            "Telegraf",
+            "REST API",
+            "MQTT",
+            "WebSocket"
+          ]
         },
         {
           "name": "Game Development",
-          "items": ["Unity", "Godot", "C#", "GDScript", "Procedural Generation"]
+          "items": [
+            "Unity",
+            "Godot",
+            "C#",
+            "GDScript",
+            "Procedural Generation",
+            "Jimp"
+          ]
         },
         {
           "name": "DevOps & Tools",
-          "items": ["Git", "GitLab Enterprise", "GitHub", "Docker", "Docker Compose", "CI/CD", "Linux", "Bash"]
+          "items": [
+            "Git",
+            "GitLab Enterprise",
+            "GitHub",
+            "GitHub Actions",
+            "Docker",
+            "Docker Compose",
+            "CI/CD",
+            "Linux",
+            "Bash"
+          ]
+        },
+        {
+          "name": "Soft Skills",
+          "items": [
+            "Team Leadership",
+            "Development Process Organization",
+            "Technical Consulting",
+            "Outsourced Team Management",
+            "Architectural Design"
+          ]
         }
       ]
     },
@@ -102,13 +197,19 @@
       "items": [
         {
           "degree": "Master's Degree",
-          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow",
+          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow Russia",
           "period": "2022",
           "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects"
         },
         {
+          "degree": "Courses",
+          "institution": "Wroclaw University of Science and Technology, Wroclaw Poland",
+          "period": "2021",
+          "description": "Summer School 3E+, Computer Science and Management"
+        },
+        {
           "degree": "Bachelor's Degree",
-          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow",
+          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow Russia",
           "period": "2020",
           "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects"
         }
@@ -124,6 +225,10 @@
         {
           "name": "Telegram",
           "url": "https://t.me/DemasikOnFlex"
+        },
+        {
+          "name": "WhatsApp",
+          "url": "https://wa.me/79175743220"
         }
       ]
     },
@@ -137,44 +242,32 @@
       "tagline": "Создаю масштабируемые решения с увлечением и точностью",
       "image": "content/about/photo.webp",
       "location": "Москва, Россия",
-      "email": ""
+      "email": "mrwantid@gmail.com"
     },
     "about": {
       "title": "Обо мне",
-      "content": "Full-Stack разработчик с опытом работы в веб-разработке, мобильных приложениях, промышленной автоматизации и игровой индустрии. Специализируюсь на создании масштабируемых решений, автоматизации процессов и разработке пользовательских интерфейсов. Имею опыт руководства командами, организации процессов разработки и работы с аутсорс-командами. Активно занимаюсь экспериментальными проектами в свободное время, включая разработку игр, Telegram-ботов и прототипов различных механик."
+      "content": "Мне 26 лет. Я разработчик с опытом работы в веб-разработке, мобильных приложениях, автоматизации и игровой индустрии. Специализируюсь на создании масштабируемых решений, автоматизации процессов и разработке пользовательских интерфейсов. Имею опыт руководства командами, организации процессов разработки и работы с аутсорс-командами. Активно занимаюсь экспериментальными проектами в свободное время, включая разработку игр, Telegram-ботов и различных прототипов."
     },
     "workExperience": {
       "title": "Опыт работы",
       "items": [
         {
           "name": "Anima Technologies",
-          "startDate": "2025-08-01",
-          "endDate": null,
-          "description": "Руководитель группы разработки - Возглавил переход от аутсорс- к инхаус-разработке, сформировав и возглавив команду для создания системы бронирования. Организовал и внедрил процессы разработки: настроил GitLab Enterprise с CI/CD пайплайнами. Разработал мобильное приложение на React Native (iOS/Android) с публикацией в сторы. Выступал в роли технического консультанта по архитектурным решениям."
-        },
-        {
-          "name": "Anima Technologies",
-          "startDate": "2024-01-01",
-          "endDate": "2025-08-01",
-          "description": "Full-Stack Разработчик - Спроектировал архитектуру и ключевые процессы для нового стартап-проекта. Создал рабочие прототипы на React.js/Express.js для валидации гипотез. Руководил аутсорс-командой, принимая стратегические решения по развитию продукта."
-        },
-        {
-          "name": "Anima Technologies",
           "startDate": "2023-06-01",
-          "endDate": "2024-01-01",
-          "description": "Разработчик инструментов - Автоматизировал внутренние процессы компании. Реализовал интеграции с протоколами KNX и MQTT. Разработал Telegram-ботов для уведомлений."
+          "endDate": null,
+          "description": "<b>Руководитель группы разработки</b> - Возглавил переход от аутсорс- к инхаус-разработке, сформировав и возглавив команду для создания системы бронирования. Организовал и внедрил процессы разработки: настроил GitLab Enterprise с CI/CD пайплайнами для сборки, тестирования и деплоя приложений. Разработал мобильное приложение на React Native (iOS/Android) с публикацией в сторы. Выступал в роли технического консультанта по архитектурным решениям внутри компании.<br><i>с 1 июля 2025 года</i><br><br><b>Full-Stack Разработчик</b> - Спроектировал архитектуру и ключевые процессы для нового стартап-проекта. Создал рабочие прототипы на React.js/Express.js для валидации гипотез. Руководил аутсорс-командой, принимая стратегические решения по развитию продукта.<br><i>с 1 января 2024 года</i><br><br><b>Разработчик инструментов</b> - Автоматизировал внутренние процессы компании. Реализовал интеграции с протоколами KNX и MQTT. Разработал Telegram-ботов для уведомлений.<br><i>с 1 июля 2023 года</i>"
         },
         {
           "name": "UNECOM Engineering",
           "startDate": "2022-10-01",
           "endDate": "2023-08-01",
-          "description": "Программист - Разработка инструментария и переиспользуемых модулей для платформы iRidium (Smart Home). Создал JavaScript-фреймворк для ускоренной разработки UI панелей управления умным домом. Разработал библиотеку универсальных серверных модулей на JavaScript."
+          "description": "<b>Программист</b> - Разработка инструментария и переиспользуемых модулей для платформы iRidium (Smart Home). Создал JavaScript-фреймворк для ускоренной разработки UI панелей управления умным домом. Разработал библиотеку универсальных серверных модулей на JavaScript."
         },
         {
           "name": "Газпром автоматизация",
           "startDate": "2022-04-01",
           "endDate": "2022-10-01",
-          "description": "Инженер-программист 1 категории - Разработка переиспользуемых решений для промышленных систем автоматизации. Создал универсальный фреймворк для разработки интерфейсов операторских панелей. Разработал библиотеку переиспользуемых функциональных блоков на языке Structured Text."
+          "description": "<b>Инженер-программист 1 категории</b> - Разработка переиспользуемых решений для промышленных систем автоматизации. Создал универсальный фреймворк для разработки интерфейсов операторских панелей. Разработал библиотеку переиспользуемых функциональных блоков на языке ST."
         }
       ]
     },
@@ -182,28 +275,80 @@
       "title": "Избранные проекты",
       "items": [
         {
-          "name": "Galaxy Portfolio",
-          "description": "Экспериментальное 3D портфолио на Three.js",
-          "technologies": ["Three.js", "JavaScript", "WebGL"],
-          "link": "https://github.com/wantid/galaxy-portfolio"
+          "name": "Экосистема умного офиса Anima",
+          "description": "Масштабируемая платформа для управления умным офисом, доступная в форматах SaaS и On-premise. Построена на микросервисной архитектуре и обеспечивает оптимизацию гибридной рабочей среды за счет автоматизированного управления пространством, аналитики в реальном времени и интеллектуальной автоматизации процессов.<br><b>Компоненты системы:</b><br><i>Модуль бронирования, Модуль аналитики, Service Desk, Управление оборудованием, Веб-приложение, Дашборд администратора</i>",
+          "technologies": [
+            "Python/Django",
+            "React/Next.js",
+            "VictoriaMetrics",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+            "Gitlab CI/CD"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
         },
         {
-          "name": "VBS",
-          "description": "Студенческий проект, action-adventure игра на Unity",
-          "technologies": ["Unity", "C#"],
-          "link": "https://github.com/wantid"
+          "name": "Приложение для выставки OfficeNext, стенд «Интерпретация»",
+          "description": "Интерактивное выставочное приложение для сбора и визуализации эмоциональных реакций посетителей в режиме реального времени. Реализован MVP за 2 недели для демонстрации на выставке OfficeNext. Приложение интегрировано с инженерными системами через протоколы MQTT и WebSocket, обеспечивая инновационный подход к аналитике пользовательского опыта и повышению вовлеченности.<br><b>Особенности:</b><br><i>Панель аналитики, 2-недельный цикл разработки, Интеграция с инженерными системами, 500+ посетителей стенда</i>",
+          "technologies": [
+            "React.js",
+            "Recharts",
+            "Mqtt.js",
+            "mobx"
+          ],
+          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
         },
         {
-          "name": "Last Shift",
-          "description": "Telegram-бот игра с мультиплеером",
-          "technologies": ["Node.js", "Telegraf", "Telegram Bot API"],
-          "link": "https://github.com/wantid"
+          "name": "Мобильное приложение Anima",
+          "description": "Мобильное приложение для платформы Anima, доступное в форматах SaaS и On-premise. Позволяет управлять умным офисом через мобильное устройство, обеспечивая гибкость и удобство в использовании.<br><b>Особенности:</b><br><i>iOS/Android, Бронирования/Заявки через QR-код</i>",
+          "technologies": [
+            "React Native",
+            "Redux Toolkit",
+            "React Navigation 6",
+            "TypeScript",
+            "Redux Persist",
+            "RN Vision Camera"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
+        },
+        {
+          "name": "Панель бронирования Anima",
+          "description": "Адаптивное приложение для настенных и настольных устройств на Android. Позволяет совершать быстрые бронирования прямо на устройстве. С обновлением из self-hosted Gitlab Releases<br><b>Особенности:</b><br><i>Android, Подтверждение через QR-код</i>",
+          "technologies": [
+            "React Native",
+            "Expo",
+            "Redux",
+            "Expo intent launcher"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
         },
         {
           "name": "Notifier",
-          "description": "Telegram-бот для напоминаний о задачах",
-          "technologies": ["Node.js", "Telegraf", "Telegram Bot API"],
-          "link": "https://github.com/wantid"
+          "description": "Telegram-бот для напоминаний о задачах, который помогает человеку двигаться к большой цели маленькими шагами. В боте можно настраивать настроение напоминаний (от мягкой поддержки до жёсткой дисциплины) и периодичность уведомлений, чтобы подобрать оптимальный темп и тон общения именно под себя.",
+          "technologies": [
+            "Node.js",
+            "Telegraf",
+            "Telegram Bot API",
+            "GitHub Actions",
+            "PostgreSQL",
+            "Docker"
+          ],
+          "link": "https://t.me/notifier_exersitus_bot"
+        },
+        {
+          "name": "Last Shift",
+          "description": "Пошаговая двухмерная игра-клон Lethal Company с мультиплеером, реализованная как Telegram-бот. Проект был разработан во время срочной службы в армии в ограниченных условиях с использованием мобильных инструментов разработки. Игра демонстрирует возможность создания полноценных игровых проектов даже в стеснённых обстоятельствах.<br><b>Особенности:</b><br><i>Пошаговый геймплей, Мультиплеер через Telegram, Область видимости, Интерактивные объекты и инструменты, Система лобби, Процедурная генерация уровней</i>",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "Telegraf",
+            "PostgreSQL",
+            "Docker",
+            "Jimp",
+            "dungeon-generator"
+          ],
+          "link": "https://t.me/lastShiftBot"
         }
       ]
     },
@@ -212,19 +357,74 @@
       "categories": [
         {
           "name": "Frontend",
-          "items": ["JavaScript", "TypeScript", "React.js", "Next.js", "React Native", "HTML/CSS"]
+          "items": [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "Next.js",
+            "React Native",
+            "Redux Toolkit",
+            "Redux",
+            "Redux Persist",
+            "React Navigation",
+            "Expo",
+            "MobX",
+            "Recharts",
+            "HTML/CSS"
+          ]
         },
         {
           "name": "Backend",
-          "items": ["Node.js", "Express.js", "Django", "Python", "PostgreSQL", "MongoDB", "Telegram Bots", "REST API"]
+          "items": [
+            "Node.js",
+            "Express.js",
+            "Django",
+            "Python",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis",
+            "VictoriaMetrics",
+            "Telegram Bots",
+            "Telegraf",
+            "REST API",
+            "MQTT",
+            "WebSocket"
+          ]
         },
         {
           "name": "Game Development",
-          "items": ["Unity", "Godot", "C#", "GDScript", "Процедурная генерация"]
+          "items": [
+            "Unity",
+            "Godot",
+            "C#",
+            "GDScript",
+            "Процедурная генерация",
+            "Jimp"
+          ]
         },
         {
           "name": "DevOps & Инструменты",
-          "items": ["Git", "GitLab Enterprise", "GitHub", "Docker", "Docker Compose", "CI/CD", "Linux", "Bash"]
+          "items": [
+            "Git",
+            "GitLab Enterprise",
+            "GitHub",
+            "GitHub Actions",
+            "Docker",
+            "Docker Compose",
+            "CI/CD",
+            "Linux",
+            "Bash"
+          ]
+        },
+        {
+          "name": "Софт скиллы",
+          "items": [
+            "Руководство командой",
+            "Организация процессов разработки",
+            "Техническое консультирование",
+            "Управление аутсорс-командами",
+            "Архитектурное проектирование"
+          ]
         }
       ]
     },
@@ -233,13 +433,19 @@
       "items": [
         {
           "degree": "Магистр",
-          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва",
+          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва Россия",
           "period": "2022",
           "description": "Электротехнические, электромеханические и электронные системы автономных объектов"
         },
         {
+          "degree": "Курсы",
+          "institution": "Wroclaw University of Science and Technology, Wroclaw Poland",
+          "period": "2021",
+          "description": "Summer School 3E+, Computer Science and Management"
+        },
+        {
           "degree": "Бакалавр",
-          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва",
+          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва Россия",
           "period": "2020",
           "description": "Электротехнические, электромеханические и электронные системы автономных объектов"
         }
@@ -255,10 +461,14 @@
         {
           "name": "Telegram",
           "url": "https://t.me/DemasikOnFlex"
+        },
+        {
+          "name": "WhatsApp",
+          "url": "https://wa.me/79175743220"
         }
       ]
     },
-    "moreButton": "Изучить мои работы",
+    "moreButton": "Все проекты",
     "exportButton": "Скачать резюме"
   }
 }
