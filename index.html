@@ -61,6 +61,17 @@
             <button id="explore-button" class="explore-button">Explore My Work</button>
         </div>
     </div>
+    <div id="export-sections-modal" class="export-sections-modal hidden" role="dialog" aria-modal="true" aria-labelledby="export-sections-title">
+        <div class="export-sections-backdrop" data-close-export-modal="true"></div>
+        <div class="export-sections-content">
+            <h3 id="export-sections-title" class="export-sections-title">Select Sections</h3>
+            <div id="export-sections-list" class="export-sections-list"></div>
+            <div class="export-sections-actions">
+                <button id="export-sections-cancel" class="export-sections-cancel" type="button">Cancel</button>
+                <button id="export-sections-confirm" class="export-sections-confirm" type="button">Export</button>
+            </div>
+        </div>
+    </div>
     <a id="author-link" href="https://github.com/wantid" target="_blank" rel="noopener">made by wantid</a>
     <script type="module" src="/src/main.js"></script>
 </body>

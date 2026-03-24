@@ -5,45 +5,39 @@
       "title": "Full-Stack Developer & Tech Lead",
       "tagline": "Building scalable solutions with passion and precision",
       "image": "content/about/photo.webp",
-      "location": "Moscow, Russia",
-      "email": ""
+      "location": "Belgrade, Serbia",
+      "email": "mrwantid@gmail.com"
     },
     "about": {
       "title": "About Me",
-      "content": "Full-Stack developer with experience in web development, mobile applications, industrial automation, and game industry. I specialize in creating scalable solutions, process automation, and user interface development. I have experience leading teams, organizing development processes, and working with outsourced teams. I actively work on experimental projects in my free time, including game development, Telegram bots, and prototypes of various mechanics."
+      "content": "I'm 26 years old. I'm a developer with experience in web development, mobile applications, automation, and game industry. I specialize in creating scalable solutions, process automation, and user interface development. I have experience leading teams, organizing development processes, and working with outsourced teams. I actively work on experimental projects in my free time, including game development, Telegram bots, and various prototypes."
     },
     "workExperience": {
       "title": "Work Experience",
       "items": [
         {
-          "name": "Anima Technologies",
-          "startDate": "2025-08-01",
+          "name": "DMITRII KURILOV PR",
+          "startDate": "2026-02-25",
           "endDate": null,
-          "description": "Development Team Lead - Led the transition from outsourcing to in-house development, forming and leading a team to create a booking system. Organized and implemented development processes: set up GitLab Enterprise with CI/CD pipelines. Developed a mobile application on React Native (iOS/Android) with publication to app stores. Acted as a technical consultant on architectural decisions."
-        },
-        {
-          "name": "Anima Technologies",
-          "startDate": "2024-01-01",
-          "endDate": "2025-08-01",
-          "description": "Full-Stack Developer - Designed architecture and key processes for a new startup project. Created working prototypes on React.js/Express.js for hypothesis validation. Managed an outsourced team, making strategic decisions on product development."
+          "description": "<b>Founder & Developer</b> - Building games and applications as an independent business. Developing products with Godot and React Native for PC (Steam), iOS, and Android. Leading full-cycle delivery from idea and prototyping to release and support.<br><i>since February 25, 2026</i>"
         },
         {
           "name": "Anima Technologies",
           "startDate": "2023-06-01",
-          "endDate": "2024-01-01",
-          "description": "Tools Developer - Automated internal company processes. Implemented integrations with KNX and MQTT protocols. Developed Telegram bots for notifications."
+          "endDate": null,
+          "description": "<b>Development Team Lead</b> - Led the transition from outsourcing to in-house development, forming and leading a team to create a booking system. Organized and implemented development processes: set up GitLab Enterprise with CI/CD pipelines for building, testing, and deploying applications. Developed a mobile application on React Native (iOS/Android) with publication to app stores. Acted as a technical consultant on architectural decisions within the company.<br><i>since July 1, 2025</i><br><br><b>Full-Stack Developer</b> - Designed architecture and key processes for a new startup project. Created working prototypes on React.js/Express.js for hypothesis validation. Managed an outsourced team, making strategic decisions on product development.<br><i>since January 1, 2024</i><br><br><b>Tools Developer</b> - Automated internal company processes. Implemented integrations with KNX and MQTT protocols. Developed Telegram bots for notifications.<br><i>since July 1, 2023</i>"
         },
         {
           "name": "UNECOM Engineering",
           "startDate": "2022-10-01",
           "endDate": "2023-08-01",
-          "description": "Programmer - Development of tooling and reusable modules for the iRidium platform (Smart Home). Created a JavaScript framework for accelerated development of UI control panels for smart homes. Developed a library of universal server modules in JavaScript."
+          "description": "<b>Programmer</b> - Development of tooling and reusable modules for the iRidium platform (Smart Home). Created a JavaScript framework for accelerated development of UI control panels for smart homes. Developed a library of universal server modules in JavaScript."
         },
         {
           "name": "Gazprom Automation",
           "startDate": "2022-04-01",
           "endDate": "2022-10-01",
-          "description": "1st Category Engineer-Programmer - Development of reusable solutions for industrial automation systems. Created a universal framework for developing operator panel interfaces. Developed a library of reusable function blocks in Structured Text."
+          "description": "<b>1st Category Engineer-Programmer</b> - Development of reusable solutions for industrial automation systems. Created a universal framework for developing operator panel interfaces. Developed a library of reusable function blocks in Structured Text."
         }
       ]
     },
@@ -51,43 +45,80 @@
       "title": "Featured Projects",
       "items": [
         {
-          "name": "Galaxy Portfolio",
-          "description": "Experimental 3D portfolio on Three.js",
+          "name": "Anima Smart Office Ecosystem",
+          "description": "Scalable platform for smart office management, available in SaaS and On-premise formats. Built on microservices architecture and optimizes hybrid work environments through automated space management, real-time analytics, and intelligent process automation.<br><b>System Components:</b><br><i>Booking Module, Analytics Module, Service Desk, Equipment Management, Web Application, Admin Dashboard</i>",
           "technologies": [
-            "Three.js",
-            "JavaScript",
-            "WebGL"
+            "Python/Django",
+            "React/Next.js",
+            "VictoriaMetrics",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+            "Gitlab CI/CD"
           ],
-          "link": "https://github.com/wantid/galaxy-portfolio"
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
         },
         {
-          "name": "VBS",
-          "description": "Student project, action-adventure game on Unity",
+          "name": "OfficeNext Exhibition App, 'Interpretation' Stand",
+          "description": "Interactive exhibition application for collecting and visualizing visitor emotional reactions in real-time. MVP implemented in 2 weeks for demonstration at OfficeNext exhibition. The app is integrated with engineering systems via MQTT and WebSocket protocols, providing an innovative approach to user experience analytics and engagement enhancement.<br><b>Features:</b><br><i>Analytics Dashboard, 2-week development cycle, Engineering systems integration, 500+ stand visitors</i>",
           "technologies": [
-            "Unity",
-            "C#"
+            "React.js",
+            "Recharts",
+            "Mqtt.js",
+            "mobx"
           ],
-          "link": "https://github.com/wantid"
+          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
         },
         {
-          "name": "Last Shift",
-          "description": "Telegram bot game with multiplayer",
+          "name": "Anima Mobile Application",
+          "description": "Mobile application for the Anima platform, available in SaaS and On-premise formats. Allows managing smart office through mobile device, providing flexibility and convenience.<br><b>Features:</b><br><i>iOS/Android, Bookings/Requests via QR-code</i>",
           "technologies": [
-            "Node.js",
-            "Telegraf",
-            "Telegram Bot API"
+            "React Native",
+            "Redux Toolkit",
+            "React Navigation 6",
+            "TypeScript",
+            "Redux Persist",
+            "RN Vision Camera"
           ],
-          "link": "https://github.com/wantid"
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
+        },
+        {
+          "name": "Anima Booking Panel",
+          "description": "Adaptive application for wall-mounted and desktop Android devices. Allows quick bookings directly on the device. With updates from self-hosted Gitlab Releases<br><b>Features:</b><br><i>Android, Confirmation via QR-code</i>",
+          "technologies": [
+            "React Native",
+            "Expo",
+            "Redux",
+            "Expo intent launcher"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
         },
         {
           "name": "Notifier",
-          "description": "Telegram bot for task reminders",
+          "description": "Telegram bot for task reminders that helps people move towards big goals in small steps. The bot allows configuring reminder moods (from gentle support to strict discipline) and notification frequency to find the optimal pace and tone of communication.",
           "technologies": [
             "Node.js",
             "Telegraf",
-            "Telegram Bot API"
+            "Telegram Bot API",
+            "GitHub Actions",
+            "PostgreSQL",
+            "Docker"
           ],
-          "link": "https://github.com/wantid"
+          "link": "https://t.me/notifier_exersitus_bot"
+        },
+        {
+          "name": "Last Shift",
+          "description": "Turn-based 2D Lethal Company clone with multiplayer, implemented as a Telegram bot. The project was developed during military service in limited conditions using mobile development tools. The game demonstrates the possibility of creating full-fledged game projects even in constrained circumstances.<br><b>Features:</b><br><i>Turn-based gameplay, Multiplayer via Telegram, Visibility area, Interactive objects and tools, Lobby system, Procedural level generation</i>",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "Telegraf",
+            "PostgreSQL",
+            "Docker",
+            "Jimp",
+            "dungeon-generator"
+          ],
+          "link": "https://t.me/lastShiftBot"
         }
       ]
     },
@@ -102,6 +133,13 @@
             "React.js",
             "Next.js",
             "React Native",
+            "Redux Toolkit",
+            "Redux",
+            "Redux Persist",
+            "React Navigation",
+            "Expo",
+            "MobX",
+            "Recharts",
             "HTML/CSS"
           ]
         },
@@ -114,8 +152,13 @@
             "Python",
             "PostgreSQL",
             "MongoDB",
+            "Redis",
+            "VictoriaMetrics",
             "Telegram Bots",
-            "REST API"
+            "Telegraf",
+            "REST API",
+            "MQTT",
+            "WebSocket"
           ]
         },
         {
@@ -125,7 +168,8 @@
             "Godot",
             "C#",
             "GDScript",
-            "Procedural Generation"
+            "Procedural Generation",
+            "Jimp"
           ]
         },
         {
@@ -134,11 +178,22 @@
             "Git",
             "GitLab Enterprise",
             "GitHub",
+            "GitHub Actions",
             "Docker",
             "Docker Compose",
             "CI/CD",
             "Linux",
             "Bash"
+          ]
+        },
+        {
+          "name": "Soft Skills",
+          "items": [
+            "Team Leadership",
+            "Development Process Organization",
+            "Technical Consulting",
+            "Outsourced Team Management",
+            "Architectural Design"
           ]
         }
       ]
@@ -148,21 +203,31 @@
       "items": [
         {
           "degree": "Master's Degree",
-          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow",
+          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow Russia",
           "period": "2022",
           "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects"
         },
         {
+          "degree": "Courses",
+          "institution": "Wroclaw University of Science and Technology, Wroclaw Poland",
+          "period": "2021",
+          "description": "Summer School 3E+, Computer Science and Management"
+        },
+        {
           "degree": "Bachelor's Degree",
-          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow",
+          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow Russia",
           "period": "2020",
           "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects"
         }
       ]
     },
     "contacts": {
-      "title": "Get In Touch",
+      "title": "Links",
       "links": [
+        {
+          "name": "Portfolio",
+          "url": "https://wantid.github.io/galaxy-portfolio/"
+        },
         {
           "name": "GitHub",
           "url": "https://github.com/wantid"
@@ -170,11 +235,20 @@
         {
           "name": "Telegram",
           "url": "https://t.me/DemasikOnFlex"
+        },
+        {
+          "name": "WhatsApp",
+          "url": "https://wa.me/79175743220"
         }
       ]
     },
     "moreButton": "Explore My Work",
-    "exportButton": "Download CV"
+    "exportButton": "Download CV",
+    "exportModal": {
+      "title": "Select Sections for PDF",
+      "cancel": "Cancel",
+      "confirm": "Export PDF"
+    }
   },
   "🇷🇺": {
     "hero": {
@@ -182,16 +256,22 @@
       "title": "Full-Stack Developer & Tech Lead",
       "tagline": "Создаю масштабируемые решения с увлечением и точностью",
       "image": "content/about/photo.webp",
-      "location": "Москва, Россия",
+      "location": "Белград, Сербия",
       "email": "mrwantid@gmail.com"
     },
     "about": {
       "title": "Обо мне",
-      "content": "Мне 26 лет. Я Full-Stack разработчик с опытом работы в веб-разработке, мобильных приложениях, автоматизации и игровой индустрии. Специализируюсь на создании масштабируемых решений, автоматизации процессов и разработке пользовательских интерфейсов. Имею опыт руководства командами, организации процессов разработки и работы с аутсорс-командами. Активно занимаюсь экспериментальными проектами в свободное время, включая разработку игр, Telegram-ботов и различных прототипов."
+      "content": "Мне 26 лет. Я разработчик с опытом работы в веб-разработке, мобильных приложениях, автоматизации и игровой индустрии. Специализируюсь на создании масштабируемых решений, автоматизации процессов и разработке пользовательских интерфейсов. Имею опыт руководства командами, организации процессов разработки и работы с аутсорс-командами. Активно занимаюсь экспериментальными проектами в свободное время, включая разработку игр, Telegram-ботов и различных прототипов."
     },
     "workExperience": {
       "title": "Опыт работы",
       "items": [
+        {
+          "name": "DMITRII KURILOV PR",
+          "startDate": "2026-02-25",
+          "endDate": null,
+          "description": "<b>Основатель и разработчик</b> - Работаю на своё ИП, разрабатываю игры и приложения. Создаю продукты на Godot и React Native для PC (Steam), iOS и Android. Веду полный цикл: от идеи и прототипа до релиза и поддержки.<br><i>с 25 февраля 2026 года</i>"
+        },
         {
           "name": "Anima Technologies",
           "startDate": "2023-06-01",
@@ -373,16 +453,16 @@
       "title": "Образование",
       "items": [
         {
-          "degree": "Курсы",
-          "institution": "Wroclaw University of Science and Technology, Wroclaw Poland",
-          "period": "2021",
-          "description": "Summer School 3E+, Computer Science and Management"
-        },
-        {
           "degree": "Магистр",
           "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва Россия",
           "period": "2022",
           "description": "Электротехнические, электромеханические и электронные системы автономных объектов"
+        },
+        {
+          "degree": "Курсы",
+          "institution": "Wroclaw University of Science and Technology, Wroclaw Poland",
+          "period": "2021",
+          "description": "Summer School 3E+, Computer Science and Management"
         },
         {
           "degree": "Бакалавр",
@@ -393,8 +473,12 @@
       ]
     },
     "contacts": {
-      "title": "Связаться со мной",
+      "title": "Ссылки",
       "links": [
+        {
+          "name": "Portfolio",
+          "url": "https://wantid.github.io/galaxy-portfolio/"
+        },
         {
           "name": "GitHub",
           "url": "https://github.com/wantid"
@@ -410,6 +494,262 @@
       ]
     },
     "moreButton": "Все проекты",
-    "exportButton": "Скачать резюме"
+    "exportButton": "Скачать резюме",
+    "exportModal": {
+      "title": "Выберите разделы для PDF",
+      "cancel": "Отмена",
+      "confirm": "Экспорт PDF"
+    }
+  },
+  "🇷🇸": {
+    "hero": {
+      "name": "Dmitrii Kurilov",
+      "title": "Full-Stack programer i tehnički lider",
+      "tagline": "Gradim skalabilna rešenja sa strašću i preciznošću",
+      "image": "content/about/photo.webp",
+      "location": "Beograd, Srbija",
+      "email": "mrwantid@gmail.com"
+    },
+    "about": {
+      "title": "O meni",
+      "content": "Imam 26 godina. Programer sam sa iskustvom u veb razvoju, mobilnim aplikacijama, automatizaciji i gejming industriji. Specijalizujem se za razvoj skalabilnih rešenja, automatizaciju procesa i razvoj korisničkih interfejsa. Imam iskustvo u vođenju timova, organizaciji razvojnog procesa i radu sa outsourcing timovima. Aktivno radim na eksperimentalnim projektima u slobodno vreme, uključujući razvoj igara, Telegram botova i različitih prototipova."
+    },
+    "workExperience": {
+      "title": "Radno iskustvo",
+      "items": [
+        {
+          "name": "DMITRII KURILOV PR",
+          "startDate": "2026-02-25",
+          "endDate": null,
+          "description": "<b>Osnivač i programer</b> - Radim kroz svoj PR i razvijam igre i aplikacije. Pravim proizvode u Godot-u i React Native-u za PC (Steam), iOS i Android. Vodim ceo ciklus razvoja: od ideje i prototipa do objave i podrške.<br><i>od 25. februara 2026.</i>"
+        },
+        {
+          "name": "Anima Technologies",
+          "startDate": "2023-06-01",
+          "endDate": null,
+          "description": "<b>Lider razvojnog tima</b> - Vodio prelazak sa outsourcing modela na interni razvoj, formirao i vodio tim za izradu booking sistema. Organizovao razvojni proces i postavio GitLab Enterprise sa CI/CD pipeline-ovima za build, testiranje i isporuku aplikacija. Razvio mobilnu aplikaciju u React Native-u (iOS/Android) i objavio je u prodavnicama aplikacija. Učestvovao kao tehnički konsultant za arhitektonske odluke u kompaniji.<br><i>od 1. jula 2025.</i><br><br><b>Full-Stack programer</b> - Dizajnirao arhitekturu i ključne procese za novi startup projekat. Napravio funkcionalne prototipove u React.js/Express.js za validaciju hipoteza. Vodio outsourcing tim i donosio strateške odluke o razvoju proizvoda.<br><i>od 1. januara 2024.</i><br><br><b>Razvojni inženjer alata</b> - Automatizovao interne procese kompanije. Implementirao integracije sa KNX i MQTT protokolima. Razvio Telegram botove za notifikacije.<br><i>od 1. jula 2023.</i>"
+        },
+        {
+          "name": "UNECOM Engineering",
+          "startDate": "2022-10-01",
+          "endDate": "2023-08-01",
+          "description": "<b>Programer</b> - Razvoj alata i ponovo upotrebljivih modula za iRidium platformu (Smart Home). Kreirao JavaScript framework za ubrzan razvoj UI panela za kontrolu pametnog doma. Razvio biblioteku univerzalnih serverskih modula u JavaScript-u."
+        },
+        {
+          "name": "Gazprom Automation",
+          "startDate": "2022-04-01",
+          "endDate": "2022-10-01",
+          "description": "<b>Inženjer-programer I kategorije</b> - Razvoj ponovo upotrebljivih rešenja za industrijske sisteme automatizacije. Kreirao univerzalni framework za razvoj interfejsa operatorskih panela. Razvio biblioteku funkcionalnih blokova u Structured Text jeziku."
+        }
+      ]
+    },
+    "projects": {
+      "title": "Izdvojeni projekti",
+      "items": [
+        {
+          "name": "Anima Smart Office Ecosystem",
+          "description": "Scalable platform for smart office management, available in SaaS and On-premise formats. Built on microservices architecture and optimizes hybrid work environments through automated space management, real-time analytics, and intelligent process automation.<br><b>Komponente sistema:</b><br><i>Booking Module, Analytics Module, Service Desk, Equipment Management, Web Application, Admin Dashboard</i>",
+          "technologies": [
+            "Python/Django",
+            "React/Next.js",
+            "VictoriaMetrics",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+            "Gitlab CI/CD"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
+        },
+        {
+          "name": "OfficeNext Exhibition App, 'Interpretation' Stand",
+          "description": "Interactive exhibition application for collecting and visualizing visitor emotional reactions in real-time. MVP implemented in 2 weeks for demonstration at OfficeNext exhibition. The app is integrated with engineering systems via MQTT and WebSocket protocols, providing an innovative approach to user experience analytics and engagement enhancement.<br><b>Karakteristike:</b><br><i>Analytics Dashboard, 2-week development cycle, Engineering systems integration, 500+ stand visitors</i>",
+          "technologies": [
+            "React.js",
+            "Recharts",
+            "Mqtt.js",
+            "mobx"
+          ],
+          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
+        },
+        {
+          "name": "Anima Mobile Application",
+          "description": "Mobile application for the Anima platform, available in SaaS and On-premise formats. Allows managing smart office through mobile device, providing flexibility and convenience.<br><b>Karakteristike:</b><br><i>iOS/Android, Bookings/Requests via QR-code</i>",
+          "technologies": [
+            "React Native",
+            "Redux Toolkit",
+            "React Navigation 6",
+            "TypeScript",
+            "Redux Persist",
+            "RN Vision Camera"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
+        },
+        {
+          "name": "Anima Booking Panel",
+          "description": "Adaptive application for wall-mounted and desktop Android devices. Allows quick bookings directly on the device. With updates from self-hosted Gitlab Releases<br><b>Karakteristike:</b><br><i>Android, Confirmation via QR-code</i>",
+          "technologies": [
+            "React Native",
+            "Expo",
+            "Redux",
+            "Expo intent launcher"
+          ],
+          "link": "https://animatech.group/ekosistema-umnogo-ofisa-anima/"
+        },
+        {
+          "name": "Notifier",
+          "description": "Telegram bot for task reminders that helps people move towards big goals in small steps. The bot allows configuring reminder moods (from gentle support to strict discipline) and notification frequency to find the optimal pace and tone of communication.",
+          "technologies": [
+            "Node.js",
+            "Telegraf",
+            "Telegram Bot API",
+            "GitHub Actions",
+            "PostgreSQL",
+            "Docker"
+          ],
+          "link": "https://t.me/notifier_exersitus_bot"
+        },
+        {
+          "name": "Last Shift",
+          "description": "Turn-based 2D Lethal Company clone with multiplayer, implemented as a Telegram bot. The project was developed during military service in limited conditions using mobile development tools. The game demonstrates the possibility of creating full-fledged game projects even in constrained circumstances.<br><b>Karakteristike:</b><br><i>Turn-based gameplay, Multiplayer via Telegram, Visibility area, Interactive objects and tools, Lobby system, Procedural level generation</i>",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "Telegraf",
+            "PostgreSQL",
+            "Docker",
+            "Jimp",
+            "dungeon-generator"
+          ],
+          "link": "https://t.me/lastShiftBot"
+        }
+      ]
+    },
+    "technicalSkills": {
+      "title": "Tehničke veštine",
+      "categories": [
+        {
+          "name": "Frontend",
+          "items": [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "Next.js",
+            "React Native",
+            "Redux Toolkit",
+            "Redux",
+            "Redux Persist",
+            "React Navigation",
+            "Expo",
+            "MobX",
+            "Recharts",
+            "HTML/CSS"
+          ]
+        },
+        {
+          "name": "Backend",
+          "items": [
+            "Node.js",
+            "Express.js",
+            "Django",
+            "Python",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis",
+            "VictoriaMetrics",
+            "Telegram Bots",
+            "Telegraf",
+            "REST API",
+            "MQTT",
+            "WebSocket"
+          ]
+        },
+        {
+          "name": "Razvoj igara",
+          "items": [
+            "Unity",
+            "Godot",
+            "C#",
+            "GDScript",
+            "Procedural Generation",
+            "Jimp"
+          ]
+        },
+        {
+          "name": "DevOps i alati",
+          "items": [
+            "Git",
+            "GitLab Enterprise",
+            "GitHub",
+            "GitHub Actions",
+            "Docker",
+            "Docker Compose",
+            "CI/CD",
+            "Linux",
+            "Bash"
+          ]
+        },
+        {
+          "name": "Meke veštine",
+          "items": [
+            "Team Leadership",
+            "Development Process Organization",
+            "Technical Consulting",
+            "Outsourced Team Management",
+            "Architectural Design"
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "Obrazovanje",
+      "items": [
+        {
+          "degree": "Master",
+          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow Russia",
+          "period": "2022",
+          "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects"
+        },
+        {
+          "degree": "Kursevi",
+          "institution": "Wroclaw University of Science and Technology, Wroclaw Poland",
+          "period": "2021",
+          "description": "Summer School 3E+, Computer Science and Management"
+        },
+        {
+          "degree": "Bachelor",
+          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow Russia",
+          "period": "2020",
+          "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects"
+        }
+      ]
+    },
+    "contacts": {
+      "title": "Linkovi",
+      "links": [
+        {
+          "name": "Portfolio",
+          "url": "https://wantid.github.io/galaxy-portfolio/"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com/wantid"
+        },
+        {
+          "name": "Telegram",
+          "url": "https://t.me/DemasikOnFlex"
+        },
+        {
+          "name": "WhatsApp",
+          "url": "https://wa.me/79175743220"
+        }
+      ]
+    },
+    "moreButton": "Istraži moje radove",
+    "exportButton": "Preuzmi CV",
+    "exportModal": {
+      "title": "Izaberite sekcije za PDF",
+      "cancel": "Otkaži",
+      "confirm": "Izvezi PDF"
+    }
   }
 }

@@ -27,11 +27,18 @@ class App {
         this.universeScene = document.getElementById('universe-scene');
         this.exploreButton = document.getElementById('explore-button');
         this.exportPdfButton = document.getElementById('export-pdf-button');
+        this.exportSectionsModal = document.getElementById('export-sections-modal');
+        this.exportSectionsTitle = document.getElementById('export-sections-title');
+        this.exportSectionsList = document.getElementById('export-sections-list');
+        this.exportSectionsCancel = document.getElementById('export-sections-cancel');
+        this.exportSectionsConfirm = document.getElementById('export-sections-confirm');
         this.authorLink = document.getElementById('author-link');
         this.languageSwitcher = document.getElementById('language-switcher');
         this.currentView = 'welcome';
         this.isTransitioning = false;
         this.currentLanguage = this.getInitialLanguage();
+        this.pdfFontData = null;
+        this.exportSectionKeys = ['about', 'workExperience', 'projects', 'technicalSkills', 'education', 'contacts'];
         this.init();
     }
 
@@ -90,6 +97,84 @@ class App {
         if (this.exportPdfButton) {
             this.exportPdfButton.textContent = langData.exportButton || 'Download CV';
         }
+        this.renderExportSectionsModal();
+    }
+
+    getExportUiLabels() {
+        const langData = this.getCurrentLanguageData();
+        const defaultLabels = {
+            title: 'Select Sections for PDF',
+            cancel: 'Cancel',
+            confirm: 'Export PDF'
+        };
+        return {
+            title: langData?.exportModal?.title || defaultLabels.title,
+            cancel: langData?.exportModal?.cancel || defaultLabels.cancel,
+            confirm: langData?.exportModal?.confirm || defaultLabels.confirm
+        };
+    }
+
+    getExportSectionsConfig() {
+        const langData = this.getCurrentLanguageData();
+        return [
+            { key: 'about', label: langData?.about?.title || 'About' },
+            { key: 'workExperience', label: langData?.workExperience?.title || 'Work Experience' },
+            { key: 'projects', label: langData?.projects?.title || 'Projects' },
+            { key: 'technicalSkills', label: langData?.technicalSkills?.title || 'Technical Skills' },
+            { key: 'education', label: langData?.education?.title || 'Education' },
+            { key: 'contacts', label: langData?.contacts?.title || 'Contacts' }
+        ];
+    }
+
+    renderExportSectionsModal() {
+        if (!this.exportSectionsModal || !this.exportSectionsList) return;
+
+        const ui = this.getExportUiLabels();
+        const sections = this.getExportSectionsConfig();
+
+        if (this.exportSectionsTitle) {
+            this.exportSectionsTitle.textContent = ui.title;
+        }
+        if (this.exportSectionsCancel) {
+            this.exportSectionsCancel.textContent = ui.cancel;
+        }
+        if (this.exportSectionsConfirm) {
+            this.exportSectionsConfirm.textContent = ui.confirm;
+        }
+
+        this.exportSectionsList.innerHTML = sections.map((section) => `
+            <label class="export-section-option">
+                <input type="checkbox" data-export-section="${section.key}" checked>
+                <span>${section.label}</span>
+            </label>
+        `).join('');
+    }
+
+    openExportSectionsModal() {
+        if (!this.exportSectionsModal) {
+            this.exportToPDF(new Set(this.exportSectionKeys));
+            return;
+        }
+        this.renderExportSectionsModal();
+        this.exportSectionsModal.classList.remove('hidden');
+    }
+
+    closeExportSectionsModal() {
+        if (!this.exportSectionsModal) return;
+        this.exportSectionsModal.classList.add('hidden');
+    }
+
+    getSelectedExportSections() {
+        if (!this.exportSectionsList) {
+            return new Set(this.exportSectionKeys);
+        }
+
+        const selected = new Set(
+            Array.from(this.exportSectionsList.querySelectorAll('input[data-export-section]:checked'))
+                .map((input) => input.getAttribute('data-export-section'))
+                .filter(Boolean)
+        );
+        return selected.size > 0 ? selected : new Set(this.exportSectionKeys);
     }
 
     setupLanguageSwitcher() {
@@ -135,9 +220,50 @@ class App {
         }
     }
 
-    exportToPDF() {
+    async loadPdfFontData() {
+        if (this.pdfFontData) return this.pdfFontData;
+
+        const toBase64 = (arrayBuffer) => {
+            const bytes = new Uint8Array(arrayBuffer);
+            let binary = '';
+            const chunkSize = 0x8000;
+            for (let i = 0; i < bytes.length; i += chunkSize) {
+                const chunk = bytes.subarray(i, i + chunkSize);
+                binary += String.fromCharCode.apply(null, chunk);
+            }
+            return btoa(binary);
+        };
+
+        const loadFont = async (url) => {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Failed to load font: ${url}`);
+            }
+            return toBase64(await response.arrayBuffer());
+        };
+
+        try {
+            const [regular, bold, italic, boldItalic] = await Promise.all([
+                loadFont('content/fonts/static/NotoSans-Regular.ttf'),
+                loadFont('content/fonts/static/NotoSans-Bold.ttf'),
+                loadFont('content/fonts/static/NotoSans-Italic.ttf'),
+                loadFont('content/fonts/static/NotoSans-BoldItalic.ttf')
+            ]);
+
+            this.pdfFontData = { regular, bold, italic, boldItalic };
+        } catch (error) {
+            console.warn('Unicode PDF font loading failed, fallback to default font.', error);
+            this.pdfFontData = null;
+        }
+
+        return this.pdfFontData;
+    }
+
+    async exportToPDF(selectedSections = new Set(this.exportSectionKeys)) {
         const langData = this.getCurrentLanguageData();
         if (!langData) return;
+
+        const fontData = await this.loadPdfFontData();
 
         const doc = new jsPDF({
             orientation: 'portrait',
@@ -145,11 +271,33 @@ class App {
             format: 'a4'
         });
 
+        let pdfFontFamily = 'helvetica';
+        if (fontData) {
+            doc.addFileToVFS('NotoSans-Regular.ttf', fontData.regular);
+            doc.addFont('NotoSans-Regular.ttf', 'NotoSans', 'normal');
+            doc.addFileToVFS('NotoSans-Bold.ttf', fontData.bold);
+            doc.addFont('NotoSans-Bold.ttf', 'NotoSans', 'bold');
+            doc.addFileToVFS('NotoSans-Italic.ttf', fontData.italic);
+            doc.addFont('NotoSans-Italic.ttf', 'NotoSans', 'italic');
+            doc.addFileToVFS('NotoSans-BoldItalic.ttf', fontData.boldItalic);
+            doc.addFont('NotoSans-BoldItalic.ttf', 'NotoSans', 'bolditalic');
+            pdfFontFamily = 'NotoSans';
+            doc.setFont(pdfFontFamily, 'normal');
+        }
+
         const pageWidth = doc.internal.pageSize.getWidth();
         const pageHeight = doc.internal.pageSize.getHeight();
         const margin = 20;
         const contentWidth = pageWidth - (margin * 2);
         let yPos = margin;
+        const pdfLocale = this.currentLanguage === '🇷🇺' ? 'ru-RU' : this.currentLanguage === '🇷🇸' ? 'sr-Latn-RS' : 'en-US';
+        const presentLabel = this.currentLanguage === '🇷🇺' ? 'По настоящее время' : this.currentLanguage === '🇷🇸' ? 'Trenutno' : 'Present';
+        const useStyledRichText = !!fontData || this.currentLanguage === '🇺🇸';
+
+        const preparePdfText = (text) => {
+            if (text === null || text === undefined) return '';
+            return String(text).replace(/\u0000/g, '');
+        };
 
         const addSection = (title, content, fontSize = 16) => {
             if (yPos > pageHeight - 40) {
@@ -157,13 +305,13 @@ class App {
                 yPos = margin;
             }
             doc.setFontSize(fontSize);
-            doc.setFont(undefined, 'bold');
+            setPdfFont('bold');
             doc.setTextColor(0, 102, 204);
             doc.text(title, margin, yPos);
             yPos += 8;
             
             doc.setFontSize(11);
-            doc.setFont(undefined, 'normal');
+            setPdfFont('normal');
             doc.setTextColor(0, 0, 0);
             return yPos;
         };
@@ -173,21 +321,166 @@ class App {
                 doc.addPage();
                 yPos = margin;
             }
-            const lines = doc.splitTextToSize(text, maxWidth);
+            const lines = doc.splitTextToSize(preparePdfText(text), maxWidth);
             doc.text(lines, margin, yPos);
             yPos += lines.length * 6;
         };
 
+        const getFontStyle = (segmentStyle) => {
+            if (segmentStyle.bold && segmentStyle.italic) return 'bolditalic';
+            if (segmentStyle.bold) return 'bold';
+            if (segmentStyle.italic) return 'italic';
+            return 'normal';
+        };
+
+        const setPdfFont = (style = 'normal') => {
+            doc.setFont(pdfFontFamily, style);
+        };
+
+        const parseBasicHtml = (htmlText) => {
+            if (!htmlText) return [];
+
+            const normalized = preparePdfText(htmlText)
+                .replace(/<\s*br\s*\/?\s*>/gi, '\n')
+                .replace(/<\s*\/\s*p\s*>/gi, '\n')
+                .replace(/<\s*p[^>]*>/gi, '');
+            const tokens = normalized.split(/(<\/?(?:b|strong|i|em)>)/gi).filter(Boolean);
+
+            const lines = [[]];
+            const style = { bold: false, italic: false };
+
+            const pushText = (text) => {
+                if (!text) return;
+                const parts = text.split('\n');
+                parts.forEach((part, index) => {
+                    if (part) {
+                        lines[lines.length - 1].push({
+                            text: part,
+                            bold: style.bold,
+                            italic: style.italic
+                        });
+                    }
+                    if (index < parts.length - 1) {
+                        lines.push([]);
+                    }
+                });
+            };
+
+            tokens.forEach((token) => {
+                const lower = token.toLowerCase();
+                if (lower === '<b>' || lower === '<strong>') {
+                    style.bold = true;
+                    return;
+                }
+                if (lower === '</b>' || lower === '</strong>') {
+                    style.bold = false;
+                    return;
+                }
+                if (lower === '<i>' || lower === '<em>') {
+                    style.italic = true;
+                    return;
+                }
+                if (lower === '</i>' || lower === '</em>') {
+                    style.italic = false;
+                    return;
+                }
+
+                const plainText = token.replace(/<[^>]+>/g, '');
+                pushText(plainText);
+            });
+
+            return lines;
+        };
+
+        const stripHtmlToPlainText = (htmlText) => {
+            if (!htmlText) return '';
+            return preparePdfText(
+                String(htmlText)
+                    .replace(/<\s*br\s*\/?\s*>/gi, '\n')
+                    .replace(/<\s*\/\s*p\s*>/gi, '\n')
+                    .replace(/<\s*p[^>]*>/gi, '')
+                    .replace(/<[^>]+>/g, '')
+            );
+        };
+
+        const addRichText = (htmlText, maxWidth = contentWidth, lineHeight = 6) => {
+            if (!useStyledRichText) {
+                addText(stripHtmlToPlainText(htmlText), maxWidth);
+                return;
+            }
+            const parsedLines = parseBasicHtml(htmlText);
+            if (!parsedLines.length) return;
+
+            const wrappedLines = [];
+
+            const getTokenWidth = (token) => {
+                setPdfFont(getFontStyle(token));
+                return doc.getTextWidth(token.text);
+            };
+
+            parsedLines.forEach((line) => {
+                if (!line.length) {
+                    wrappedLines.push([]);
+                    return;
+                }
+
+                let currentLine = [];
+                let currentWidth = 0;
+
+                line.forEach((segment) => {
+                    const chunks = segment.text.split(/(\s+)/).filter((chunk) => chunk.length > 0);
+                    chunks.forEach((chunk) => {
+                        const token = { text: chunk, bold: segment.bold, italic: segment.italic };
+                        const tokenWidth = getTokenWidth(token);
+                        const isWhitespace = /^\s+$/.test(chunk);
+
+                        if (!isWhitespace && currentLine.length > 0 && currentWidth + tokenWidth > maxWidth) {
+                            wrappedLines.push(currentLine);
+                            currentLine = [];
+                            currentWidth = 0;
+                        }
+
+                        if (isWhitespace && currentLine.length === 0) return;
+
+                        currentLine.push(token);
+                        currentWidth += tokenWidth;
+                    });
+                });
+
+                wrappedLines.push(currentLine);
+            });
+
+            wrappedLines.forEach((line) => {
+                if (yPos > pageHeight - 30) {
+                    doc.addPage();
+                    yPos = margin;
+                }
+
+                if (!line.length) {
+                    yPos += lineHeight;
+                    return;
+                }
+
+                let xPos = margin;
+                line.forEach((segment) => {
+                    setPdfFont(getFontStyle(segment));
+                    doc.text(segment.text, xPos, yPos);
+                    xPos += doc.getTextWidth(segment.text);
+                });
+                yPos += lineHeight;
+            });
+        };
+
         doc.setFontSize(24);
-        doc.setFont(undefined, 'bold');
+        setPdfFont('bold');
         doc.setTextColor(0, 0, 0);
-        doc.text(langData.hero.name || '', margin, yPos);
+        doc.text(preparePdfText(langData.hero.name || ''), margin, yPos);
         yPos += 10;
 
         doc.setFontSize(14);
-        doc.setFont(undefined, 'normal');
+        setPdfFont('normal');
         doc.setTextColor(0, 102, 204);
-        doc.text(langData.hero.title || '', margin, yPos);
+        doc.text(preparePdfText(langData.hero.title || ''), margin, yPos);
         yPos += 8;
 
         if (langData.hero.location || langData.hero.email) {
@@ -197,57 +490,60 @@ class App {
                 langData.hero.location || '',
                 langData.hero.email || ''
             ].filter(Boolean).join(' • ');
-            doc.text(contactInfo, margin, yPos);
+            doc.text(preparePdfText(contactInfo), margin, yPos);
             yPos += 10;
         }
 
-        if (langData.about && langData.about.content) {
+        if (selectedSections.has('about') && langData.about && langData.about.content) {
             yPos = addSection(langData.about.title || 'About', '');
             addText(langData.about.content);
             yPos += 5;
         }
 
-        if (langData.workExperience && langData.workExperience.items) {
+        if (selectedSections.has('workExperience') && langData.workExperience && langData.workExperience.items) {
             yPos = addSection(langData.workExperience.title || 'Work Experience', '');
             langData.workExperience.items.forEach(item => {
                 doc.setFontSize(12);
-                doc.setFont(undefined, 'bold');
-                doc.text(item.name || '', margin, yPos);
+                setPdfFont('bold');
+                doc.setTextColor(0, 0, 0);
+                doc.text(preparePdfText(item.name || ''), margin, yPos);
                 yPos += 6;
 
                 if (item.startDate || item.endDate) {
-                    const startDate = item.startDate ? new Date(item.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : '';
-                    const endDate = item.endDate ? new Date(item.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : 'Present';
+                    const startDate = item.startDate ? new Date(item.startDate).toLocaleDateString(pdfLocale, { year: 'numeric', month: 'short' }) : '';
+                    const endDate = item.endDate ? new Date(item.endDate).toLocaleDateString(pdfLocale, { year: 'numeric', month: 'short' }) : presentLabel;
                     const period = `${startDate} - ${endDate}`;
                     doc.setFontSize(10);
-                    doc.setFont(undefined, 'italic');
+                    setPdfFont('italic');
                     doc.setTextColor(100, 100, 100);
-                    doc.text(period, margin, yPos);
+                    doc.text(preparePdfText(period), margin, yPos);
                     yPos += 6;
                 }
 
                 if (item.description) {
                     doc.setFontSize(10);
-                    doc.setFont(undefined, 'normal');
+                    setPdfFont('normal');
                     doc.setTextColor(0, 0, 0);
-                    addText(item.description);
+                    addRichText(item.description);
                 }
                 yPos += 5;
             });
         }
 
-        if (langData.projects && langData.projects.items) {
+        if (selectedSections.has('projects') && langData.projects && langData.projects.items) {
             yPos = addSection(langData.projects.title || 'Projects', '');
             langData.projects.items.forEach(project => {
                 doc.setFontSize(12);
-                doc.setFont(undefined, 'bold');
-                doc.text(project.name || '', margin, yPos);
+                setPdfFont('bold');
+                doc.setTextColor(0, 0, 0);
+                doc.text(preparePdfText(project.name || ''), margin, yPos);
                 yPos += 6;
 
                 if (project.description) {
                     doc.setFontSize(10);
-                    doc.setFont(undefined, 'normal');
-                    addText(project.description);
+                    setPdfFont('normal');
+                    doc.setTextColor(0, 0, 0);
+                    addRichText(project.description);
                 }
 
                 if (project.technologies && project.technologies.length > 0) {
@@ -255,22 +551,24 @@ class App {
                     doc.setTextColor(0, 102, 204);
                     const techText = project.technologies.join(' • ');
                     addText(techText);
+                    doc.setTextColor(0, 0, 0);
                 }
                 yPos += 5;
             });
         }
 
-        if (langData.technicalSkills && langData.technicalSkills.categories) {
+        if (selectedSections.has('technicalSkills') && langData.technicalSkills && langData.technicalSkills.categories) {
             yPos = addSection(langData.technicalSkills.title || 'Technical Skills', '');
             langData.technicalSkills.categories.forEach(category => {
                 doc.setFontSize(11);
-                doc.setFont(undefined, 'bold');
-                doc.text(category.name + ':', margin, yPos);
+                setPdfFont('bold');
+                doc.setTextColor(0, 0, 0);
+                doc.text(preparePdfText(category.name + ':'), margin, yPos);
                 yPos += 6;
 
                 if (category.items && category.items.length > 0) {
                     doc.setFontSize(10);
-                    doc.setFont(undefined, 'normal');
+                    setPdfFont('normal');
                     const skillsText = category.items.join(', ');
                     addText(skillsText);
                 }
@@ -278,23 +576,24 @@ class App {
             });
         }
 
-        if (langData.education && langData.education.items) {
+        if (selectedSections.has('education') && langData.education && langData.education.items) {
             yPos = addSection(langData.education.title || 'Education', '');
             langData.education.items.forEach(edu => {
                 doc.setFontSize(12);
-                doc.setFont(undefined, 'bold');
-                doc.text(edu.degree || '', margin, yPos);
+                setPdfFont('bold');
+                doc.setTextColor(0, 0, 0);
+                doc.text(preparePdfText(edu.degree || ''), margin, yPos);
                 yPos += 6;
 
                 doc.setFontSize(10);
-                doc.setFont(undefined, 'normal');
-                doc.text(edu.institution || '', margin, yPos);
+                setPdfFont('normal');
+                doc.text(preparePdfText(edu.institution || ''), margin, yPos);
                 yPos += 5;
 
                 if (edu.period) {
                     doc.setFontSize(9);
                     doc.setTextColor(100, 100, 100);
-                    doc.text(edu.period, margin, yPos);
+                    doc.text(preparePdfText(edu.period), margin, yPos);
                     yPos += 5;
                 }
 
@@ -307,12 +606,13 @@ class App {
             });
         }
 
-        if (langData.contacts && langData.contacts.links) {
+        if (selectedSections.has('contacts') && langData.contacts && langData.contacts.links) {
             yPos = addSection(langData.contacts.title || 'Contact', '');
             langData.contacts.links.forEach(link => {
                 doc.setFontSize(10);
-                doc.setFont(undefined, 'normal');
-                doc.text(`${link.name}: ${link.url}`, margin, yPos);
+                setPdfFont('normal');
+                doc.setTextColor(0, 0, 0);
+                doc.text(preparePdfText(`${link.name}: ${link.url}`), margin, yPos);
                 yPos += 6;
             });
         }
@@ -518,9 +818,38 @@ class App {
         }
         if (this.exportPdfButton) {
             this.exportPdfButton.addEventListener('click', () => {
-                this.exportToPDF();
+                this.openExportSectionsModal();
             });
         }
+
+        if (this.exportSectionsCancel) {
+            this.exportSectionsCancel.addEventListener('click', () => {
+                this.closeExportSectionsModal();
+            });
+        }
+
+        if (this.exportSectionsConfirm) {
+            this.exportSectionsConfirm.addEventListener('click', async () => {
+                const selectedSections = this.getSelectedExportSections();
+                this.closeExportSectionsModal();
+                await this.exportToPDF(selectedSections);
+            });
+        }
+
+        if (this.exportSectionsModal) {
+            this.exportSectionsModal.addEventListener('click', (event) => {
+                const target = event.target;
+                if (target instanceof HTMLElement && target.getAttribute('data-close-export-modal') === 'true') {
+                    this.closeExportSectionsModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && this.exportSectionsModal && !this.exportSectionsModal.classList.contains('hidden')) {
+                this.closeExportSectionsModal();
+            }
+        });
     }
 
     transitionToUniverse() {
