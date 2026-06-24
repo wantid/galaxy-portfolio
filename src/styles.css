@@ -660,15 +660,123 @@ body {
 }
 
 
-.welcome-skills {
-    margin: 0 0 80px;
-    animation: fadeInUp 0.8s ease 0.3s both;
+.carousel-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    overflow: visible;
 }
 
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.carousel-track {
+    display: flex;
     gap: 24px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 4px 24px 20px max(24px, calc((100vw - 1000px) / 2 + 24px));
+    scroll-padding-left: max(24px, calc((100vw - 1000px) / 2 + 24px));
+    scroll-snap-type: x proximity;
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+}
+
+.carousel-track.is-dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
+.carousel-track.is-dragging .carousel-card {
+    pointer-events: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-card {
+    flex: 0 0 320px;
+    width: 320px;
+    min-height: 300px;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    scroll-snap-align: start;
+    transition: max-height 0.35s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.carousel-card.skill-category {
+    min-height: 260px;
+    max-height: 260px;
+}
+
+.carousel-card.is-expanded {
+    max-height: 2000px;
+    overflow: visible;
+}
+
+.carousel-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15);
+    border-color: rgba(0, 102, 204, 0.2);
+}
+
+.carousel-card-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-card.is-expanded .carousel-card-body {
+    overflow: visible;
+}
+
+.carousel-card.has-overflow .carousel-card-body::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95));
+    pointer-events: none;
+}
+
+.carousel-show-more {
+    flex-shrink: 0;
+    margin-top: 12px;
+    align-self: flex-start;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #0066cc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.carousel-show-more:hover {
+    color: #0088ff;
+}
+
+.carousel-show-more.hidden {
+    display: none;
+}
+
+.welcome-skills {
+    margin: 0 0 80px;
+    animation: fadeInUp 0.8s ease 0.4s both;
 }
 
 .welcome-work {
@@ -732,27 +840,12 @@ body {
     animation: fadeInUp 0.8s ease 0.3s both;
 }
 
-.projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-}
-
 .project-item {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 28px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    display: flex;
-    flex-direction: column;
+    /* carousel-card provides layout */
 }
 
 .project-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15);
-    border-color: rgba(0, 102, 204, 0.2);
+    transform: none;
 }
 
 .project-title {
@@ -800,30 +893,12 @@ body {
     transform: translateX(4px);
 }
 
-.welcome-skills {
-    margin: 0 0 80px;
-    animation: fadeInUp 0.8s ease 0.4s both;
-}
-
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-}
-
 .skill-category {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 28px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    /* carousel-card provides layout */
 }
 
 .skill-category:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15);
-    border-color: rgba(0, 102, 204, 0.2);
+    transform: none;
 }
 
 .skill-category-title {
@@ -1332,12 +1407,20 @@ body {
     }
 
 
-    .projects-container {
-        grid-template-columns: 1fr;
+    .carousel-track {
+        padding-left: 20px;
+        padding-right: 20px;
+        scroll-padding-left: 20px;
     }
 
+    .carousel-card {
+        flex: 0 0 min(300px, 85vw);
+        width: min(300px, 85vw);
+    }
+
+    .projects-container,
     .skills-container {
-        grid-template-columns: 1fr;
+        /* carousel flex layout */
     }
 
     .contacts-container {

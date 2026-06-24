@@ -244,6 +244,10 @@
     },
     "moreButton": "Explore My Work",
     "exportButton": "Download CV",
+    "ui": {
+      "showMore": "Show more",
+      "showLess": "Show less"
+    },
     "exportModal": {
       "title": "Select Sections for PDF",
       "cancel": "Cancel",
@@ -495,6 +499,10 @@
     },
     "moreButton": "Все проекты",
     "exportButton": "Скачать резюме",
+    "ui": {
+      "showMore": "Показать полностью",
+      "showLess": "Свернуть"
+    },
     "exportModal": {
       "title": "Выберите разделы для PDF",
       "cancel": "Отмена",
@@ -746,6 +754,10 @@
     },
     "moreButton": "Istraži moje radove",
     "exportButton": "Preuzmi CV",
+    "ui": {
+      "showMore": "Prikaži više",
+      "showLess": "Sakrij"
+    },
     "exportModal": {
       "title": "Izaberite sekcije za PDF",
       "cancel": "Otkaži",

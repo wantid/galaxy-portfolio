@@ -2,6 +2,7 @@ import { Scene3D } from './scene.js';
 import { Modal } from './modal.js';
 import { getPlanetSlug, parseRoute, setRoute } from './routes.js';
 import { migrateLanguageCode, renderFlag, renderBrandIcon, resolveLinkIcon } from './icons.js';
+import { initCarouselCards } from './carousel-cards.js';
 import planetsData from './data/planets.json';
 import globalTabsData from './data/tabs.json';
 import welcomeData from './data/welcome.json';
@@ -712,6 +713,14 @@ class App {
         workEl.innerHTML = workHtml;
     }
 
+    getCarouselLabels() {
+        const langData = this.getCurrentLanguageData();
+        return {
+            showMore: langData?.ui?.showMore || 'Show more',
+            showLess: langData?.ui?.showLess || 'Show less',
+        };
+    }
+
     setupProjects() {
         const projectsEl = document.getElementById('welcome-projects');
         const langData = this.getCurrentLanguageData();
@@ -720,27 +729,45 @@ class App {
             return;
         }
 
-        let projectsHtml = `<h2 class="section-title">${langData.projects.title || 'Featured Projects'}</h2><div class="projects-container">`;
+        projectsEl.style.display = '';
+        const labels = this.getCarouselLabels();
+        let projectsHtml = `
+            <h2 class="section-title">${langData.projects.title || 'Featured Projects'}</h2>
+            <div class="carousel-bleed">
+                <div class="carousel-track projects-container" data-carousel>
+        `;
 
         if (langData.projects.items) {
             langData.projects.items.forEach(project => {
-                const techTags = project.technologies 
+                const techTags = project.technologies
                     ? project.technologies.map(tech => `<span class="project-tech">${tech}</span>`).join('')
                     : '';
 
                 projectsHtml += `
-                    <div class="project-item">
-                        <h3 class="project-title">${project.name}</h3>
-                        <p class="project-description">${project.description || ''}</p>
-                        <div class="project-technologies">${techTags}</div>
-                        ${project.link ? `<a href="${project.link}" target="_blank" rel="noopener" class="project-link">View Project →</a>` : ''}
-                    </div>
+                    <article class="carousel-card project-item" data-card>
+                        <div class="carousel-card-body">
+                            <h3 class="project-title">${project.name}</h3>
+                            <p class="project-description">${project.description || ''}</p>
+                            <div class="project-technologies">${techTags}</div>
+                            ${project.link ? `<a href="${project.link}" target="_blank" rel="noopener" class="project-link">View Project →</a>` : ''}
+                        </div>
+                        <button type="button" class="carousel-show-more hidden" data-show-more>${labels.showMore}</button>
+                    </article>
                 `;
             });
         }
 
-        projectsHtml += '</div>';
+        projectsHtml += `
+                </div>
+            </div>
+        `;
         projectsEl.innerHTML = projectsHtml;
+
+        const track = projectsEl.querySelector('[data-carousel]');
+        initCarouselCards(track, {
+            showMoreLabel: labels.showMore,
+            showLessLabel: labels.showLess,
+        });
     }
 
     setupTechnicalSkills() {
@@ -751,23 +778,41 @@ class App {
             return;
         }
 
-        let skillsHtml = `<h2 class="section-title">${langData.technicalSkills.title || 'Technical Skills'}</h2><div class="skills-container">`;
+        skillsEl.style.display = '';
+        const labels = this.getCarouselLabels();
+        let skillsHtml = `
+            <h2 class="section-title">${langData.technicalSkills.title || 'Technical Skills'}</h2>
+            <div class="carousel-bleed">
+                <div class="carousel-track skills-container" data-carousel>
+        `;
 
         if (langData.technicalSkills.categories) {
             langData.technicalSkills.categories.forEach(category => {
                 skillsHtml += `
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">${category.name}</h3>
-                        <div class="skill-items">
-                            ${category.items.map(item => `<span class="skill-item">${item}</span>`).join('')}
+                    <article class="carousel-card skill-category" data-card>
+                        <div class="carousel-card-body">
+                            <h3 class="skill-category-title">${category.name}</h3>
+                            <div class="skill-items">
+                                ${category.items.map(item => `<span class="skill-item">${item}</span>`).join('')}
+                            </div>
                         </div>
-                    </div>
+                        <button type="button" class="carousel-show-more hidden" data-show-more>${labels.showMore}</button>
+                    </article>
                 `;
             });
         }
 
-        skillsHtml += '</div>';
+        skillsHtml += `
+                </div>
+            </div>
+        `;
         skillsEl.innerHTML = skillsHtml;
+
+        const track = skillsEl.querySelector('[data-carousel]');
+        initCarouselCards(track, {
+            showMoreLabel: labels.showMore,
+            showLessLabel: labels.showLess,
+        });
     }
 
     setupEducation() {

@@ -27,6 +27,7 @@
 - **JSON-driven** — edit `data/welcome.json`, `data/planets.json`, and `content/` — no code changes needed
 - **Welcome page** — classic CV layout for recruiters; export selected sections to PDF
 - **Multilingual** — locale keys (`en`, `ru`, `sr`) with SVG country flags via [flag-icons](https://github.com/lipis/flag-icons)
+- **Horizontal carousels** — projects and skills scroll sideways; overflow cards expand with Show more
 - **Brand icons** — GitHub, Telegram, WhatsApp and more in contacts and tabs via [Simple Icons](https://simpleicons.org/)
 - **Zero backend** — fork, customize, push to `main` → [GitHub Actions](.github/workflows/deploy.yml) deploys to Pages
 - **Deep links** — share a project: `#/planet/galaxy-portfolio`

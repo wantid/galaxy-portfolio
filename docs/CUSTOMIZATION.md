@@ -171,6 +171,15 @@ Each contact link:
 | `moreButton` | Text for "Explore My Work" |
 | `exportButton` | Text for "Download CV" |
 
+#### `ui` — Carousel card labels
+
+| Field | Description |
+|-------|-------------|
+| `showMore` | Button to expand a truncated project/skill card (e.g. "Show more") |
+| `showLess` | Button to collapse an expanded card (e.g. "Show less") |
+
+Projects and technical skills render as **horizontal scroll carousels** with equal-size cards. If card content overflows, `showMore` appears; horizontal scroll collapses all expanded cards.
+
 ### PDF export labels
 
 Each language object can include `exportSections` with labels for the PDF section picker:
