@@ -1,7 +1,7 @@
 import { marked } from 'marked';
 
 export class Modal {
-    constructor() {
+    constructor(onHide = null) {
         this.modalElement = document.getElementById('modal');
         this.modalTitle = document.getElementById('modal-title');
         this.modalDates = document.getElementById('modal-dates');
@@ -9,6 +9,7 @@ export class Modal {
         this.tabContent = document.getElementById('tab-content');
         this.currentPlanet = null;
         this.currentTabIndex = 0;
+        this.onHide = onHide;
         
         this.setupEventListeners();
     }
@@ -165,6 +166,9 @@ export class Modal {
         this.modalElement.classList.add('hidden');
         this.currentPlanet = null;
         this.tabContent.innerHTML = '';
+        if (this.onHide) {
+            this.onHide();
+        }
     }
 }
 

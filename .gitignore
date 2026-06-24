@@ -1,7 +1,6 @@
 # Dependencies
 node_modules/
 yarn.lock
-package-lock.json
 
 # Build outputs
 dist/
@@ -29,6 +28,7 @@ yarn-error.log*
 .env
 .env.local
 
-# Public folder
+# Public folder (generated at build; og-image copied from docs/)
 public/
+!public/.gitkeep
 

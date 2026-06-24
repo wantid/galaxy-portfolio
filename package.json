@@ -1,31 +1,46 @@
 {
   "name": "galaxy-portfolio",
   "version": "1.0.0",
-  "description": "3D Portfolio/Resume Constructor with Three.js",
+  "description": "3D Portfolio/Resume Constructor with Three.js — Metroid Prime inspired interactive galaxy of your projects",
   "main": "index.html",
   "scripts": {
-    "copy-data": "mkdir -p src/data public/content && cp data/planets.json src/data/planets.json 2>/dev/null || true && cp data/tabs.json src/data/tabs.json 2>/dev/null || true && cp data/welcome.json src/data/welcome.json 2>/dev/null || true && cp -r content/* public/content/ 2>/dev/null || true",
+    "copy-data": "node scripts/copy-data.js",
     "dev": "npm run copy-data && vite",
     "build": "npm run copy-data && vite build",
     "preview": "vite preview"
   },
   "keywords": [
+    "3d-portfolio",
+    "portfolio-template",
+    "portfolio-website",
+    "developer-portfolio",
+    "threejs",
+    "webgl",
+    "github-pages",
+    "vite",
+    "interactive",
+    "resume-builder",
+    "metroid-prime",
+    "open-source",
     "portfolio",
     "resume",
-    "cv",
     "three.js",
     "3d",
-    "webgl",
-    "interactive",
     "galaxy",
     "space",
-    "metroid-prime",
-    "vite",
-    "javascript",
-    "frontend"
+    "javascript"
   ],
-  "author": "",
+  "author": "Dmitriy Kurilov (wantid)",
   "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wantid/galaxy-portfolio.git"
+  },
+  "homepage": "https://wantid.github.io/galaxy-portfolio/",
+  "bugs": {
+    "url": "https://github.com/wantid/galaxy-portfolio/issues"
+  },
   "dependencies": {
     "jspdf": "^3.0.4",
     "marked": "^11.1.1",

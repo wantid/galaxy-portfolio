@@ -1,5 +1,6 @@
 import { Scene3D } from './scene.js';
 import { Modal } from './modal.js';
+import { getPlanetSlug, parseRoute, setRoute } from './routes.js';
 import planetsData from './data/planets.json';
 import globalTabsData from './data/tabs.json';
 import welcomeData from './data/welcome.json';
@@ -19,7 +20,7 @@ class App {
     constructor() {
         this.scene3D = null;
         this.planets = [];
-        this.modal = new Modal();
+        this.modal = new Modal(() => this.onModalClose());
         this.globalTabsElement = document.getElementById('global-tabs');
         this.webglError = document.getElementById('webgl-error');
         this.appElement = document.getElementById('app');
@@ -39,6 +40,8 @@ class App {
         this.currentLanguage = this.getInitialLanguage();
         this.pdfFontData = null;
         this.exportSectionKeys = ['about', 'workExperience', 'projects', 'technicalSkills', 'education', 'contacts'];
+        this.pendingPlanetSlug = null;
+        this.suppressModalRoute = false;
         this.init();
     }
 
@@ -76,6 +79,8 @@ class App {
         }
         this.setupWelcomePage();
         this.setupEventListeners();
+        this.setupRouting();
+        this.handleInitialRoute();
     }
 
     setupWelcomePage() {
@@ -857,6 +862,7 @@ class App {
         
         this.playTransition(this.welcomePage, () => {
             this.showUniverse();
+            setRoute({ view: 'universe' });
         });
     }
 
@@ -868,7 +874,11 @@ class App {
                 this.scene3D.stopAnimation();
                 this.scene3D.setLabelsVisible(false);
             }
+            this.suppressModalRoute = true;
+            this.modal.hide();
+            this.suppressModalRoute = false;
             this.showWelcome();
+            setRoute({ view: 'welcome' });
         });
     }
 
@@ -1182,6 +1192,142 @@ class App {
         }
 
         this.currentView = 'universe';
+        this.openPendingPlanet();
+    }
+
+    showUniverseDirect() {
+        if (!checkWebGL()) {
+            this.showWebGLError();
+            return;
+        }
+
+        if (this.welcomePage) {
+            this.welcomePage.classList.add('hidden');
+        }
+
+        if (this.universeScene) {
+            this.universeScene.classList.remove('hidden');
+        }
+
+        if (this.authorLink) {
+            this.authorLink.classList.remove('hidden');
+        }
+
+        if (this.languageSwitcher) {
+            this.languageSwitcher.classList.add('hidden');
+        }
+
+        const pauseButton = document.getElementById('pause-time-button');
+        if (pauseButton) {
+            pauseButton.classList.remove('hidden');
+        }
+
+        const bottomActions = document.getElementById('welcome-bottom-actions');
+        if (bottomActions) {
+            bottomActions.classList.add('hidden');
+        }
+
+        if (!this.scene3D) {
+            this.initUniverse();
+        } else {
+            this.scene3D.startAnimation();
+            this.scene3D.setLabelsVisible(true);
+        }
+
+        this.currentView = 'universe';
+        this.openPendingPlanet();
+    }
+
+    getSortedPlanetsData() {
+        const data = [...planetsData];
+        data.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+        return data;
+    }
+
+    findPlanetBySlug(slug) {
+        if (!slug) return null;
+        const normalized = slug.toLowerCase();
+        return this.getSortedPlanetsData().find(
+            (planet) => getPlanetSlug(planet).toLowerCase() === normalized
+        ) || null;
+    }
+
+    openPlanetModal(planetData, updateRoute = true) {
+        if (!planetData) return;
+        this.modal.show(planetData);
+        if (updateRoute) {
+            setRoute({ view: 'planet', slug: getPlanetSlug(planetData) });
+        }
+    }
+
+    openPendingPlanet() {
+        if (!this.pendingPlanetSlug) return;
+        const slug = this.pendingPlanetSlug;
+        this.pendingPlanetSlug = null;
+        const planet = this.findPlanetBySlug(slug);
+        if (planet) {
+            this.openPlanetModal(planet, false);
+            setRoute({ view: 'planet', slug });
+        }
+    }
+
+    onModalClose() {
+        if (this.suppressModalRoute) return;
+        if (this.currentView === 'universe') {
+            setRoute({ view: 'universe' });
+        }
+    }
+
+    setupRouting() {
+        window.addEventListener('hashchange', () => {
+            this.handleRouteChange();
+        });
+    }
+
+    handleInitialRoute() {
+        const route = parseRoute(window.location.hash);
+        if (!route) return;
+
+        if (route.view === 'planet') {
+            this.pendingPlanetSlug = route.slug;
+            this.showUniverseDirect();
+        } else if (route.view === 'universe') {
+            this.showUniverseDirect();
+        }
+    }
+
+    handleRouteChange() {
+        const route = parseRoute(window.location.hash);
+        if (!route) return;
+
+        if (route.view === 'welcome') {
+            if (this.currentView !== 'welcome' && !this.isTransitioning) {
+                this.transitionToWelcome();
+            }
+            return;
+        }
+
+        if (route.view === 'universe') {
+            if (this.currentView === 'welcome' && !this.isTransitioning) {
+                this.showUniverseDirect();
+                setRoute({ view: 'universe' });
+            } else if (this.currentView === 'universe') {
+                this.modal.hide();
+            }
+            return;
+        }
+
+        if (route.view === 'planet') {
+            if (this.currentView === 'welcome') {
+                this.pendingPlanetSlug = route.slug;
+                this.showUniverseDirect();
+            } else if (this.currentView === 'universe') {
+                const planet = this.findPlanetBySlug(route.slug);
+                if (planet) {
+                    this.openPlanetModal(planet, false);
+                }
+            }
+        }
     }
 
     showWelcome() {
@@ -1220,16 +1366,12 @@ class App {
     }
 
     initUniverse() {
-        let data = planetsData;
+        let data = this.getSortedPlanetsData();
         
         if (!data || data.length === 0) {
             console.warn('No planets data loaded!');
             return;
         }
-        
-        data.sort((a, b) => {
-            return new Date(b.startDate) - new Date(a.startDate);
-        });
         
         this.scene3D = new Scene3D(document.getElementById('app'));
         
@@ -1239,7 +1381,7 @@ class App {
         });
         
         this.scene3D.onPlanetClick = (planetData) => {
-            this.modal.show(planetData);
+            this.openPlanetModal(planetData);
         };
 
         this.setupGlobalTabs(globalTabsData);

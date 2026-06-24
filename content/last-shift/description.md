@@ -33,13 +33,7 @@
 
 ## Скриншоты
 
-![Скриншот 1](content/last-shift/0.jpg)
-
-![Скриншот 2](content/last-shift/1.jpg)
-
-![Скриншот 3](content/last-shift/2.jpg)
-
-![Скриншот 4](content/last-shift/3.jpg)
+Скриншоты из живой игры доступны в [репозитории на GitHub](https://github.com/wantid/last-shift).
 
 ## Ссылки
 

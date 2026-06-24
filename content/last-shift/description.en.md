@@ -33,13 +33,7 @@ Most of the time on the phone is spent on Telegram, and besides that — games. 
 
 ## Screenshots
 
-![Screenshot 1](content/last-shift/0.jpg)
-
-![Screenshot 2](content/last-shift/1.jpg)
-
-![Screenshot 3](content/last-shift/2.jpg)
-
-![Screenshot 4](content/last-shift/3.jpg)
+Screenshots from the live game are available in the [GitHub repository](https://github.com/wantid/last-shift).
 
 ## Links
 
