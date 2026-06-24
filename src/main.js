@@ -1,6 +1,7 @@
 import { Scene3D } from './scene.js';
 import { Modal } from './modal.js';
 import { getPlanetSlug, parseRoute, setRoute } from './routes.js';
+import { migrateLanguageCode, renderFlag, renderBrandIcon, resolveLinkIcon } from './icons.js';
 import planetsData from './data/planets.json';
 import globalTabsData from './data/tabs.json';
 import welcomeData from './data/welcome.json';
@@ -47,14 +48,19 @@ class App {
 
     getInitialLanguage() {
         const availableLanguages = Object.keys(welcomeData);
-        if (availableLanguages.length === 0) return '🇺🇸';
-        
+        if (availableLanguages.length === 0) return 'en';
+
         const savedLanguage = localStorage.getItem('galaxy-portfolio-language');
-        
-        if (savedLanguage && availableLanguages.includes(savedLanguage)) {
-            return savedLanguage;
+        if (savedLanguage) {
+            const migrated = migrateLanguageCode(savedLanguage);
+            if (migrated !== savedLanguage) {
+                localStorage.setItem('galaxy-portfolio-language', migrated);
+            }
+            if (availableLanguages.includes(migrated)) {
+                return migrated;
+            }
         }
-        
+
         return availableLanguages[0];
     }
 
@@ -194,9 +200,13 @@ class App {
         let switcherHtml = '';
         languages.forEach(lang => {
             const isActive = lang === this.currentLanguage;
+            const langData = welcomeData[lang];
+            const flagCode = langData?.flag || lang;
+            const label = lang.toUpperCase();
             switcherHtml += `
-                <button class="language-button ${isActive ? 'active' : ''}" data-lang="${lang}">
-                    ${lang}
+                <button class="language-button ${isActive ? 'active' : ''}" data-lang="${lang}" aria-label="${label}">
+                    ${renderFlag(flagCode)}
+                    <span class="language-code">${label}</span>
                 </button>
             `;
         });
@@ -295,9 +305,9 @@ class App {
         const margin = 20;
         const contentWidth = pageWidth - (margin * 2);
         let yPos = margin;
-        const pdfLocale = this.currentLanguage === '🇷🇺' ? 'ru-RU' : this.currentLanguage === '🇷🇸' ? 'sr-Latn-RS' : 'en-US';
-        const presentLabel = this.currentLanguage === '🇷🇺' ? 'По настоящее время' : this.currentLanguage === '🇷🇸' ? 'Trenutno' : 'Present';
-        const useStyledRichText = !!fontData || this.currentLanguage === '🇺🇸';
+        const pdfLocale = this.currentLanguage === 'ru' ? 'ru-RU' : this.currentLanguage === 'sr' ? 'sr-Latn-RS' : 'en-US';
+        const presentLabel = this.currentLanguage === 'ru' ? 'По настоящее время' : this.currentLanguage === 'sr' ? 'Trenutno' : 'Present';
+        const useStyledRichText = !!fontData || this.currentLanguage === 'en';
 
         const preparePdfText = (text) => {
             if (text === null || text === undefined) return '';
@@ -801,8 +811,11 @@ class App {
 
         if (langData.contacts.links) {
             langData.contacts.links.forEach(link => {
+                const iconSlug = resolveLinkIcon(link);
+                const iconHtml = iconSlug ? renderBrandIcon(iconSlug, { size: 22 }) : '';
                 contactsHtml += `
                     <a href="${link.url}" target="_blank" rel="noopener" class="contact-link">
+                        ${iconHtml}
                         <span class="contact-name">${link.name}</span>
                     </a>
                 `;
@@ -1398,7 +1411,17 @@ class App {
             }
             const button = document.createElement('button');
             button.className = 'global-tab-button';
-            button.textContent = tab.label;
+
+            if (tab.icon || (tab.type === 'link' && tab.href)) {
+                const iconSlug = tab.icon || resolveLinkIcon({ url: tab.href });
+                if (iconSlug) {
+                    button.innerHTML = `${renderBrandIcon(iconSlug, { size: 16, useBrandColor: false })}<span>${tab.label}</span>`;
+                } else {
+                    button.textContent = tab.label;
+                }
+            } else {
+                button.textContent = tab.label;
+            }
             
             if (tab.type === 'home') {
                 button.addEventListener('click', () => {

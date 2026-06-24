@@ -29,7 +29,8 @@
   {
     "label": "GitHub",
     "type": "link",
-    "href": "https://github.com/wantid"
+    "href": "https://github.com/wantid",
+    "icon": "github"
   }
 ]
 

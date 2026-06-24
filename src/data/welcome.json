@@ -1,5 +1,6 @@
 {
-  "🇺🇸": {
+  "en": {
+    "flag": "us",
     "hero": {
       "name": "Dmitry Kurilov",
       "title": "Full-Stack Developer & Tech Lead",
@@ -225,20 +226,19 @@
       "title": "Links",
       "links": [
         {
-          "name": "Portfolio",
-          "url": "https://wantid.github.io/galaxy-portfolio/"
-        },
-        {
           "name": "GitHub",
-          "url": "https://github.com/wantid"
+          "url": "https://github.com/wantid",
+          "icon": "github"
         },
         {
           "name": "Telegram",
-          "url": "https://t.me/DemasikOnFlex"
+          "url": "https://t.me/DemasikOnFlex",
+          "icon": "telegram"
         },
         {
           "name": "WhatsApp",
-          "url": "https://wa.me/79175743220"
+          "url": "https://wa.me/79175743220",
+          "icon": "whatsapp"
         }
       ]
     },
@@ -250,7 +250,8 @@
       "confirm": "Export PDF"
     }
   },
-  "🇷🇺": {
+  "ru": {
+    "flag": "ru",
     "hero": {
       "name": "Дмитрий Курилов",
       "title": "Full-Stack Developer & Tech Lead",
@@ -476,20 +477,19 @@
       "title": "Ссылки",
       "links": [
         {
-          "name": "Portfolio",
-          "url": "https://wantid.github.io/galaxy-portfolio/"
-        },
-        {
           "name": "GitHub",
-          "url": "https://github.com/wantid"
+          "url": "https://github.com/wantid",
+          "icon": "github"
         },
         {
           "name": "Telegram",
-          "url": "https://t.me/DemasikOnFlex"
+          "url": "https://t.me/DemasikOnFlex",
+          "icon": "telegram"
         },
         {
           "name": "WhatsApp",
-          "url": "https://wa.me/79175743220"
+          "url": "https://wa.me/79175743220",
+          "icon": "whatsapp"
         }
       ]
     },
@@ -501,7 +501,8 @@
       "confirm": "Экспорт PDF"
     }
   },
-  "🇷🇸": {
+  "sr": {
+    "flag": "rs",
     "hero": {
       "name": "Dmitrii Kurilov",
       "title": "Full-Stack programer i tehnički lider",
@@ -727,20 +728,19 @@
       "title": "Linkovi",
       "links": [
         {
-          "name": "Portfolio",
-          "url": "https://wantid.github.io/galaxy-portfolio/"
-        },
-        {
           "name": "GitHub",
-          "url": "https://github.com/wantid"
+          "url": "https://github.com/wantid",
+          "icon": "github"
         },
         {
           "name": "Telegram",
-          "url": "https://t.me/DemasikOnFlex"
+          "url": "https://t.me/DemasikOnFlex",
+          "icon": "telegram"
         },
         {
           "name": "WhatsApp",
-          "url": "https://wa.me/79175743220"
+          "url": "https://wa.me/79175743220",
+          "icon": "whatsapp"
         }
       ]
     },

@@ -26,7 +26,8 @@
 - **3D galaxy** — each project or job is a planet orbiting the sun; click to open Markdown details
 - **JSON-driven** — edit `data/welcome.json`, `data/planets.json`, and `content/` — no code changes needed
 - **Welcome page** — classic CV layout for recruiters; export selected sections to PDF
-- **Multilingual** — add languages with flag emoji keys in `welcome.json` (demo: EN / RU / SR)
+- **Multilingual** — locale keys (`en`, `ru`, `sr`) with SVG country flags via [flag-icons](https://github.com/lipis/flag-icons)
+- **Brand icons** — GitHub, Telegram, WhatsApp and more in contacts and tabs via [Simple Icons](https://simpleicons.org/)
 - **Zero backend** — fork, customize, push to `main` → [GitHub Actions](.github/workflows/deploy.yml) deploys to Pages
 - **Deep links** — share a project: `#/planet/galaxy-portfolio`
 - **Mobile-friendly** — touch planet clicks, responsive welcome page
@@ -83,7 +84,7 @@ See [`docs/MEDIA.md`](docs/MEDIA.md) for which images and GIFs to prepare.
 
 ### Welcome page
 
-- **Language switcher** — top-right flag buttons (saved in `localStorage`)
+- **Language switcher** — top-right flag + locale code buttons (saved in `localStorage`)
 - **Download CV** — export selected sections to PDF
 - **Explore My Work** — animated transition into the 3D universe
 

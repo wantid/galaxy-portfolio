@@ -63,6 +63,7 @@ Configure the top panel via [`data/tabs.json`](../data/tabs.json).
 | `type` | `"home"` \| `"modal"` \| `"link"` | Behavior |
 | `name` | string | Modal title (for `modal` type) |
 | `href` | string | URL (for `link` type) |
+| `icon` | string | Optional [Simple Icons](https://simpleicons.org/) slug (e.g. `github`) for `link` tabs |
 | `tabs` | array | Tab schema (for `modal` type) |
 | `startDate` / `endDate` / `dateLabel` | optional | Shown in modal header |
 
@@ -72,9 +73,17 @@ Configure the top panel via [`data/tabs.json`](../data/tabs.json).
 
 ## Welcome page
 
-Configured via [`data/welcome.json`](../data/welcome.json). Supports multiple languages using flag emoji as top-level keys (e.g. `"🇺🇸"`, `"🇷🇺"`).
+Configured via [`data/welcome.json`](../data/welcome.json). Supports multiple languages using locale codes as top-level keys (e.g. `"en"`, `"ru"`, `"sr"`).
+
+Each language block includes a `flag` field — ISO 3166-1 alpha-2 country code for the language switcher ([flag-icons](https://github.com/lipis/flag-icons)): `us`, `ru`, `rs`, etc.
 
 ### Language object structure
+
+Top-level per language:
+
+| Field | Description |
+|-------|-------------|
+| `flag` | Country code for switcher button (e.g. `"us"` for English) |
 
 #### `hero` — Personal information
 
@@ -145,7 +154,15 @@ Each project:
 | Field | Description |
 |-------|-------------|
 | `title` | Section title |
-| `links` | Array of `{ name, url }` |
+| `links` | Array of `{ name, url, icon? }` |
+
+Each contact link:
+
+| Field | Description |
+|-------|-------------|
+| `name` | Link label (e.g. "GitHub", "Telegram") |
+| `url` | Full URL |
+| `icon` | Optional [Simple Icons](https://simpleicons.org/) slug (`github`, `telegram`, `whatsapp`, `linkedin`, …). Auto-detected from URL if omitted |
 
 #### Buttons
 
@@ -171,10 +188,11 @@ Each language object can include `exportSections` with labels for the PDF sectio
 ## Adding a language
 
 1. Copy an existing language block in `data/welcome.json`
-2. Change the top-level key to a flag emoji (e.g. `"🇩🇪"`)
-3. Translate all strings
-4. Add corresponding Markdown files under `content/` if needed
-5. Run `npm run copy-data`
+2. Change the top-level key to a locale code (e.g. `"de"`)
+3. Set `"flag": "de"` (ISO country code; add SVG import in [`src/icons.js`](../src/icons.js) for new flags)
+4. Translate all strings
+5. Add corresponding Markdown files under `content/` if needed
+6. Run `npm run copy-data`
 
 The first language in the file is the default. User preference is saved in `localStorage` under `galaxy-portfolio-language`.
 

@@ -115,6 +115,9 @@ body {
 }
 
 .global-tab-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     border: 1px solid rgba(0, 255, 255, 0.4);
     background: rgba(0, 20, 40, 0.6);
     color: #9ff;
@@ -938,6 +941,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     padding: 20px 24px;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -958,6 +962,15 @@ body {
 .contact-name {
     font-size: 1rem;
     font-weight: 500;
+}
+
+.icon-brand {
+    flex-shrink: 0;
+    display: block;
+}
+
+.global-tab-button .icon-brand {
+    flex-shrink: 0;
 }
 
 .welcome-bottom-actions {
@@ -1010,15 +1023,31 @@ body {
 }
 
 .language-button {
-    padding: 8px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
     background: rgba(255, 255, 255, 0.9);
     border: 2px solid rgba(0, 102, 204, 0.2);
     border-radius: 6px;
-    font-size: 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4px);
+}
+
+.language-button .flag-icon {
+    width: 20px;
+    height: 15px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+}
+
+.language-code {
+    letter-spacing: 0.04em;
 }
 
 .language-button:hover {

@@ -42,8 +42,10 @@
     "url": "https://github.com/wantid/galaxy-portfolio/issues"
   },
   "dependencies": {
+    "flag-icons": "^7.5.0",
     "jspdf": "^3.0.4",
     "marked": "^11.1.1",
+    "simple-icons": "^16.24.0",
     "three": "^0.160.1"
   },
   "devDependencies": {
