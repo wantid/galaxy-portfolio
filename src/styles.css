@@ -549,7 +549,7 @@ body {
     width: 100%;
     height: 100%;
     background: #fafafa;
-    overflow-y: auto;
+    overflow: hidden auto;
     z-index: 100;
     padding-bottom: 100px;
     box-sizing: border-box;
