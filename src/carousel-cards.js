@@ -108,17 +108,21 @@ function setupDragScroll(trackElement) {
     let lastX = 0;
     let lastTime = 0;
     let velocity = 0;
-    let momentumFrame = null;
+    let rafId = null;
 
     const DRAG_SENSITIVITY = 0.92;
     const MOMENTUM_MULTIPLIER = 14;
     const MOMENTUM_FRICTION = 0.94;
     const MOMENTUM_MIN_VELOCITY = 0.35;
+    // Plynnoe dovedenie do snap-tochki
+    const SNAP_MIN_DURATION = 280;
+    const SNAP_MAX_DURATION = 620;
+    const SNAP_DURATION_PER_PX = 0.7;
 
-    const cancelMomentum = () => {
-        if (momentumFrame !== null) {
-            cancelAnimationFrame(momentumFrame);
-            momentumFrame = null;
+    const cancelAnimation = () => {
+        if (rafId !== null) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
         }
     };
 
@@ -131,23 +135,89 @@ function setupDragScroll(trackElement) {
         trackElement.style.scrollSnapType = enabled ? '' : 'none';
     };
 
-    const runMomentum = () => {
-        if (Math.abs(velocity) < MOMENTUM_MIN_VELOCITY) {
-            momentumFrame = null;
+    // Blizhaishaya snap-pozitsiya (uchityvaet scroll-padding i vyravnivanie po levomu krayu kartochki)
+    const getNearestSnapPosition = (reference) => {
+        const cards = trackElement.querySelectorAll('[data-card]');
+        if (!cards.length) return null;
+
+        const styles = getComputedStyle(trackElement);
+        const padding = parseFloat(styles.scrollPaddingLeft) || 0;
+        const trackLeft = trackElement.getBoundingClientRect().left;
+        const current = trackElement.scrollLeft;
+
+        let best = null;
+        let bestDist = Infinity;
+
+        cards.forEach((card) => {
+            const cardLeft = card.getBoundingClientRect().left;
+            const snap = clampScroll(current + (cardLeft - trackLeft) - padding);
+            const dist = Math.abs(snap - reference);
+            if (dist < bestDist) {
+                bestDist = dist;
+                best = snap;
+            }
+        });
+
+        return best;
+    };
+
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    // Plavnyi tween do tselevoi pozitsii, posle - vozvrat CSS scroll-snap
+    const animateToTarget = (target) => {
+        cancelAnimation();
+
+        const start = trackElement.scrollLeft;
+        const distance = target - start;
+
+        if (Math.abs(distance) < 1) {
+            trackElement.scrollLeft = target;
             setSnapEnabled(true);
             return;
         }
 
-        trackElement.scrollLeft = clampScroll(trackElement.scrollLeft + velocity);
-        velocity *= MOMENTUM_FRICTION;
-        momentumFrame = requestAnimationFrame(runMomentum);
+        const duration = Math.min(
+            SNAP_MAX_DURATION,
+            Math.max(SNAP_MIN_DURATION, Math.abs(distance) * SNAP_DURATION_PER_PX)
+        );
+        const startTime = performance.now();
+
+        const step = (now) => {
+            const t = Math.min((now - startTime) / duration, 1);
+            trackElement.scrollLeft = start + distance * easeOutCubic(t);
+
+            if (t < 1) {
+                rafId = requestAnimationFrame(step);
+            } else {
+                rafId = null;
+                trackElement.scrollLeft = target;
+                setSnapEnabled(true);
+            }
+        };
+
+        rafId = requestAnimationFrame(step);
+    };
+
+    // Predskazyvaem tochku ostanovki inertsii i plavno snapim k blizhaishei kartochke
+    const settleToSnap = () => {
+        const projected = clampScroll(
+            trackElement.scrollLeft + velocity / (1 - MOMENTUM_FRICTION)
+        );
+        const target = getNearestSnapPosition(projected);
+
+        if (target === null) {
+            setSnapEnabled(true);
+            return;
+        }
+
+        animateToTarget(target);
     };
 
     const onMouseDown = (event) => {
         if (event.button !== 0) return;
         if (isInteractiveDragTarget(event.target)) return;
 
-        cancelMomentum();
+        cancelAnimation();
         isDragging = true;
         hasDragged = false;
         lastX = event.pageX;
@@ -185,8 +255,9 @@ function setupDragScroll(trackElement) {
         isDragging = false;
         trackElement.classList.remove('is-dragging');
 
-        if (hasDragged && Math.abs(velocity) >= MOMENTUM_MIN_VELOCITY) {
-            momentumFrame = requestAnimationFrame(runMomentum);
+        // Posle lyubogo peremescheniya - plavno dovodim do blizhaishei kartochki
+        if (hasDragged) {
+            settleToSnap();
             return;
         }
 
@@ -206,7 +277,7 @@ function setupDragScroll(trackElement) {
     trackElement.addEventListener('click', onClickCapture, true);
 
     return () => {
-        cancelMomentum();
+        cancelAnimation();
         trackElement.removeEventListener('mousedown', onMouseDown);
         window.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('mouseup', endDrag);
