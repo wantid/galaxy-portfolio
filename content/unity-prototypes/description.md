@@ -1,10 +1,12 @@
 # Unity Prototypes
 
-Коллекция мелких геймдев-прототипов, созданных в свободное от учёбы время в университете с **9 июля 2019** по **27 марта 2021**. Эти проекты были экспериментами с различными механиками, жанрами и технологиями Unity.
+Небольшие геймдев-прототипы в свободное от учёбы время. Июль 2019 – март 2021.
+
+Эксперименты с механиками, жанрами и возможностями Unity.
 
 ## 13 февраля 2021 — Active Ragdoll
 
-Прототип игры с персонажем Active Ragdoll. Эксперимент с физикой движка Unity и изучение HDRP (High Definition Render Pipeline) в Unity.
+Персонаж Active Ragdoll. Эксперименты с физикой и HDRP.
 
 <video controls>
   <source src="content/unity-prototypes/ragdoll_1.mp4" type="video/mp4">
@@ -16,7 +18,7 @@
 
 ## 5 июля 2020 — Underground Settlers
 
-RPG прототип игры с простой симуляцией жизни у NPC. Эксперимент с созданием живого мира и взаимодействием с персонажами.
+RPG-прототип с простой симуляцией жизни NPC.
 
 <video controls>
   <source src="content/unity-prototypes/underground_settlers_1.mp4" type="video/mp4">
@@ -26,9 +28,9 @@ RPG прототип игры с простой симуляцией жизни 
   <source src="content/unity-prototypes/underground_settlers_2.mp4" type="video/mp4">
 </video>
 
-## 4 октября 2019 — Симулятор студента
+## 4 октября 2019 — Student Simulator
 
-Симулятор студента с механиками тамагочи: управление студентом в 3D внутри его комнаты и 2D карточная игра в стиле Reigns с выбором вариантов.
+Симулятор студента в духе тамагочи: 3D-комната и 2D card game в стиле Reigns.
 
 <video controls>
   <source src="content/unity-prototypes/student_1.mp4" type="video/mp4">
@@ -38,17 +40,17 @@ RPG прототип игры с простой симуляцией жизни 
   <source src="content/unity-prototypes/student_2.mp4" type="video/mp4">
 </video>
 
-## 7 сентября 2019 — 3D Кликер с элементами RPG
+## 7 сентября 2019 — 3D Clicker with RPG Elements
 
-3D кликер с элементами RPG и воксельной графикой. Эксперимент с жанром clicker-игр и воксельным стилем.
+Воксельный кликер с лёгким RPG-слоем.
 
 <video controls>
   <source src="content/unity-prototypes/clicker_1.mp4" type="video/mp4">
 </video>
 
-## Июль 2019 — 2D Платформер
+## Июль 2019 — 2D Platformer
 
-2D платформер в стиле Dangerous Dave. Классическая механика прыжков и перемещения по уровням.
+Классический платформер в духе Dangerous Dave.
 
 <video controls>
   <source src="content/unity-prototypes/platformer_1.mp4" type="video/mp4">

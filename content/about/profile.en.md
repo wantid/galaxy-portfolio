@@ -1,65 +1,55 @@
-# Dmitry Kurilov (wantid)
+# Dmitrii Kurilov
 
-Full-Stack Developer & Tech Lead
+Senior Full-Stack Developer | React, Node.js, Python | Team Lead
+
+Belgrade, Serbia
 
 ## About Me
 
-Full-Stack developer with experience in web development, mobile applications, industrial automation, and game industry. I specialize in creating scalable solutions, process automation, and user interface development.
+I am a Senior Full-Stack Developer and Software Engineer with 4+ years building B2B SaaS web and mobile products. I write production code in React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker, and CI/CD. React Native for iOS and Android.
 
-I have experience leading teams, organizing development processes, and working with outsourced teams. I actively work on experimental projects in my free time, including game development, Telegram bots, and prototypes of various mechanics.
+At Anima (PropTech) I build and ship software across the full stack. I joined in 2023, grew into team lead, and now work with a team of 7 on microservices platforms for smart offices and business centers. Shipped mobile apps to the App Store and Google Play, kiosk apps for wall panels, and on-premise rollouts at 5 enterprise client sites. I still code daily: REST APIs, frontend features, mobile screens, GitLab CI/CD pipelines.
+
+Stack I use in production: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, system architecture.
+
+Open to new opportunities as a Full-Stack Developer or Engineering Team Lead.
 
 ## Work Experience
 
-### Anima Technologies (June 2023 — present)
+### Anima Technologies (June 2023 – present)
 
-**Development Team Lead** (August 2025 — present)
-- Led the transition from outsourcing to in-house development, forming and leading a team to create a booking system
-- Organized and implemented development processes: set up GitLab Enterprise with CI/CD pipelines
-- Developed a mobile application on React Native (iOS/Android) with publication to app stores
-- Acted as a technical consultant on architectural decisions
+**System Architect & Development Team Lead**
 
-**Full-Stack Developer** (January 2024 — August 2025)
-- Designed architecture and key processes for a new startup project
-- Created working prototypes on React.js/Express.js for hypothesis validation
-- Managed an outsourced team, making strategic decisions on product development
+Joined to shape a new B2B product. From 2024 lead an in-house team of 7. Shipped smart-office platform: 2 React Native apps in the stores, kiosk apps, GitLab CI/CD, 5 enterprise on-premise rollouts. Designing Smart Business Center on microservices.
 
-**Tools Developer** (June 2023 — January 2024)
-- Automated internal company processes
-- Implemented integrations with KNX and MQTT protocols
-- Developed Telegram bots for notifications
+### DMITRII KURILOV PR (February 2026 – present)
 
-### UNECOM Engineering (October 2022 — August 2023)
+**Founder & Software Developer**
 
-**Programmer**
-- Development of tooling and reusable modules for the iRidium platform (Smart Home)
-- Created a JavaScript framework for accelerated development of UI control panels for smart homes
-- Developed a library of universal server modules in JavaScript
+Independent games and apps (Godot, React Native) for PC, iOS, and Android.
 
-### Gazprom Automation (April 2022 — October 2022)
+### UNECOM Engineering (October 2022 – June 2023)
 
-**1st Category Engineer-Programmer**
-- Development of reusable solutions for industrial automation systems
-- Created a universal framework for developing operator panel interfaces
-- Developed a library of reusable function blocks in Structured Text
+**Software Engineer**
 
-## Personal Projects
+Internal JS tooling, UI framework for control panels, reusable server-side modules.
 
-- **Galaxy Portfolio** (2025) — experimental 3D portfolio on Three.js
-- **VBS** (2022-2023) — student project, action-adventure game on Unity
-- **Last Shift** (2025) — Telegram bot game with multiplayer
-- **Notifier** (2025) — Telegram bot for task reminders
-- **Unity Prototypes** (2019-2021) — collection of game prototypes
-- **Idle Action Farm** (2022) — hypercasual game prototype
+### Gazprom (April 2022 – October 2022)
 
-## Interests
+**Software Engineer**
 
-- Game development
-- Web technologies and mobile development
-- Automation and IoT
-- Experimental projects and prototyping
+Internal UI frameworks and reusable code libraries.
+
+## Selected Projects
+
+- Smart Office Platform / Mobile App / Booking Panel
+- Smart Business Center Ecosystem (in development)
+- OfficeNext Exhibition App (MVP in 2 weeks)
+- Galaxy Portfolio, Notifier, Object24, Last Shift
 
 ## Contacts
 
+- **Portfolio**: [wantid.github.io/galaxy-portfolio](https://wantid.github.io/galaxy-portfolio/)
 - **GitHub**: [@wantid](https://github.com/wantid)
 - **Telegram**: [@DemasikOnFlex](https://t.me/DemasikOnFlex)
-
+- **Email**: mr.wantid@gmail.com

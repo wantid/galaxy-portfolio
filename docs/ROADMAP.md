@@ -22,6 +22,7 @@ Planned improvements for Galaxy Portfolio. Completed items are kept for referenc
 - [ ] Filter labels by planet tags
 - [ ] Flexible date formats (e.g. `13 Aug 2025`, `Aug – Sep 2025`)
 - [ ] Showcase section in README ("Built with Galaxy Portfolio")
+- [ ] Fetch github repos for planet auto generation
 
 ## Ideas
 

@@ -1,9 +1,15 @@
-## Galaxy Portfolio
+# Galaxy Portfolio
 
-Galaxy Portfolio — это экспериментальный 3D‑портфолио/резюме на Three.js, в котором каждая планета представляет отдельный проект или опыт работы, а клик по планете открывает модальное окно с подробностями.
+Интерактивное 3D-портфолио на Three.js.
 
-Этот проект я собрал за один вечер — **25 ноября 2025 года**.
+Старт: 25 ноября 2025.
 
-Код проекта открыт на GitHub: [wantid/galaxy-portfolio](https://github.com/wantid/galaxy-portfolio).
+---
 
+Каждая планета — проект или место работы. По клику открываются детали. Welcome-страница — полноценное резюме с выгрузкой в PDF.
 
+Хостится на GitHub Pages. Конфиг — JSON + Markdown, без бэкенда.
+
+Open source: [wantid/galaxy-portfolio](https://github.com/wantid/galaxy-portfolio)
+
+Live: [wantid.github.io/galaxy-portfolio](https://wantid.github.io/galaxy-portfolio/)

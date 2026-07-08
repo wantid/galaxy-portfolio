@@ -1,26 +1,21 @@
 # UNECOM Engineering
 
-**Programmer**
+**Software Engineer**
 
 [une-com.ru](https://une-com.ru/)
 
+October 2022 – June 2023
+
 ---
 
-Development of tooling and reusable modules for the iRidium platform (Smart Home).
+Built internal developer tooling and reusable JavaScript modules.
 
-## iRidium Studio Toolchain
+Designed a JavaScript framework that sped up development of interactive UI control panels.
 
-Created a JavaScript framework for accelerated development of UI control panels for smart homes:
+Developed a library of reusable server-side modules. Improved code reuse and delivery speed across projects.
 
-- **Auto-Build System** — automatic building and adaptive layout for any device
-- **Excel Parser** — import of configurations and data from Excel spreadsheets
-- **Modular Architecture** — modular structure for component reuse
+# Stack
 
-## iRidium Server Modules
-
-Developed a library of universal server modules in JavaScript:
-
-- **Scene Engine** — centralized module for managing scenes and scripts with extensible architecture
-- **Scheduler Module** — system for user schedules and automations
-- **Leak Detection System** — module for monitoring leak sensors
-
+- JavaScript
+- Node.js
+- REST APIs

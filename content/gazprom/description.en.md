@@ -1,24 +1,18 @@
-# Gazprom Automation
+# Gazprom
 
-**1st Category Engineer-Programmer**
+**Software Engineer**
 
-[gazauto.gazprom.ru](https://www.gazauto.gazprom.ru/)
+April 2022 – October 2022
 
 ---
 
-Development of reusable solutions and tooling for industrial automation systems.
+Developed internal software frameworks and reusable code libraries.
 
-## HMI Development (Weintek / EasyBuilder Pro)
+Designed a UI framework for building interface applications.
 
-Created a universal framework for developing operator panel interfaces:
+Created a library of reusable software modules. Standardized how interface apps were built and cut delivery time across projects.
 
-- **Template Engine** — standard template project that speeds up development of new interfaces
-- **Auth Module** — authorization and panel locking module with access rights management
+# Stack
 
-## PLC Programming (SCADA Tekon / ST)
-
-Developed a library of reusable function blocks in Structured Text:
-
-- **AVR & Rotation Block** — universal block for controlling actuators with support for automatic backup and rotation modes
-- **Industrial Templates** — set of typical algorithms for standard automation objects
-
+- JavaScript
+- C++

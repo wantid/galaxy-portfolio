@@ -1,14 +1,23 @@
-## notifier-tg-bot
+# Notifier
 
-notifier-tg-bot is a Telegram bot for task reminders that helps a person move towards a big goal in small steps.
+Telegram bot for task reminders.
 
-The bot allows you to configure the **mood** of reminders (from gentle support to strict discipline) and the **frequency** of notifications to find the optimal pace and tone of communication that suits you.
+July – August 2025
 
-Technically, it's a Node.js application based on the **Telegraf** framework, using **PostgreSQL** as storage. The project is packaged in Docker and deployed via **docker-compose**: separate services for the bot and database, working in a common network, with configuration through environment variables.
+---
 
-The bot is deployed as a standalone service and can be managed through Portainer/Stacks, which simplifies updates and maintenance in production.
+Helps you move toward a bigger goal in small steps. You can set reminder tone (from gentle support to strict discipline) and how often you get notified.
+
+Node.js app on Telegraf with PostgreSQL. Packaged in Docker and deployed with docker-compose. Can be managed through Portainer/Stacks.
+
+# Stack
+
+- Node.js
+- Telegraf
+- PostgreSQL
+- Docker / docker-compose
+- GitHub Actions
 
 ## Links
 
-- [@notifier_exersitus_bot](https://t.me/notifier_exersitus_bot) — Telegram bot
-
+- [@notifier_exersitus_bot](https://t.me/notifier_exersitus_bot)

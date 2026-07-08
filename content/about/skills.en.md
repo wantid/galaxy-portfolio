@@ -1,35 +1,35 @@
 # Skills and Technologies
 
 ## Frontend
-- **JavaScript/TypeScript** — advanced level
-- **React.js** / **Next.js** — creating web applications and prototypes
-- **React Native** (iOS/Android) — mobile app development with publication to app stores
-- **HTML/CSS** — layout and styling
+- React.js / Next.js
+- TypeScript / JavaScript
+- React Native (iOS/Android)
+- Redux Toolkit / Redux / MobX
+- Expo / React Navigation
 
 ## Backend
-- **Node.js** / **Express.js** — server-side development, REST API
-- **Django** / **Python** — web frameworks
-- **PostgreSQL** — relational databases
-- **MongoDB** — NoSQL databases
-- **Telegram Bots** (Telegraf)
-
-## Game Development
-- **Unity** — game development (C#)
-- **Godot** — game development (GDScript)
-- **Procedural Generation** — content generation algorithms
+- Node.js / Express.js
+- Python / Django
+- Celery
+- REST APIs / microservices
+- PostgreSQL / Redis / MongoDB
+- WebSocket
+- Telegram Bots (Telegraf)
+- C++ / C
 
 ## DevOps & Tools
-- **Git** / **GitLab Enterprise** / **GitHub** — version control systems
-- **Docker** / **Docker Compose** — containerization and orchestration
-- **CI/CD** — pipeline setup (GitLab CI)
-- **Linux** / **Bash** — command line work
+- Docker / Docker Compose
+- CI/CD (GitLab Enterprise, GitHub Actions)
+- Git / GitHub / GitLab
+- Linux / Bash / Nginx
 
-## Soft Skills
-- Team leadership and development management
-- Architectural design and system design
-- Solving complex technical problems
-- Working with outsourced teams and project coordination
+## Leadership & Architecture
+- System Architecture / System Design
+- Team Leadership
 - Technical consulting
-- Organizing development processes (CI/CD, Git workflows)
-- Creating reusable solutions and frameworks
+- Working with outsourced teams
 
+## Game Development
+- Godot / GDScript
+- Unity / C#
+- Procedural generation

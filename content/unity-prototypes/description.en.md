@@ -1,10 +1,12 @@
 # Unity Prototypes
 
-A collection of small game development prototypes created in free time from university studies from **July 9, 2019** to **March 27, 2021**. These projects were experiments with various mechanics, genres, and Unity technologies.
+Small game prototypes made in free time at university. July 2019 – March 2021.
+
+Experiments with mechanics, genres, and Unity features.
 
 ## February 13, 2021 — Active Ragdoll
 
-A game prototype with an Active Ragdoll character. An experiment with Unity engine physics and studying HDRP (High Definition Render Pipeline) in Unity.
+Active Ragdoll character. Physics experiments and HDRP.
 
 <video controls>
   <source src="content/unity-prototypes/ragdoll_1.mp4" type="video/mp4">
@@ -16,7 +18,7 @@ A game prototype with an Active Ragdoll character. An experiment with Unity engi
 
 ## July 5, 2020 — Underground Settlers
 
-An RPG game prototype with simple NPC life simulation. An experiment with creating a living world and interacting with characters.
+RPG prototype with simple NPC life simulation.
 
 <video controls>
   <source src="content/unity-prototypes/underground_settlers_1.mp4" type="video/mp4">
@@ -28,7 +30,7 @@ An RPG game prototype with simple NPC life simulation. An experiment with creati
 
 ## October 4, 2019 — Student Simulator
 
-A student simulator with Tamagotchi mechanics: 3D control of a student inside their room and a 2D card game in the style of Reigns with choice options.
+Tamagotchi-style student sim: 3D room control plus a 2D Reigns-like card game.
 
 <video controls>
   <source src="content/unity-prototypes/student_1.mp4" type="video/mp4">
@@ -40,7 +42,7 @@ A student simulator with Tamagotchi mechanics: 3D control of a student inside th
 
 ## September 7, 2019 — 3D Clicker with RPG Elements
 
-A 3D clicker with RPG elements and voxel graphics. An experiment with the clicker game genre and voxel style.
+Voxel clicker with light RPG layer.
 
 <video controls>
   <source src="content/unity-prototypes/clicker_1.mp4" type="video/mp4">
@@ -48,9 +50,8 @@ A 3D clicker with RPG elements and voxel graphics. An experiment with the clicke
 
 ## July 2019 — 2D Platformer
 
-A 2D platformer in the style of Dangerous Dave. Classic jumping and level navigation mechanics.
+Classic platformer in the spirit of Dangerous Dave.
 
 <video controls>
   <source src="content/unity-prototypes/platformer_1.mp4" type="video/mp4">
 </video>
-

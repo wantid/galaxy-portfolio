@@ -1,12 +1,12 @@
 # Last Shift
 
-Телеграм-бот игра, написанная во время срочной службы в армии в ограниченных условиях.
+Пошаговая 2D multiplayer-игра в виде Telegram-бота.
 
-## Идея
+Февраль – март 2025
 
-Большую часть времени в телефоне занимает Телеграм, а кроме него — игры. Так и родилась идея написать игру в условиях ограниченных ресурсов.
+---
 
-**Last Shift** — это пошаговый двухмерный клон Lethal Company с мультиплеером.
+Сделана в условиях ограниченных ресурсов с помощью мобильных инструментов разработки (Termux, ACode) и удалённого сервера для базы.
 
 ## Особенности
 
@@ -15,27 +15,18 @@
 - Область видимости
 - Интерактивные объекты и инструменты
 - Система лобби
+- Процедурная генерация уровней
 
-## Стек
+# Стек
 
-- **Node.js** + **Express** — бэкенд
-- **Telegraf** — Telegram Bot API
-- **PostgreSQL** — база данных
-- **Docker Compose** — контейнеризация
-- **Jimp** — генерация изображений
-- **dungeon-generator** — процедурная генерация уровней
-
-## Инструменты разработки
-
-- **Termux** — эмулятор терминала Linux для Android
-- **ACode** — редактор кода, похожий на VSCode
-- **Удалённый сервер** — для СУБД
-
-## Скриншоты
-
-Скриншоты из живой игры доступны в [репозитории на GitHub](https://github.com/wantid/last-shift).
+- Node.js + Express
+- Telegraf (Telegram Bot API)
+- PostgreSQL
+- Docker
+- Jimp
+- dungeon-generator
 
 ## Ссылки
 
-- [@lastShiftBot](https://t.me/lastShiftBot) — Telegram-бот *(может быть недоступен)*
-- [GitHub](https://github.com/wantid/last-shift) — репозиторий *(приватный)*
+- [@lastShiftBot](https://t.me/lastShiftBot) — Telegram-бот
+- [GitHub](https://github.com/wantid/last-shift) — репозиторий (private)

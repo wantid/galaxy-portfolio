@@ -1,34 +1,35 @@
 # Навыки и технологии
 
 ## Frontend
-- **JavaScript/TypeScript** — продвинутый уровень
-- **React.js** / **Next.js** — создание веб-приложений и прототипов
-- **React Native** (iOS/Android) — разработка мобильных приложений с публикацией в сторы
-- **HTML/CSS** — вёрстка и стилизация
+- React.js / Next.js
+- TypeScript / JavaScript
+- React Native (iOS/Android)
+- Redux Toolkit / Redux / MobX
+- Expo / React Navigation
 
 ## Backend
-- **Node.js** / **Express.js** — серверная разработка, REST API
-- **Django** / **Python** — веб-фреймворки
-- **PostgreSQL** — реляционные базы данных
-- **MongoDB** — NoSQL базы данных
-- **Telegram Bots** (Telegraf)
-
-## Game Development
-- **Unity** — разработка игр (C#)
-- **Godot** — разработка игр (GDScript)
-- **Процедурная генерация** — алгоритмы генерации контента
+- Node.js / Express.js
+- Python / Django
+- Celery
+- REST APIs / microservices
+- PostgreSQL / Redis / MongoDB
+- WebSocket
+- Telegram Bots (Telegraf)
+- C++ / C
 
 ## DevOps & Tools
-- **Git** / **GitLab Enterprise** / **GitHub** — системы контроля версий
-- **Docker** / **Docker Compose** — контейнеризация и оркестрация
-- **CI/CD** — настройка пайплайнов (GitLab CI)
-- **Linux** / **Bash** — работа в командной строке
+- Docker / Docker Compose
+- CI/CD (GitLab Enterprise, GitHub Actions)
+- Git / GitHub / GitLab
+- Linux / Bash / Nginx
 
-## Soft Skills
-- Командное лидерство и управление разработкой
-- Архитектурное проектирование и проектирование систем
-- Решение сложных технических задач
-- Работа с аутсорс-командами и координация проектов
+## Лидерство и архитектура
+- Системная архитектура / системный дизайн
+- Руководство командой
 - Техническое консультирование
-- Организация процессов разработки (CI/CD, Git workflows)
-- Создание переиспользуемых решений и фреймворков
+- Работа с аутсорс-командами
+
+## Game Development
+- Godot / GDScript
+- Unity / C#
+- Процедурная генерация

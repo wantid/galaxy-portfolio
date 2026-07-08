@@ -1,53 +1,38 @@
 # Anima Technologies
 
-**Development Team Lead**
+**System Architect & Development Team Lead**
 
 [animatech.group](https://animatech.group/)
 
+PropTech company. B2B SaaS and on-premise products for smart offices and business centers.
+
 ---
 
-## Tech-lead (August 2025 — present)
+Joined in June 2023 to shape a new B2B product. Designed architecture and core processes, built React.js and Express.js prototypes, and worked with an outsourced team while the company prepared to move development in-house.
 
-- Led the transition from outsourcing to in-house development, forming and leading a team to create a booking system
-- Organized and implemented development processes: set up GitLab Enterprise with CI/CD pipelines for building, testing, and deploying applications
-- Developed a mobile application on React Native (iOS/Android) with publication to app stores
-- Acted as a technical consultant on architectural decisions within the company
+From 2024 I lead the in-house team (7 people). We shipped a smart-office booking platform: 2 React Native apps in the App Store and Google Play, 2 Android kiosk apps for wall panels (no Google services), GitLab Enterprise with CI/CD, and on-premise rollouts at 5 enterprise client sites.
 
-## Full-Stack Developer (January 2024 — August 2025)
+Designed two B2B ecosystems on microservices: Smart Office (live) and Smart Business Center (in development).
 
-- Designed architecture and key processes (user flow, CJM) for a new startup project
-- Created working prototypes on React.js/Express.js for hypothesis validation
-- Managed an outsourced team, making strategic decisions on product development
-- Developed a mobile application on React Native for custom Android devices, integrating it with software
+I act as technical consultant on architecture decisions across the company.
 
-## Tools Developer (June 2023 — January 2024)
+**Achievement:** Took the product from early prototypes and outsourcing to an in-house team and production deployments at enterprise clients.
 
-- Automated internal company processes: developed an automatic project builder for iRidium Studio and a set of universal scripts
-- Implemented integrations with KNX and MQTT protocols using Node.js
-- Developed Google Apps Script scripts for exporting data to Google Sheets and Telegram bots (Telegraf) for notifications
-
-# Technology Stack
+# Stack
 
 ## Frontend
-- React.js
+- React.js / Next.js
+- TypeScript
 - React Native (iOS/Android)
-- Next.js
 
 ## Backend
-- Django
-- Express.js
-- Node.js
+- Python / Django
+- Node.js / Express.js
+- Celery
+- PostgreSQL, Redis
+- REST APIs, microservices
 
 ## DevOps
+- Docker
 - GitLab Enterprise
-- CI/CD pipelines
-
-## Integrations
-- KNX
-- MQTT
-- iRidium Studio
-
-## Tools
-- Google Apps Script
-- Telegraf (Telegram bots)
-
+- CI/CD
