@@ -35,3 +35,6 @@ src/data/
 public/
 !public/.gitkeep
 
+# Internal stuff
+profile/
+

@@ -4,14 +4,14 @@
     "hero": {
       "name": "Dmitrii Kurilov",
       "title": "Senior Full-Stack Developer | React, Node.js, Python | Team Lead",
-      "tagline": "I design and ship scalable B2B SaaS products end-to-end - from architecture to release",
+      "tagline": "I build B2B SaaS web and mobile products - React, Node, Python, and React Native",
       "image": "content/about/photo.webp",
       "location": "Belgrade, Serbia",
-      "email": "mrwantid@gmail.com"
+      "email": "mr.wantid@gmail.com"
     },
     "about": {
       "title": "About Me",
-      "content": "I'm a Senior Full-Stack Developer specializing in React, Next.js, Node.js, and Python/Django, with hands-on experience as a Team Lead and System Architect. I design and ship scalable B2B SaaS and on-premise products end-to-end - from system architecture and microservices to React Native mobile apps and CI/CD pipelines.\n\nI led the transition from outsourcing to in-house development at a PropTech company, building and managing a team of 7 and delivering a smart-office booking platform. I architected two on-premise B2B ecosystems - a Smart Office Ecosystem and a Smart Business Center Ecosystem - and bring a strong background in real-time integrations, system design, and rapid MVP prototyping for hypothesis validation. In my free time I build indie games and Telegram bots, exploring new technologies through hands-on side projects.\n\nCore competencies: Full-Stack Development, React, Next.js, Node.js, Express.js, Python, Django, TypeScript, React Native, Microservices, REST API, PostgreSQL, Redis, Docker, CI/CD, System Architecture, Team Leadership.\n\nI'm open to collaboration and contract work on ambitious products - reach me at mrwantid@gmail.com."
+      "content": "I am a Senior Full-Stack Developer and Software Engineer with 4+ years building B2B SaaS web and mobile products. I write production code in React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker, and CI/CD. React Native for iOS and Android.\n\nAt Anima (PropTech) I build and ship software across the full stack. I joined in 2023, grew into team lead, and now work with a team of 7 on microservices platforms for smart offices and business centers. Shipped mobile apps to the App Store and Google Play, kiosk apps for wall panels, and on-premise rollouts at 5 enterprise client sites. I still code daily: REST APIs, frontend features, mobile screens, GitLab CI/CD pipelines.\n\nStack I use in production: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, system architecture.\n\nOpen to new opportunities as a Full-Stack Developer or Engineering Team Lead.\nPortfolio: https://wantid.github.io/galaxy-portfolio/"
     },
     "workExperience": {
       "title": "Work Experience",
@@ -24,21 +24,21 @@
         },
         {
           "name": "Anima Technologies",
-          "startDate": "2023-07-01",
+          "startDate": "2023-06-01",
           "endDate": null,
-          "description": "<b>System Architect & Development Team Lead</b> - Led the transition from outsourcing to in-house development, building and managing a team of 7 to deliver a smart-office booking platform. Set up GitLab Enterprise with CI/CD pipelines for building, testing, and deploying applications. Shipped 2 React Native apps to the App Store and Google Play, plus 2 Android kiosk apps for wall-mounted panels (running without Google services). Drove 5 major B2B deployments and currently architect a new large-scale smart business center solution. Act as technical consultant on architectural decisions across the company.<br><i>since January 1, 2024</i><br><br><b>Full-Stack Developer</b> - Designed the architecture and key processes for a new startup product. Built working React.js/Express.js prototypes to validate hypotheses. Collaborated with an outsourced team to build and iterate on the product.<br><i>since July 1, 2023</i>"
+          "description": "<b>System Architect & Development Team Lead</b> - Joined in 2023 to shape a new B2B product. Designed architecture and core processes, built React.js and Express.js prototypes, and worked with an outsourced team while the company prepared to move development in-house.<br><br>From 2024 I lead the in-house team (7 people). We shipped a smart-office booking platform: 2 React Native apps in the App Store and Google Play, 2 Android kiosk apps for wall panels (no Google services), GitLab Enterprise with CI/CD, and on-premise rollouts at 5 enterprise client sites.<br><br>Designed two B2B ecosystems on microservices: Smart Office (live) and Smart Business Center (in development).<br><br>I act as technical consultant on architecture decisions across the company.<br><br><i>Achievement: Took the product from early prototypes and outsourcing to an in-house team and production deployments at enterprise clients.</i>"
         },
         {
           "name": "UNECOM Engineering",
           "startDate": "2022-10-01",
           "endDate": "2023-06-30",
-          "description": "<b>Software Developer</b> - Built internal developer tooling and reusable JavaScript modules. Designed a JavaScript framework that accelerated the development of interactive UI control panels, and developed a library of reusable server-side modules in JavaScript - improving code reuse and delivery speed across projects."
+          "description": "<b>Software Engineer</b><br>• Built internal developer tooling and reusable JavaScript modules.<br>• Designed a JavaScript framework that sped up development of interactive UI control panels.<br>• Developed a library of reusable server-side modules. Improved code reuse and delivery speed across projects."
         },
         {
           "name": "Gazprom",
           "startDate": "2022-04-01",
           "endDate": "2022-10-01",
-          "description": "<b>Software Engineer</b> - Developed internal software frameworks and reusable code libraries. Designed a UI framework for building interface applications and created a library of reusable software modules - standardizing development and reducing delivery time across projects."
+          "description": "<b>Software Engineer</b><br>• Developed internal software frameworks and reusable code libraries.<br>• Designed a UI framework for building interface applications.<br>• Created a library of reusable software modules. Standardized how interface apps were built and cut delivery time across projects."
         }
       ]
     },
@@ -46,12 +46,13 @@
       "title": "Featured Projects",
       "items": [
         {
-          "name": "Smart Office Ecosystem",
-          "description": "Scalable B2B platform for smart office management, available in SaaS and On-premise formats. Built on a microservices architecture, it optimizes hybrid work environments through automated space management, real-time analytics, and intelligent workflow optimization.<br><b>System Components:</b><br><i>Booking Module, Analytics Module, Service Desk, Equipment Management, Web Application, Admin Dashboard</i>",
+          "name": "Smart Office Platform",
+          "description": "B2B smart-office platform (SaaS and on-premise, microservices).<br>Shipped mobile apps to the App Store and Google Play, kiosk apps for wall panels, 5 enterprise deployments.<br><b>Stack:</b> Python/Django, React/Next.js, React Native, PostgreSQL, Redis, Docker, GitLab CI/CD.",
           "technologies": [
             "Python/Django",
             "React/Next.js",
-            "VictoriaMetrics",
+            "React Native",
+            "Celery",
             "PostgreSQL",
             "Redis",
             "Docker",
@@ -61,10 +62,11 @@
         },
         {
           "name": "Smart Business Center Ecosystem",
-          "description": "On-premise B2B platform that extends the smart-office approach to multi-tenant business centers. Built on a microservices architecture to streamline space and tenant management, analytics, and system integrations at building scale. Designed and architected end-to-end (in development).<br><b>System Components:</b><br><i>Tenant Management, Booking Module, Analytics Module, Service Desk, Web Application, Admin Dashboard</i>",
+          "description": "On-premise B2B platform for multi-tenant business centers. Extends the smart-office approach to building scale.<br>Tenant management, booking, analytics, service desk, system integrations. In active development.",
           "technologies": [
             "Python/Django",
             "React/Next.js",
+            "Celery",
             "PostgreSQL",
             "Redis",
             "Docker",
@@ -72,24 +74,13 @@
           ]
         },
         {
-          "name": "OfficeNext Exhibition App, 'Interpretation' Stand",
-          "description": "Interactive exhibition application for collecting and visualizing visitor emotional reactions in real-time. MVP delivered in 2 weeks for demonstration at the OfficeNext exhibition. Integrated with external systems in real time via WebSocket and MQTT, providing an innovative approach to user experience analytics and engagement.<br><b>Features:</b><br><i>Analytics Dashboard, 2-week development cycle, Real-time integrations, 500+ stand visitors</i>",
-          "technologies": [
-            "React.js",
-            "Recharts",
-            "Mqtt.js",
-            "MobX"
-          ],
-          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
-        },
-        {
           "name": "Smart Office Mobile App",
-          "description": "Cross-platform mobile application for the Smart Office platform, available in SaaS and On-premise formats. Lets users manage the smart office from a mobile device, providing flexibility and convenience. Published to the App Store and Google Play.<br><b>Features:</b><br><i>iOS/Android, Bookings/Requests via QR-code</i>",
+          "description": "Cross-platform mobile app for the Smart Office platform. Published to the App Store and Google Play.<br>Bookings and requests via QR code.",
           "technologies": [
             "React Native",
+            "TypeScript",
             "Redux Toolkit",
             "React Navigation 6",
-            "TypeScript",
             "Redux Persist",
             "RN Vision Camera"
           ],
@@ -97,17 +88,29 @@
         },
         {
           "name": "Smart Office Booking Panel",
-          "description": "Adaptive Android application for wall-mounted and desktop kiosk devices that enables quick bookings directly on the device. Runs without Google services and updates over-the-air from self-hosted GitLab Releases.<br><b>Features:</b><br><i>Android, Confirmation via QR-code</i>",
+          "description": "Android kiosk app for wall-mounted and desktop panels. Quick bookings on device, QR confirmation. Runs without Google services, OTA updates from GitLab Releases.",
           "technologies": [
             "React Native",
+            "JavaScript",
             "Expo",
-            "Redux",
-            "Expo intent launcher"
+            "Redux"
           ]
         },
         {
+          "name": "OfficeNext Exhibition App",
+          "description": "Interactive exhibition app for real-time visitor emotional feedback. MVP in 2 weeks.<br>WebSocket and MQTT integrations. 500+ visitors at the stand.",
+          "technologies": [
+            "React.js",
+            "MobX",
+            "WebSocket",
+            "Mqtt.js",
+            "Recharts"
+          ],
+          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
+        },
+        {
           "name": "Notifier",
-          "description": "Telegram bot for task reminders that helps people move towards big goals in small steps. The bot lets users configure reminder moods (from gentle support to strict discipline) and notification frequency to find the optimal pace and tone of communication.",
+          "description": "Telegram bot for task reminders. Users can set reminder tone and how often they get notified.",
           "technologies": [
             "Node.js",
             "Telegraf",
@@ -120,7 +123,7 @@
         },
         {
           "name": "Object24",
-          "description": "Horror game set in a Soviet environment that explores the theme of all-consuming anxiety through a highly interactive world. Developed solo with Godot as an indie title for PC (Steam), currently in development.<br><b>Features:</b><br><i>Soviet setting, High environmental interactivity, Atmospheric horror, Solo development</i>",
+          "description": "Horror game in a Soviet setting. Solo project in Godot for PC (Steam), currently in development.<br><b>Features:</b><br><i>Soviet setting, interactive environment, atmospheric horror, solo development</i>",
           "technologies": [
             "Godot",
             "GDScript",
@@ -130,7 +133,7 @@
         },
         {
           "name": "Last Shift",
-          "description": "Turn-based 2D Lethal Company clone with multiplayer, implemented as a Telegram bot. Built entirely in a low-resource environment using only mobile development tools, demonstrating that full-fledged game projects are possible even under tight constraints.<br><b>Features:</b><br><i>Turn-based gameplay, Multiplayer via Telegram, Visibility area, Interactive objects and tools, Lobby system, Procedural level generation</i>",
+          "description": "Turn-based 2D multiplayer game built as a Telegram bot. Made with limited resources using only mobile development tools.<br><b>Features:</b><br><i>Turn-based gameplay, multiplayer via Telegram, lobby, procedural levels</i>",
           "technologies": [
             "Node.js",
             "Express.js",
@@ -171,6 +174,7 @@
             "Express.js",
             "Python",
             "Django",
+            "Celery",
             "REST API",
             "Microservices",
             "PostgreSQL",
@@ -181,17 +185,6 @@
             "Telegram Bots",
             "C++",
             "C"
-          ]
-        },
-        {
-          "name": "Game Development",
-          "items": [
-            "Godot",
-            "GDScript",
-            "Unity",
-            "C#",
-            "Procedural Generation",
-            "Jimp"
           ]
         },
         {
@@ -219,6 +212,17 @@
             "Technical Consulting",
             "Outsourced Team Management"
           ]
+        },
+        {
+          "name": "Game Development",
+          "items": [
+            "Godot",
+            "GDScript",
+            "Unity",
+            "C#",
+            "Procedural Generation",
+            "Jimp"
+          ]
         }
       ]
     },
@@ -227,9 +231,9 @@
       "items": [
         {
           "degree": "Master's Degree",
-          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow, Russia",
-          "period": "2022",
-          "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects. Specialized in embedded systems and microcontroller programming (C/C++, STM32); graduation thesis on a microcontroller-based control system."
+          "institution": "Moscow Power Engineering Institute (Technical University) (MPEI), Moscow, Russia",
+          "period": "2020 – 2022",
+          "description": "Embedded systems and microcontroller programming (C/C++, STM32). Thesis: control system on a microcontroller."
         },
         {
           "degree": "Courses",
@@ -239,9 +243,9 @@
         },
         {
           "degree": "Bachelor's Degree",
-          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow, Russia",
-          "period": "2020",
-          "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects. Specialized in embedded systems and microcontroller programming (C/C++, STM32); graduation thesis on a microcontroller-based control system."
+          "institution": "Moscow Power Engineering Institute (Technical University) (MPEI), Moscow, Russia",
+          "period": "2016 – 2020",
+          "description": "Embedded systems and microcontroller programming (C/C++, STM32). Thesis: control system on a microcontroller."
         }
       ]
     },
@@ -282,14 +286,14 @@
     "hero": {
       "name": "Дмитрий Курилов",
       "title": "Senior Full-Stack Developer | React, Node.js, Python | Team Lead",
-      "tagline": "Проектирую и довожу до релиза масштабируемые B2B SaaS-продукты - от архитектуры до запуска",
+      "tagline": "Делаю B2B SaaS веб- и мобильные продукты - React, Node, Python и React Native",
       "image": "content/about/photo.webp",
       "location": "Белград, Сербия",
-      "email": "mrwantid@gmail.com"
+      "email": "mr.wantid@gmail.com"
     },
     "about": {
       "title": "Обо мне",
-      "content": "Я Senior Full-Stack разработчик, специализируюсь на React, Next.js, Node.js и Python/Django, с практическим опытом в роли Team Lead и системного архитектора. Проектирую и довожу до релиза масштабируемые B2B SaaS- и on-premise продукты под ключ - от системной архитектуры и микросервисов до мобильных приложений на React Native и CI/CD-пайплайнов.\n\nВозглавил переход от аутсорса к инхаус-разработке в PropTech-компании: собрал и вёл команду из 7 человек, выпустил платформу бронирования для умного офиса. Спроектировал две on-premise B2B-экосистемы - Smart Office Ecosystem и Smart Business Center Ecosystem - и обладаю сильным опытом в real-time интеграциях, системном проектировании и быстром прототипировании MVP для проверки гипотез. В свободное время делаю инди-игры и Telegram-ботов, осваивая новые технологии на практике в пет-проектах.\n\nКлючевые компетенции: Full-Stack Development, React, Next.js, Node.js, Express.js, Python, Django, TypeScript, React Native, Microservices, REST API, PostgreSQL, Redis, Docker, CI/CD, системная архитектура, руководство командой.\n\nОткрыт к сотрудничеству и контрактной работе над амбициозными продуктами - пишите на mrwantid@gmail.com."
+      "content": "Я Senior Full-Stack разработчик и Software Engineer с опытом 4+ лет в B2B SaaS веб- и мобильных продуктах. Пишу продакшен-код на React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker и CI/CD. React Native для iOS и Android.\n\nВ Anima (PropTech) работаю full-stack: разрабатываю и выпускаю продукт. Пришёл в 2023, вырос до team lead и сейчас веду команду из 7 человек на микросервисных платформах для умных офисов и бизнес-центров. Выпустил мобильные приложения в App Store и Google Play, kiosk-приложения для настенных панелей и on-premise внедрения на 5 enterprise-площадках. Каждый день пишу код: REST API, фронтенд, мобильные экраны, GitLab CI/CD пайплайны.\n\nСтек в продакшене: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, системная архитектура.\n\nОткрыт к новым возможностям на позиции Full-Stack Developer или Engineering Team Lead.\nПортфолио: https://wantid.github.io/galaxy-portfolio/"
     },
     "workExperience": {
       "title": "Опыт работы",
@@ -302,21 +306,21 @@
         },
         {
           "name": "Anima Technologies",
-          "startDate": "2023-07-01",
+          "startDate": "2023-06-01",
           "endDate": null,
-          "description": "<b>Системный архитектор и руководитель группы разработки</b> - Возглавил переход от аутсорс- к инхаус-разработке, собрал и вёл команду из 7 человек для создания платформы бронирования умного офиса. Настроил GitLab Enterprise с CI/CD-пайплайнами для сборки, тестирования и деплоя приложений. Выпустил 2 приложения на React Native в App Store и Google Play, а также 2 Android-приложения для настенных панелей (работают без сервисов Google). Провёл 5 крупных B2B-внедрений и сейчас проектирую новое масштабное решение для умного бизнес-центра. Выступаю техническим консультантом по архитектурным решениям в компании.<br><i>с 1 января 2024 года</i><br><br><b>Full-Stack разработчик</b> - Спроектировал архитектуру и ключевые процессы для нового стартап-продукта. Создал рабочие прототипы на React.js/Express.js для валидации гипотез. Работал с аутсорс-командой над созданием и развитием продукта.<br><i>с 1 июля 2023 года</i>"
+          "description": "<b>Системный архитектор и руководитель группы разработки</b> - Пришёл в 2023, чтобы сформировать новый B2B-продукт. Спроектировал архитектуру и ключевые процессы, сделал прототипы на React.js и Express.js, работал с аутсорс-командой пока компания готовила переход на инхаус.<br><br>С 2024 веду инхаус-команду (7 человек). Выпустили платформу бронирования умного офиса: 2 приложения на React Native в App Store и Google Play, 2 Android kiosk-приложения для настенных панелей (без сервисов Google), GitLab Enterprise с CI/CD и on-premise внедрения на 5 enterprise-площадках.<br><br>Спроектировал две B2B-экосистемы на микросервисах: Smart Office (в проде) и Smart Business Center (в разработке).<br><br>Выступаю техническим консультантом по архитектурным решениям в компании.<br><br><i>Достижение: довёл продукт от ранних прототипов и аутсорса до инхаус-команды и продакшен-внедрений у enterprise-клиентов.</i>"
         },
         {
           "name": "UNECOM Engineering",
           "startDate": "2022-10-01",
           "endDate": "2023-06-30",
-          "description": "<b>Разработчик ПО</b> - Создавал внутренний инструментарий разработки и переиспользуемые модули на JavaScript. Спроектировал JavaScript-фреймворк, ускоривший разработку интерактивных UI-панелей управления, и разработал библиотеку переиспользуемых серверных модулей на JavaScript - повысив переиспользование кода и скорость поставки в проектах."
+          "description": "<b>Инженер-программист</b><br>• Создавал внутренний инструментарий разработки и переиспользуемые модули на JavaScript.<br>• Спроектировал JavaScript-фреймворк, который ускорил разработку интерактивных UI-панелей управления.<br>• Разработал библиотеку переиспользуемых серверных модулей. Повысил переиспользование кода и скорость поставки в проектах."
         },
         {
           "name": "Газпром",
           "startDate": "2022-04-01",
           "endDate": "2022-10-01",
-          "description": "<b>Инженер-программист</b> - Разрабатывал внутренние программные фреймворки и библиотеки переиспользуемого кода. Спроектировал UI-фреймворк для построения интерфейсных приложений и создал библиотеку переиспользуемых программных модулей - стандартизировав разработку и сократив сроки поставки в проектах."
+          "description": "<b>Инженер-программист</b><br>• Разрабатывал внутренние программные фреймворки и библиотеки переиспользуемого кода.<br>• Спроектировал UI-фреймворк для построения интерфейсных приложений.<br>• Создал библиотеку переиспользуемых программных модулей. Стандартизировал разработку интерфейсов и сократил сроки поставки в проектах."
         }
       ]
     },
@@ -324,12 +328,13 @@
       "title": "Избранные проекты",
       "items": [
         {
-          "name": "Экосистема умного офиса",
-          "description": "Масштабируемая B2B-платформа для управления умным офисом, доступная в форматах SaaS и On-premise. Построена на микросервисной архитектуре и оптимизирует гибридную рабочую среду за счёт автоматизированного управления пространством, аналитики в реальном времени и интеллектуальной оптимизации рабочих процессов.<br><b>Компоненты системы:</b><br><i>Модуль бронирования, Модуль аналитики, Service Desk, Управление оборудованием, Веб-приложение, Дашборд администратора</i>",
+          "name": "Платформа умного офиса",
+          "description": "B2B-платформа умного офиса (SaaS и on-premise, микросервисы).<br>Выпустил мобильные приложения в App Store и Google Play, kiosk-приложения для настенных панелей, 5 enterprise-внедрений.<br><b>Стек:</b> Python/Django, React/Next.js, React Native, PostgreSQL, Redis, Docker, GitLab CI/CD.",
           "technologies": [
             "Python/Django",
             "React/Next.js",
-            "VictoriaMetrics",
+            "React Native",
+            "Celery",
             "PostgreSQL",
             "Redis",
             "Docker",
@@ -339,10 +344,11 @@
         },
         {
           "name": "Экосистема умного бизнес-центра",
-          "description": "On-premise B2B-платформа, расширяющая подход умного офиса на многоарендные бизнес-центры. Построена на микросервисной архитектуре для управления пространством и арендаторами, аналитики и системных интеграций в масштабе здания. Спроектирована и проработана под ключ (в разработке).<br><b>Компоненты системы:</b><br><i>Управление арендаторами, Модуль бронирования, Модуль аналитики, Service Desk, Веб-приложение, Дашборд администратора</i>",
+          "description": "On-premise B2B-платформа для многоарендных бизнес-центров. Расширяет подход умного офиса до масштаба здания.<br>Управление арендаторами, бронирование, аналитика, service desk, системные интеграции. В активной разработке.",
           "technologies": [
             "Python/Django",
             "React/Next.js",
+            "Celery",
             "PostgreSQL",
             "Redis",
             "Docker",
@@ -350,24 +356,13 @@
           ]
         },
         {
-          "name": "Приложение для выставки OfficeNext, стенд «Интерпретация»",
-          "description": "Интерактивное выставочное приложение для сбора и визуализации эмоциональных реакций посетителей в режиме реального времени. MVP реализован за 2 недели для демонстрации на выставке OfficeNext. Приложение интегрировано с внешними системами в реальном времени через WebSocket и MQTT, обеспечивая инновационный подход к аналитике пользовательского опыта и повышению вовлечённости.<br><b>Особенности:</b><br><i>Панель аналитики, 2-недельный цикл разработки, Real-time интеграции, 500+ посетителей стенда</i>",
-          "technologies": [
-            "React.js",
-            "Recharts",
-            "Mqtt.js",
-            "MobX"
-          ],
-          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
-        },
-        {
           "name": "Мобильное приложение умного офиса",
-          "description": "Кроссплатформенное мобильное приложение для платформы умного офиса, доступное в форматах SaaS и On-premise. Позволяет управлять умным офисом со смартфона, обеспечивая гибкость и удобство. Опубликовано в App Store и Google Play.<br><b>Особенности:</b><br><i>iOS/Android, Бронирования/Заявки через QR-код</i>",
+          "description": "Кроссплатформенное мобильное приложение для платформы умного офиса. Опубликовано в App Store и Google Play.<br>Бронирования и заявки через QR-код.",
           "technologies": [
             "React Native",
+            "TypeScript",
             "Redux Toolkit",
             "React Navigation 6",
-            "TypeScript",
             "Redux Persist",
             "RN Vision Camera"
           ],
@@ -375,17 +370,29 @@
         },
         {
           "name": "Панель бронирования умного офиса",
-          "description": "Адаптивное Android-приложение для настенных и настольных kiosk-устройств, позволяющее совершать быстрые бронирования прямо на устройстве. Работает без сервисов Google и обновляется по воздуху из self-hosted GitLab Releases.<br><b>Особенности:</b><br><i>Android, Подтверждение через QR-код</i>",
+          "description": "Android kiosk-приложение для настенных и настольных панелей. Быстрые бронирования на устройстве, подтверждение по QR. Работает без сервисов Google, OTA-обновления из GitLab Releases.",
           "technologies": [
             "React Native",
+            "JavaScript",
             "Expo",
-            "Redux",
-            "Expo intent launcher"
+            "Redux"
           ]
         },
         {
+          "name": "Приложение для выставки OfficeNext",
+          "description": "Интерактивное выставочное приложение для сбора эмоциональных реакций посетителей в реальном времени. MVP за 2 недели.<br>Интеграции WebSocket и MQTT. 500+ посетителей стенда.",
+          "technologies": [
+            "React.js",
+            "MobX",
+            "WebSocket",
+            "Mqtt.js",
+            "Recharts"
+          ],
+          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
+        },
+        {
           "name": "Notifier",
-          "description": "Telegram-бот для напоминаний о задачах, который помогает человеку двигаться к большой цели маленькими шагами. В боте можно настраивать настроение напоминаний (от мягкой поддержки до жёсткой дисциплины) и периодичность уведомлений, чтобы подобрать оптимальный темп и тон общения именно под себя.",
+          "description": "Telegram-бот для напоминаний о задачах. Можно настроить тон напоминаний и частоту уведомлений.",
           "technologies": [
             "Node.js",
             "Telegraf",
@@ -398,7 +405,7 @@
         },
         {
           "name": "Object24",
-          "description": "Хоррор-игра в советском сеттинге, исследующая тему всепоглощающей тревоги через высокоинтерактивное окружение. Разрабатывается в одиночку на Godot как инди-проект для PC (Steam), сейчас в разработке.<br><b>Особенности:</b><br><i>Советский сеттинг, Высокая интерактивность окружения, Атмосферный хоррор, Соло-разработка</i>",
+          "description": "Хоррор-игра в советском сеттинге. Соло-проект на Godot для PC (Steam), сейчас в разработке.<br><b>Особенности:</b><br><i>Советский сеттинг, интерактивное окружение, атмосферный хоррор, соло-разработка</i>",
           "technologies": [
             "Godot",
             "GDScript",
@@ -408,7 +415,7 @@
         },
         {
           "name": "Last Shift",
-          "description": "Пошаговая двухмерная игра-клон Lethal Company с мультиплеером, реализованная как Telegram-бот. Проект полностью разработан в условиях ограниченных ресурсов с использованием только мобильных инструментов разработки, демонстрируя возможность создания полноценных игровых проектов даже при жёстких ограничениях.<br><b>Особенности:</b><br><i>Пошаговый геймплей, Мультиплеер через Telegram, Область видимости, Интерактивные объекты и инструменты, Система лобби, Процедурная генерация уровней</i>",
+          "description": "Пошаговая 2D multiplayer-игра в виде Telegram-бота. Сделана в условиях ограниченных ресурсов с помощью мобильных инструментов разработки.<br><b>Особенности:</b><br><i>Пошаговый геймплей, мультиплеер через Telegram, лобби, процедурные уровни</i>",
           "technologies": [
             "Node.js",
             "Express.js",
@@ -449,6 +456,7 @@
             "Express.js",
             "Python",
             "Django",
+            "Celery",
             "REST API",
             "Microservices",
             "PostgreSQL",
@@ -459,17 +467,6 @@
             "Telegram Bots",
             "C++",
             "C"
-          ]
-        },
-        {
-          "name": "Game Development",
-          "items": [
-            "Godot",
-            "GDScript",
-            "Unity",
-            "C#",
-            "Процедурная генерация",
-            "Jimp"
           ]
         },
         {
@@ -497,6 +494,17 @@
             "Техническое консультирование",
             "Управление аутсорс-командами"
           ]
+        },
+        {
+          "name": "Game Development",
+          "items": [
+            "Godot",
+            "GDScript",
+            "Unity",
+            "C#",
+            "Процедурная генерация",
+            "Jimp"
+          ]
         }
       ]
     },
@@ -505,9 +513,9 @@
       "items": [
         {
           "degree": "Магистр",
-          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва, Россия",
-          "period": "2022",
-          "description": "Электротехнические, электромеханические и электронные системы автономных объектов. Специализация на встраиваемых системах и программировании микроконтроллеров (C/C++, STM32); дипломная работа по системе управления на микроконтроллере."
+          "institution": "Московский энергетический институт (Технический университет) (MPEI), Москва, Россия",
+          "period": "2020 – 2022",
+          "description": "Встраиваемые системы и программирование микроконтроллеров (C/C++, STM32). Дипломная работа: система управления на микроконтроллере."
         },
         {
           "degree": "Курсы",
@@ -517,9 +525,9 @@
         },
         {
           "degree": "Бакалавр",
-          "institution": "Московский энергетический институт (Национальный исследовательский университет) (MPEI), Москва, Россия",
-          "period": "2020",
-          "description": "Электротехнические, электромеханические и электронные системы автономных объектов. Специализация на встраиваемых системах и программировании микроконтроллеров (C/C++, STM32); дипломная работа по системе управления на микроконтроллере."
+          "institution": "Московский энергетический институт (Технический университет) (MPEI), Москва, Россия",
+          "period": "2016 – 2020",
+          "description": "Встраиваемые системы и программирование микроконтроллеров (C/C++, STM32). Дипломная работа: система управления на микроконтроллере."
         }
       ]
     },
@@ -560,14 +568,14 @@
     "hero": {
       "name": "Dmitrii Kurilov",
       "title": "Senior Full-Stack Developer | React, Node.js, Python | Team Lead",
-      "tagline": "Projektujem i isporučujem skalabilne B2B SaaS proizvode - od arhitekture do produkcije",
+      "tagline": "Pravim B2B SaaS veb i mobilne proizvode - React, Node, Python i React Native",
       "image": "content/about/photo.webp",
       "location": "Beograd, Srbija",
-      "email": "mrwantid@gmail.com"
+      "email": "mr.wantid@gmail.com"
     },
     "about": {
       "title": "O meni",
-      "content": "Ja sam Senior Full-Stack programer specijalizovan za React, Next.js, Node.js i Python/Django, sa praktičnim iskustvom u ulozi Team Lead-a i sistemskog arhitekte. Projektujem i isporučujem skalabilne B2B SaaS i on-premise proizvode od početka do kraja - od sistemske arhitekture i mikroservisa do mobilnih aplikacija u React Native-u i CI/CD pipeline-ova.\n\nVodio sam prelazak sa outsourcing-a na interni razvoj u PropTech kompaniji: formirao i vodio tim od 7 ljudi i isporučio platformu za rezervacije pametnog ofisa. Projektovao sam dva on-premise B2B ekosistema - Smart Office Ecosystem i Smart Business Center Ecosystem - i imam snažno iskustvo u real-time integracijama, sistemskom dizajnu i brzom prototipovanju MVP-a za validaciju hipoteza. U slobodno vreme pravim indie igre i Telegram botove, istražujući nove tehnologije kroz praktične side projekte.\n\nKljučne kompetencije: Full-Stack Development, React, Next.js, Node.js, Express.js, Python, Django, TypeScript, React Native, Microservices, REST API, PostgreSQL, Redis, Docker, CI/CD, sistemska arhitektura, vođenje tima.\n\nOtvoren sam za saradnju i ugovorni rad na ambicioznim proizvodima - kontaktirajte me na mrwantid@gmail.com."
+      "content": "Ja sam Senior Full-Stack programer i Software Engineer sa 4+ godine iskustva u B2B SaaS veb i mobilnim proizvodima. Pišem produkcijski kod u React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker i CI/CD. React Native za iOS i Android.\n\nU Anima (PropTech) radim full-stack: gradim i isporučujem softver. Došao sam 2023, napao do team lead-a i sada radim sa timom od 7 ljudi na mikroservisnim platformama za pametne ofise i poslovne centre. Objavio mobilne aplikacije na App Store i Google Play, kiosk aplikacije za zidne panele i on-premise implementacije na 5 enterprise lokacija. Svakodnevno pišem kod: REST API, frontend, mobilne ekrane, GitLab CI/CD pipeline-ove.\n\nStek u produkciji: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, sistemska arhitektura.\n\nOtvoren sam za nove prilike kao Full-Stack Developer ili Engineering Team Lead.\nPortfolio: https://wantid.github.io/galaxy-portfolio/"
     },
     "workExperience": {
       "title": "Radno iskustvo",
@@ -580,21 +588,21 @@
         },
         {
           "name": "Anima Technologies",
-          "startDate": "2023-07-01",
+          "startDate": "2023-06-01",
           "endDate": null,
-          "description": "<b>Sistemski arhitekta i lider razvojnog tima</b> - Vodio prelazak sa outsourcing modela na interni razvoj, formirao i vodio tim od 7 ljudi za izradu platforme za rezervacije pametnog ofisa. Postavio GitLab Enterprise sa CI/CD pipeline-ovima za build, testiranje i isporuku aplikacija. Objavio 2 React Native aplikacije na App Store i Google Play, kao i 2 Android kiosk aplikacije za zidne panele (rade bez Google servisa). Sproveo 5 velikih B2B implementacija i trenutno projektujem novo rešenje velikih razmera za pametni poslovni centar. Učestvujem kao tehnički konsultant za arhitektonske odluke u kompaniji.<br><i>od 1. januara 2024.</i><br><br><b>Full-Stack programer</b> - Dizajnirao arhitekturu i ključne procese za novi startup proizvod. Napravio funkcionalne prototipove u React.js/Express.js za validaciju hipoteza. Sarađivao sa outsourcing timom na izradi i unapređenju proizvoda.<br><i>od 1. jula 2023.</i>"
+          "description": "<b>Sistemski arhitekta i lider razvojnog tima</b> - Došao 2023. da oblikujem novi B2B proizvod. Dizajnirao arhitekturu i ključne procese, napravio React.js i Express.js prototipove i radio sa outsourcing timom dok se kompanija spremala na interni razvoj.<br><br>Od 2024. vodim interni tim (7 ljudi). Isporučili smo platformu za rezervacije pametnog ofisa: 2 React Native aplikacije na App Store i Google Play, 2 Android kiosk aplikacije za zidne panele (bez Google servisa), GitLab Enterprise sa CI/CD i on-premise implementacije na 5 enterprise lokacija.<br><br>Projektovao sam dva B2B ekosistema na mikroservisima: Smart Office (u produkciji) i Smart Business Center (u razvoju).<br><br>Učestvujem kao tehnički konsultant za arhitektonske odluke u kompaniji.<br><br><i>Dostignuće: doveo proizvod od ranih prototipova i outsourcinga do internog tima i produkcijskih implementacija kod enterprise klijenata.</i>"
         },
         {
           "name": "UNECOM Engineering",
           "startDate": "2022-10-01",
           "endDate": "2023-06-30",
-          "description": "<b>Programer softvera</b> - Razvijao interne razvojne alate i ponovo upotrebljive module u JavaScript-u. Dizajnirao JavaScript framework koji je ubrzao razvoj interaktivnih UI kontrolnih panela i razvio biblioteku ponovo upotrebljivih serverskih modula u JavaScript-u - poboljšavajući ponovnu upotrebu koda i brzinu isporuke kroz projekte."
+          "description": "<b>Inženjer softvera</b><br>• Razvijao interne razvojne alate i ponovo upotrebljive module u JavaScript-u.<br>• Dizajnirao JavaScript framework koji je ubrzao razvoj interaktivnih UI kontrolnih panela.<br>• Razvio biblioteku ponovo upotrebljivih serverskih modula. Poboljšao ponovnu upotrebu koda i brzinu isporuke kroz projekte."
         },
         {
           "name": "Gazprom",
           "startDate": "2022-04-01",
           "endDate": "2022-10-01",
-          "description": "<b>Inženjer softvera</b> - Razvijao interne softverske frameworke i biblioteke ponovo upotrebljivog koda. Dizajnirao UI framework za izgradnju interfejs aplikacija i kreirao biblioteku ponovo upotrebljivih softverskih modula - standardizujući razvoj i skraćujući vreme isporuke kroz projekte."
+          "description": "<b>Inženjer softvera</b><br>• Razvijao interne softverske frameworke i biblioteke ponovo upotrebljivog koda.<br>• Dizajnirao UI framework za izgradnju interfejs aplikacija.<br>• Kreirao biblioteku ponovo upotrebljivih softverskih modula. Standardizovao razvoj interfejsa i skratio vreme isporuke kroz projekte."
         }
       ]
     },
@@ -602,12 +610,13 @@
       "title": "Izdvojeni projekti",
       "items": [
         {
-          "name": "Smart Office Ecosystem",
-          "description": "Skalabilna B2B platforma za upravljanje pametnim ofisom, dostupna u SaaS i On-premise formatu. Izgrađena na mikroservisnoj arhitekturi, optimizuje hibridno radno okruženje kroz automatizovano upravljanje prostorom, analitiku u realnom vremenu i inteligentnu optimizaciju procesa.<br><b>Komponente sistema:</b><br><i>Modul rezervacija, Modul analitike, Service Desk, Upravljanje opremom, Veb aplikacija, Admin dashboard</i>",
+          "name": "Smart Office Platform",
+          "description": "B2B platforma za pametni ofis (SaaS i on-premise, mikroservisi).<br>Objavljeni mobilni appovi na App Store i Google Play, kiosk appovi za zidne panele, 5 enterprise implementacija.<br><b>Stek:</b> Python/Django, React/Next.js, React Native, PostgreSQL, Redis, Docker, GitLab CI/CD.",
           "technologies": [
             "Python/Django",
             "React/Next.js",
-            "VictoriaMetrics",
+            "React Native",
+            "Celery",
             "PostgreSQL",
             "Redis",
             "Docker",
@@ -617,10 +626,11 @@
         },
         {
           "name": "Smart Business Center Ecosystem",
-          "description": "On-premise B2B platforma koja proširuje koncept pametnog ofisa na poslovne centre sa više zakupaca. Izgrađena na mikroservisnoj arhitekturi za upravljanje prostorom i zakupcima, analitiku i sistemske integracije na nivou zgrade. Projektovana i osmišljena od početka do kraja (u razvoju).<br><b>Komponente sistema:</b><br><i>Upravljanje zakupcima, Modul rezervacija, Modul analitike, Service Desk, Veb aplikacija, Admin dashboard</i>",
+          "description": "On-premise B2B platforma za poslovne centre sa više zakupaca. Proširuje pristup pametnog ofisa na nivo zgrade.<br>Upravljanje zakupcima, rezervacije, analitika, service desk, sistemske integracije. U aktivnom razvoju.",
           "technologies": [
             "Python/Django",
             "React/Next.js",
+            "Celery",
             "PostgreSQL",
             "Redis",
             "Docker",
@@ -628,24 +638,13 @@
           ]
         },
         {
-          "name": "OfficeNext Exhibition App, 'Interpretation' Stand",
-          "description": "Interaktivna izložbena aplikacija za prikupljanje i vizuelizaciju emocionalnih reakcija posetilaca u realnom vremenu. MVP isporučen za 2 nedelje za demonstraciju na sajmu OfficeNext. Aplikacija je integrisana sa eksternim sistemima u realnom vremenu preko WebSocket i MQTT, pružajući inovativan pristup analitici korisničkog iskustva i povećanju angažovanosti.<br><b>Karakteristike:</b><br><i>Analitički dashboard, 2-nedeljni razvojni ciklus, Real-time integracije, 500+ posetilaca štanda</i>",
-          "technologies": [
-            "React.js",
-            "Recharts",
-            "Mqtt.js",
-            "MobX"
-          ],
-          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
-        },
-        {
           "name": "Smart Office Mobile App",
-          "description": "Cross-platform mobilna aplikacija za Smart Office platformu, dostupna u SaaS i On-premise formatu. Omogućava upravljanje pametnim ofisom sa mobilnog uređaja, pružajući fleksibilnost i udobnost. Objavljena na App Store i Google Play.<br><b>Karakteristike:</b><br><i>iOS/Android, Rezervacije/Zahtevi preko QR koda</i>",
+          "description": "Cross-platform mobilna aplikacija za Smart Office platformu. Objavljena na App Store i Google Play.<br>Rezervacije i zahtevi preko QR koda.",
           "technologies": [
             "React Native",
+            "TypeScript",
             "Redux Toolkit",
             "React Navigation 6",
-            "TypeScript",
             "Redux Persist",
             "RN Vision Camera"
           ],
@@ -653,17 +652,29 @@
         },
         {
           "name": "Smart Office Booking Panel",
-          "description": "Adaptivna Android aplikacija za zidne i stone kiosk uređaje koja omogućava brze rezervacije direktno na uređaju. Radi bez Google servisa i ažurira se preko vazduha iz self-hosted GitLab Releases-a.<br><b>Karakteristike:</b><br><i>Android, Potvrda preko QR koda</i>",
+          "description": "Android kiosk aplikacija za zidne i stone panele. Brze rezervacije na uređaju, potvrda preko QR. Radi bez Google servisa, OTA ažuriranja iz GitLab Releases.",
           "technologies": [
             "React Native",
+            "JavaScript",
             "Expo",
-            "Redux",
-            "Expo intent launcher"
+            "Redux"
           ]
         },
         {
+          "name": "OfficeNext Exhibition App",
+          "description": "Interaktivna izložbena aplikacija za emocionalne reakcije posetilaca u realnom vremenu. MVP za 2 nedelje.<br>WebSocket i MQTT integracije. 500+ posetilaca štanda.",
+          "technologies": [
+            "React.js",
+            "MobX",
+            "WebSocket",
+            "Mqtt.js",
+            "Recharts"
+          ],
+          "link": "https://www.officenext.ru/orientir/article_112668_trend-rooms-2025-pobediteli/"
+        },
+        {
           "name": "Notifier",
-          "description": "Telegram bot za podsetnike na zadatke koji pomaže ljudima da se kreću ka velikim ciljevima malim koracima. Bot omogućava podešavanje raspoloženja podsetnika (od nežne podrške do stroge discipline) i učestalosti notifikacija kako bi se pronašao optimalan tempo i ton komunikacije.",
+          "description": "Telegram bot za podsetnike na zadatke. Korisnici mogu podesiti ton podsetnika i učestalost notifikacija.",
           "technologies": [
             "Node.js",
             "Telegraf",
@@ -676,7 +687,7 @@
         },
         {
           "name": "Object24",
-          "description": "Horor igra u sovjetskom okruženju koja istražuje temu sveobuhvatne anksioznosti kroz visoko interaktivan svet. Razvijena samostalno u Godot-u kao indie naslov za PC (Steam), trenutno u razvoju.<br><b>Karakteristike:</b><br><i>Sovjetsko okruženje, Visoka interaktivnost okruženja, Atmosferičan horor, Samostalni razvoj</i>",
+          "description": "Horor igra u sovjetskom okruženju. Solo projekat u Godot-u za PC (Steam), trenutno u razvoju.<br><b>Karakteristike:</b><br><i>Sovjetsko okruženje, interaktivno okruženje, atmosferičan horor, samostalni razvoj</i>",
           "technologies": [
             "Godot",
             "GDScript",
@@ -686,7 +697,7 @@
         },
         {
           "name": "Last Shift",
-          "description": "Potezna 2D Lethal Company klon igra sa multiplayer-om, realizovana kao Telegram bot. U potpunosti razvijena u uslovima ograničenih resursa, koristeći samo mobilne alate za razvoj, što pokazuje da su potpuni gejming projekti mogući čak i uz stroga ograničenja.<br><b>Karakteristike:</b><br><i>Potezni gejmplej, Multiplayer preko Telegram-a, Zona vidljivosti, Interaktivni objekti i alati, Lobby sistem, Proceduralno generisanje nivoa</i>",
+          "description": "Potezna 2D multiplayer igra kao Telegram bot. Napravljena uz ograničene resurse koristeći mobilne alate za razvoj.<br><b>Karakteristike:</b><br><i>Potezni gejmplej, multiplayer preko Telegram-a, lobby, proceduralni nivoi</i>",
           "technologies": [
             "Node.js",
             "Express.js",
@@ -727,6 +738,7 @@
             "Express.js",
             "Python",
             "Django",
+            "Celery",
             "REST API",
             "Microservices",
             "PostgreSQL",
@@ -737,17 +749,6 @@
             "Telegram Bots",
             "C++",
             "C"
-          ]
-        },
-        {
-          "name": "Razvoj igara",
-          "items": [
-            "Godot",
-            "GDScript",
-            "Unity",
-            "C#",
-            "Procedural Generation",
-            "Jimp"
           ]
         },
         {
@@ -775,6 +776,17 @@
             "Tehničko konsultovanje",
             "Upravljanje outsourcing timovima"
           ]
+        },
+        {
+          "name": "Razvoj igara",
+          "items": [
+            "Godot",
+            "GDScript",
+            "Unity",
+            "C#",
+            "Procedural Generation",
+            "Jimp"
+          ]
         }
       ]
     },
@@ -783,9 +795,9 @@
       "items": [
         {
           "degree": "Master",
-          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow, Russia",
-          "period": "2022",
-          "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects. Specialized in embedded systems and microcontroller programming (C/C++, STM32); graduation thesis on a microcontroller-based control system."
+          "institution": "Moscow Power Engineering Institute (Technical University) (MPEI), Moscow, Russia",
+          "period": "2020 – 2022",
+          "description": "Embedded systems and microcontroller programming (C/C++, STM32). Thesis: control system on a microcontroller."
         },
         {
           "degree": "Kursevi",
@@ -795,9 +807,9 @@
         },
         {
           "degree": "Bachelor",
-          "institution": "Moscow Power Engineering Institute (National Research University) (MPEI), Moscow, Russia",
-          "period": "2020",
-          "description": "Electrical, Electromechanical and Electronic Systems of Autonomous Objects. Specialized in embedded systems and microcontroller programming (C/C++, STM32); graduation thesis on a microcontroller-based control system."
+          "institution": "Moscow Power Engineering Institute (Technical University) (MPEI), Moscow, Russia",
+          "period": "2016 – 2020",
+          "description": "Embedded systems and microcontroller programming (C/C++, STM32). Thesis: control system on a microcontroller."
         }
       ]
     },
