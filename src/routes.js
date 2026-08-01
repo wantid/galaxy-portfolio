@@ -9,6 +9,11 @@ export function getPlanetSlug(planetData) {
     if (planetData.slug) {
         return planetData.slug;
     }
+    const githubTab = planetData.tabs?.find((tab) => tab.githubRepo);
+    if (githubTab) {
+        return githubTab.githubRepo.split('/')[1].toLowerCase();
+    }
+
     const path = planetData.tabs?.[0]?.content || '';
     const match = path.match(/content\/([^/]+)\//);
     if (match) {

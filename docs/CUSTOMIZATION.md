@@ -38,8 +38,17 @@ Glow ring is always 120% of planet size at 0.1 opacity.
 
 ```json
 {
-  "title": "Description (EN)",
+  "title": "Description",
   "content": "content/my-project/description.en.md"
+}
+```
+
+Or for GitHub-sourced planets (generated at runtime):
+
+```json
+{
+  "title": "Description",
+  "githubRepo": "username/repo-name"
 }
 ```
 
@@ -52,6 +61,55 @@ https://your-site.github.io/your-repo/#/planet/galaxy-portfolio
 ```
 
 Slugs match the content folder name by default (e.g. `content/galaxy-portfolio/` → `galaxy-portfolio`).
+
+## GitHub auto-planets
+
+Public repositories from your GitHub account can appear as planets automatically when a visitor opens the 3D universe. Manual entries in [`data/planets.json`](../data/planets.json) always take priority if the slug matches.
+
+Configure sync in [`data/github-sync.json`](../data/github-sync.json):
+
+```json
+{
+  "username": "wantid",
+  "includeForks": false,
+  "excludeRepos": ["wantid", "wantid.github.io"]
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `username` | GitHub account to load public repos from |
+| `includeForks` | Include forked repositories (`false` by default) |
+| `excludeRepos` | Repo names to skip (profile repos, this template, etc.) |
+
+**How it works**
+
+1. On first visit to the 3D scene, the app calls the GitHub REST API in the browser
+2. Each public non-fork repo (not in `excludeRepos`) becomes a planet
+3. Planet dates: `created_at` → start, `pushed_at` (last push) → end
+4. Modal content is loaded from the repo README (fallback: description + GitHub link)
+5. Response is cached in `sessionStorage` for 30 minutes
+
+**Manual planets**
+
+Keep work history, private projects, and curated entries in `data/planets.json`. Use one English tab per planet:
+
+```json
+{
+  "name": "My Company",
+  "startDate": "2023-01-01",
+  "tabs": [
+    {
+      "title": "Description",
+      "content": "content/my-company/description.en.md"
+    }
+  ]
+}
+```
+
+**Offline / API errors**
+
+If the GitHub API is unavailable or rate-limited, only manual planets from `planets.json` are shown.
 
 ## Global tabs
 
@@ -243,7 +301,8 @@ Also update OG image URLs in [`index.html`](../index.html) and contact links in 
 | File | What to change |
 |------|----------------|
 | `data/welcome.json` | Name, email, experience, contacts |
-| `data/planets.json` | Your projects and work history |
+| `data/planets.json` | Manual projects and work history |
+| `data/github-sync.json` | GitHub username and repo filters |
 | `data/tabs.json` | GitHub link, About tabs |
 | `content/**` | Markdown descriptions and images |
 | `vite.config.js` | `base` path for GitHub Pages |

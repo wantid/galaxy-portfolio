@@ -4,8 +4,10 @@ import { getPlanetSlug, parseRoute, setRoute } from './routes.js';
 import { migrateLanguageCode, renderFlag, renderBrandIcon, resolveLinkIcon } from './icons.js';
 import { initCarouselCards } from './carousel-cards.js';
 import planetsData from './data/planets.json';
+import githubSyncConfig from './data/github-sync.json';
 import globalTabsData from './data/tabs.json';
 import welcomeData from './data/welcome.json';
+import { fetchGithubPlanets, mergePlanets } from './github-planets.js';
 import { jsPDF } from 'jspdf';
 
 function checkWebGL() {
@@ -44,6 +46,8 @@ class App {
         this.exportSectionKeys = ['about', 'workExperience', 'projects', 'technicalSkills', 'education', 'contacts'];
         this.pendingPlanetSlug = null;
         this.suppressModalRoute = false;
+        this.mergedPlanetsData = null;
+        this.universeInitPromise = null;
         this.init();
     }
 
@@ -1243,14 +1247,14 @@ class App {
         }
 
         if (!this.scene3D) {
-            this.initUniverse();
+            void this.initUniverse().then(() => this.openPendingPlanet());
         } else {
             this.scene3D.startAnimation();
             this.scene3D.setLabelsVisible(true);
+            this.openPendingPlanet();
         }
 
         this.currentView = 'universe';
-        this.openPendingPlanet();
     }
 
     showUniverseDirect() {
@@ -1286,18 +1290,42 @@ class App {
         }
 
         if (!this.scene3D) {
-            this.initUniverse();
+            void this.initUniverse().then(() => this.openPendingPlanet());
         } else {
             this.scene3D.startAnimation();
             this.scene3D.setLabelsVisible(true);
+            this.openPendingPlanet();
         }
 
         this.currentView = 'universe';
-        this.openPendingPlanet();
+    }
+
+    async loadMergedPlanetsData() {
+        if (this.mergedPlanetsData) {
+            return this.mergedPlanetsData;
+        }
+
+        if (this.universeInitPromise) {
+            return this.universeInitPromise;
+        }
+
+        this.universeInitPromise = (async () => {
+            try {
+                const githubPlanets = await fetchGithubPlanets(githubSyncConfig);
+                this.mergedPlanetsData = mergePlanets(planetsData, githubPlanets);
+            } catch (error) {
+                console.warn('GitHub planets fetch failed, using manual planets only:', error);
+                this.mergedPlanetsData = [...planetsData];
+            }
+
+            return this.mergedPlanetsData;
+        })();
+
+        return this.universeInitPromise;
     }
 
     getSortedPlanetsData() {
-        const data = [...planetsData];
+        const data = [...(this.mergedPlanetsData || planetsData)];
         data.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
         return data;
     }
@@ -1423,21 +1451,26 @@ class App {
         this.currentView = 'welcome';
     }
 
-    initUniverse() {
-        let data = this.getSortedPlanetsData();
-        
+    async initUniverse() {
+        if (this.scene3D) {
+            return;
+        }
+
+        await this.loadMergedPlanetsData();
+        const data = this.getSortedPlanetsData();
+
         if (!data || data.length === 0) {
             console.warn('No planets data loaded!');
             return;
         }
-        
+
         this.scene3D = new Scene3D(document.getElementById('app'));
-        
+
         data.forEach((planetData, index) => {
             const planet = this.scene3D.addPlanet(planetData, index, data.length);
             this.planets.push(planet);
         });
-        
+
         this.scene3D.onPlanetClick = (planetData) => {
             this.openPlanetModal(planetData);
         };

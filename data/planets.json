@@ -4,12 +4,8 @@
     "startDate": "2023-06-01",
     "tabs": [
       {
-        "title": "Description (EN)",
+        "title": "Description",
         "content": "content/anima-technologies/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/anima-technologies/description.md"
       }
     ]
   },
@@ -18,12 +14,8 @@
     "startDate": "2026-02-25",
     "tabs": [
       {
-        "title": "Description (EN)",
+        "title": "Description",
         "content": "content/dmitrii-kurilov-pr/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/dmitrii-kurilov-pr/description.md"
       }
     ]
   },
@@ -32,12 +24,8 @@
     "startDate": "2025-11-01",
     "tabs": [
       {
-        "title": "Description (EN)",
+        "title": "Description",
         "content": "content/object24/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/object24/description.md"
       }
     ]
   },
@@ -47,12 +35,8 @@
     "endDate": "2025-03-24",
     "tabs": [
       {
-        "title": "Description (EN)",
+        "title": "Description",
         "content": "content/last-shift/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/last-shift/description.md"
       }
     ]
   },
@@ -62,27 +46,19 @@
     "endDate": "2025-08-09",
     "tabs": [
       {
-        "title": "Description (EN)",
+        "title": "Description",
         "content": "content/notifier-tg-bot/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/notifier-tg-bot/description.md"
       }
     ]
   },
   {
-    "name": "Galaxy Portfolio",
-    "startDate": "2025-11-25",
-    "endDate": "2025-11-25",
+    "name": "Master Setup",
+    "slug": "master-setup-back",
+    "startDate": "2025-08-07",
     "tabs": [
       {
-        "title": "Description (EN)",
-        "content": "content/galaxy-portfolio/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/galaxy-portfolio/description.md"
+        "title": "Description",
+        "content": "content/master-setup-back/description.en.md"
       }
     ]
   },
@@ -92,12 +68,8 @@
     "endDate": "2023-06-30",
     "tabs": [
       {
-        "title": "Description (EN)",
+        "title": "Description",
         "content": "content/unecom/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/unecom/description.md"
       }
     ]
   },
@@ -107,42 +79,20 @@
     "endDate": "2022-10-01",
     "tabs": [
       {
-        "title": "Description (EN)",
+        "title": "Description",
         "content": "content/gazprom/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/gazprom/description.md"
       }
     ]
   },
   {
-    "name": "VBS",
-    "startDate": "2022-03-13",
-    "endDate": "2023-12-08",
+    "name": "SpinIt",
+    "slug": "spinit",
+    "startDate": "2024-07-16",
+    "endDate": "2024-11-06",
     "tabs": [
       {
-        "title": "Description (EN)",
-        "content": "content/vbs/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/vbs/description.md"
-      }
-    ]
-  },
-  {
-    "name": "Idle Action Farm",
-    "startDate": "2022-08-03",
-    "endDate": "2022-08-03",
-    "tabs": [
-      {
-        "title": "Description (EN)",
-        "content": "content/idle-action-farm/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/idle-action-farm/description.md"
+        "title": "Description",
+        "content": "content/spinit/description.en.md"
       }
     ]
   },
@@ -152,12 +102,8 @@
     "endDate": "2021-03-27",
     "tabs": [
       {
-        "title": "Description (EN)",
+        "title": "Description",
         "content": "content/unity-prototypes/description.en.md"
-      },
-      {
-        "title": "Описание (RU)",
-        "content": "content/unity-prototypes/description.md"
       }
     ]
   }

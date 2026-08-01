@@ -4,14 +4,14 @@
     "hero": {
       "name": "Dmitrii Kurilov",
       "title": "Senior Full-Stack Developer | React, Node.js, Python | Team Lead",
-      "tagline": "I build B2B SaaS web and mobile products - React, Node, Python, and React Native",
+      "tagline": "B2B SaaS web and mobile — React, Node, Python, React Native. Indie games in Godot and Unity on the side.",
       "image": "content/about/photo.webp",
       "location": "Belgrade, Serbia",
       "email": "mr.wantid@gmail.com"
     },
     "about": {
       "title": "About Me",
-      "content": "I am a Senior Full-Stack Developer and Software Engineer with 4+ years building B2B SaaS web and mobile products. I write production code in React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker, and CI/CD. React Native for iOS and Android.\n\nAt Anima (PropTech) I build and ship software across the full stack. I joined in 2023, grew into team lead, and now work with a team of 7 on microservices platforms for smart offices and business centers. Shipped mobile apps to the App Store and Google Play, kiosk apps for wall panels, and on-premise rollouts at 5 enterprise client sites. I still code daily: REST APIs, frontend features, mobile screens, GitLab CI/CD pipelines.\n\nStack I use in production: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, system architecture.\n\nOpen to new opportunities as a Full-Stack Developer or Engineering Team Lead.\nPortfolio: https://wantid.github.io/galaxy-portfolio/"
+      "content": "I am a Senior Full-Stack Developer and Software Engineer with 4+ years building B2B SaaS web and mobile products. I write production code in React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker, and CI/CD. React Native for iOS and Android.\n\nSince February 2026 I also run my own studio (DMITRII KURILOV PR) — indie games in Godot and apps in React Native for PC, iOS, and Android.\n\nAt Anima (PropTech) I build and ship software across the full stack. I joined in 2023, grew into team lead, and now work with a team of 7 on microservices platforms for smart offices and business centers. Shipped mobile apps to the App Store and Google Play, kiosk apps for wall panels, and on-premise rollouts at 5 enterprise client sites. I still code daily: REST APIs, frontend features, mobile screens, GitLab CI/CD pipelines.\n\nStack I use in production: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, system architecture.\n\nOpen to new opportunities as a Full-Stack Developer or Engineering Team Lead.\nPortfolio: https://wantid.github.io/galaxy-portfolio/"
     },
     "workExperience": {
       "title": "Work Experience",
@@ -97,6 +97,15 @@
           ]
         },
         {
+          "name": "Master Setup",
+          "description": "Node.js backend for the Smart Office master setup flow. Device pairing, initial configuration, and setup steps for on-premise deployments.",
+          "technologies": [
+            "Node.js",
+            "JavaScript",
+            "REST API"
+          ]
+        },
+        {
           "name": "OfficeNext Exhibition App",
           "description": "Interactive exhibition app for real-time visitor emotional feedback. MVP in 2 weeks.<br>WebSocket and MQTT integrations. 500+ visitors at the stand.",
           "technologies": [
@@ -144,6 +153,14 @@
             "dungeon-generator"
           ],
           "link": "https://t.me/lastShiftBot"
+        },
+        {
+          "name": "SpinIt",
+          "description": "Unity hypercasual prototype built around a simple spin mechanic. Solo C# project — gameplay loop, UI, and builds.",
+          "technologies": [
+            "Unity",
+            "C#"
+          ]
         }
       ]
     },
@@ -286,14 +303,14 @@
     "hero": {
       "name": "Дмитрий Курилов",
       "title": "Senior Full-Stack Developer | React, Node.js, Python | Team Lead",
-      "tagline": "Делаю B2B SaaS веб- и мобильные продукты - React, Node, Python и React Native",
+      "tagline": "B2B SaaS веб и мобильные продукты — React, Node, Python, React Native. Инди-игры на Godot и Unity.",
       "image": "content/about/photo.webp",
       "location": "Белград, Сербия",
       "email": "mr.wantid@gmail.com"
     },
     "about": {
       "title": "Обо мне",
-      "content": "Я Senior Full-Stack разработчик и Software Engineer с опытом 4+ лет в B2B SaaS веб- и мобильных продуктах. Пишу продакшен-код на React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker и CI/CD. React Native для iOS и Android.\n\nВ Anima (PropTech) работаю full-stack: разрабатываю и выпускаю продукт. Пришёл в 2023, вырос до team lead и сейчас веду команду из 7 человек на микросервисных платформах для умных офисов и бизнес-центров. Выпустил мобильные приложения в App Store и Google Play, kiosk-приложения для настенных панелей и on-premise внедрения на 5 enterprise-площадках. Каждый день пишу код: REST API, фронтенд, мобильные экраны, GitLab CI/CD пайплайны.\n\nСтек в продакшене: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, системная архитектура.\n\nОткрыт к новым возможностям на позиции Full-Stack Developer или Engineering Team Lead.\nПортфолио: https://wantid.github.io/galaxy-portfolio/"
+      "content": "Я Senior Full-Stack разработчик и Software Engineer с опытом 4+ лет в B2B SaaS веб- и мобильных продуктах. Пишу продакшен-код на React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker и CI/CD. React Native для iOS и Android.\n\nС февраля 2026 веду своё ИП (DMITRII KURILOV PR) — инди-игры на Godot и приложения на React Native для PC, iOS и Android.\n\nВ Anima (PropTech) работаю full-stack: разрабатываю и выпускаю продукт. Пришёл в 2023, вырос до team lead и сейчас веду команду из 7 человек на микросервисных платформах для умных офисов и бизнес-центров. Выпустил мобильные приложения в App Store и Google Play, kiosk-приложения для настенных панелей и on-premise внедрения на 5 enterprise-площадках. Каждый день пишу код: REST API, фронтенд, мобильные экраны, GitLab CI/CD пайплайны.\n\nСтек в продакшене: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, системная архитектура.\n\nОткрыт к новым возможностям на позиции Full-Stack Developer или Engineering Team Lead.\nПортфолио: https://wantid.github.io/galaxy-portfolio/"
     },
     "workExperience": {
       "title": "Опыт работы",
@@ -379,6 +396,15 @@
           ]
         },
         {
+          "name": "Master Setup",
+          "description": "Node.js backend для master setup в Smart Office. Параинг устройств, начальная конфигурация и шаги настройки для on-premise внедрений.",
+          "technologies": [
+            "Node.js",
+            "JavaScript",
+            "REST API"
+          ]
+        },
+        {
           "name": "Приложение для выставки OfficeNext",
           "description": "Интерактивное выставочное приложение для сбора эмоциональных реакций посетителей в реальном времени. MVP за 2 недели.<br>Интеграции WebSocket и MQTT. 500+ посетителей стенда.",
           "technologies": [
@@ -426,6 +452,14 @@
             "dungeon-generator"
           ],
           "link": "https://t.me/lastShiftBot"
+        },
+        {
+          "name": "SpinIt",
+          "description": "Unity hypercasual-прототип с простой spin-механикой. Соло-проект на C# — геймплей, UI и сборки.",
+          "technologies": [
+            "Unity",
+            "C#"
+          ]
         }
       ]
     },
@@ -568,14 +602,14 @@
     "hero": {
       "name": "Dmitrii Kurilov",
       "title": "Senior Full-Stack Developer | React, Node.js, Python | Team Lead",
-      "tagline": "Pravim B2B SaaS veb i mobilne proizvode - React, Node, Python i React Native",
+      "tagline": "B2B SaaS veb i mobilni proizvodi — React, Node, Python, React Native. Indie igre u Godot-u i Unity-ju.",
       "image": "content/about/photo.webp",
       "location": "Beograd, Srbija",
       "email": "mr.wantid@gmail.com"
     },
     "about": {
       "title": "O meni",
-      "content": "Ja sam Senior Full-Stack programer i Software Engineer sa 4+ godine iskustva u B2B SaaS veb i mobilnim proizvodima. Pišem produkcijski kod u React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker i CI/CD. React Native za iOS i Android.\n\nU Anima (PropTech) radim full-stack: gradim i isporučujem softver. Došao sam 2023, napao do team lead-a i sada radim sa timom od 7 ljudi na mikroservisnim platformama za pametne ofise i poslovne centre. Objavio mobilne aplikacije na App Store i Google Play, kiosk aplikacije za zidne panele i on-premise implementacije na 5 enterprise lokacija. Svakodnevno pišem kod: REST API, frontend, mobilne ekrane, GitLab CI/CD pipeline-ove.\n\nStek u produkciji: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, sistemska arhitektura.\n\nOtvoren sam za nove prilike kao Full-Stack Developer ili Engineering Team Lead.\nPortfolio: https://wantid.github.io/galaxy-portfolio/"
+      "content": "Ja sam Senior Full-Stack programer i Software Engineer sa 4+ godine iskustva u B2B SaaS veb i mobilnim proizvodima. Pišem produkcijski kod u React, Next.js, TypeScript, Node.js, Python/Django, PostgreSQL, Redis, Docker i CI/CD. React Native za iOS i Android.\n\nOd februara 2026. vodim sopstveni PR (DMITRII KURILOV PR) — indie igre u Godot-u i aplikacije u React Native-u za PC, iOS i Android.\n\nU Anima (PropTech) radim full-stack: gradim i isporučujem softver. Došao sam 2023, napao do team lead-a i sada radim sa timom od 7 ljudi na mikroservisnim platformama za pametne ofise i poslovne centre. Objavio mobilne aplikacije na App Store i Google Play, kiosk aplikacije za zidne panele i on-premise implementacije na 5 enterprise lokacija. Svakodnevno pišem kod: REST API, frontend, mobilne ekrane, GitLab CI/CD pipeline-ove.\n\nStek u produkciji: React.js, Next.js, TypeScript, JavaScript, React Native, Redux, MobX, Node.js, Express.js, Python, Django, REST APIs, microservices, PostgreSQL, Redis, MongoDB, Docker, GitLab CI/CD, GitHub Actions, Nginx, WebSocket, sistemska arhitektura.\n\nOtvoren sam za nove prilike kao Full-Stack Developer ili Engineering Team Lead.\nPortfolio: https://wantid.github.io/galaxy-portfolio/"
     },
     "workExperience": {
       "title": "Radno iskustvo",
@@ -661,6 +695,15 @@
           ]
         },
         {
+          "name": "Master Setup",
+          "description": "Node.js backend za master setup tok u Smart Office platformi. Paring uređaja, početna konfiguracija i koraci podešavanja za on-premise implementacije.",
+          "technologies": [
+            "Node.js",
+            "JavaScript",
+            "REST API"
+          ]
+        },
+        {
           "name": "OfficeNext Exhibition App",
           "description": "Interaktivna izložbena aplikacija za emocionalne reakcije posetilaca u realnom vremenu. MVP za 2 nedelje.<br>WebSocket i MQTT integracije. 500+ posetilaca štanda.",
           "technologies": [
@@ -708,6 +751,14 @@
             "dungeon-generator"
           ],
           "link": "https://t.me/lastShiftBot"
+        },
+        {
+          "name": "SpinIt",
+          "description": "Unity hypercasual prototip oko jednostavne spin mehanike. Solo C# projekat — gejmplej, UI i build-ovi.",
+          "technologies": [
+            "Unity",
+            "C#"
+          ]
         }
       ]
     },

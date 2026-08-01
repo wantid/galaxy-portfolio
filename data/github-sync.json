@@ -1,0 +1,5 @@
+{
+  "username": "wantid",
+  "includeForks": false,
+  "excludeRepos": ["wantid", "wantid.github.io", "gitlab"]
+}

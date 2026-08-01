@@ -1,5 +1,50 @@
 import { marked } from 'marked';
 
+function resolveGithubAssetUrl(url, owner, repo, defaultBranch) {
+    const trimmed = url.trim();
+
+    if (!trimmed || /^(https?:|data:)/i.test(trimmed)) {
+        return trimmed;
+    }
+
+    const blobMatch = trimmed.match(
+        /github\.com\/[^/]+\/[^/]+\/blob\/([^/]+)\/(.+?)(?:\?|$)/i
+    );
+    if (blobMatch) {
+        return `https://raw.githubusercontent.com/${owner}/${repo}/${blobMatch[1]}/${blobMatch[2]}`;
+    }
+
+    const rawMatch = trimmed.match(
+        /raw\.githubusercontent\.com\/[^/]+\/[^/]+\/([^/]+)\/(.+?)(?:\?|$)/i
+    );
+    if (rawMatch) {
+        return trimmed.split('?')[0];
+    }
+
+    let path = trimmed.split('?')[0];
+    if (path.startsWith('/')) {
+        path = path.slice(1);
+    }
+    path = path.replace(/^\.\//, '');
+
+    return `https://raw.githubusercontent.com/${owner}/${repo}/${defaultBranch}/${path}`;
+}
+
+function rewriteGithubMarkdownAssets(markdown, owner, repo, defaultBranch) {
+    let result = markdown.replace(
+        /!\[([^\]]*)\]\(([^)]+)\)/g,
+        (match, alt, url) => `![${alt}](${resolveGithubAssetUrl(url, owner, repo, defaultBranch)})`
+    );
+
+    result = result.replace(
+        /<img([^>]*)\ssrc=["']([^"']+)["']([^>]*)>/gi,
+        (match, before, url, after) =>
+            `<img${before} src="${resolveGithubAssetUrl(url, owner, repo, defaultBranch)}"${after}>`
+    );
+
+    return result;
+}
+
 export class Modal {
     constructor(onHide = null) {
         this.modalElement = document.getElementById('modal');
@@ -113,15 +158,32 @@ export class Modal {
         const startTime = Date.now();
         
         try {
-            const response = await fetch(tab.content);
-            if (!response.ok) {
-                throw new Error(`Failed to load content: ${response.statusText}`);
+            let markdown;
+
+            if (tab.githubRepo) {
+                const [owner, repo] = tab.githubRepo.split('/');
+                const defaultBranch = this.currentPlanet.defaultBranch || 'main';
+                markdown = await this.fetchGithubReadme(tab.githubRepo, this.currentPlanet);
+                markdown = rewriteGithubMarkdownAssets(markdown, owner, repo, defaultBranch);
+            } else if (tab.content) {
+                const response = await fetch(tab.content);
+                if (!response.ok) {
+                    throw new Error(`Failed to load content: ${response.statusText}`);
+                }
+                markdown = await response.text();
+            } else {
+                throw new Error('Tab has no content source');
             }
-            
-            let content = await response.text();
-            
-            content = marked.parse(content);
-            content = this.processMedia(content);
+
+            let content = marked.parse(markdown);
+
+            if (tab.githubRepo) {
+                const [owner, repo] = tab.githubRepo.split('/');
+                const defaultBranch = this.currentPlanet.defaultBranch || 'main';
+                content = this.processGithubMedia(content, owner, repo, defaultBranch);
+            } else {
+                content = this.processMedia(content);
+            }
             
             const elapsed = Date.now() - startTime;
             if (elapsed < 500) {
@@ -141,6 +203,44 @@ export class Modal {
             this.tabContent.innerHTML = `<p style="color: #ff6b6b;">Failed to load content: ${error.message}</p>`;
             this.tabContent.style.minHeight = '';
         }
+    }
+
+    async fetchGithubReadme(githubRepo, planetData) {
+        const [owner, repo] = githubRepo.split('/');
+        const response = await fetch(
+            `https://api.github.com/repos/${owner}/${repo}/readme`,
+            { headers: { Accept: 'application/vnd.github.raw' } }
+        );
+
+        if (response.ok) {
+            return response.text();
+        }
+
+        const name = planetData.name || repo;
+        const description = planetData.githubDescription || '';
+        const url = planetData.githubUrl || `https://github.com/${githubRepo}`;
+
+        return `# ${name}\n\n${description}\n\n[View on GitHub](${url})`;
+    }
+
+    processGithubMedia(content, owner, repo, defaultBranch) {
+        content = content.replace(
+            /<img([^>]*)\ssrc=["']([^"']+)["']([^>]*)>/gi,
+            (match, before, src, after) => {
+                const resolved = resolveGithubAssetUrl(src, owner, repo, defaultBranch);
+                return `<img${before} src="${resolved}"${after}>`;
+            }
+        );
+
+        content = content.replace(
+            /\[video\]\(([^)]+)\)/g,
+            (match, url) => {
+                const resolved = resolveGithubAssetUrl(url, owner, repo, defaultBranch);
+                return `<video controls><source src="${resolved}" type="video/webp"></video>`;
+            }
+        );
+
+        return content;
     }
 
     processMedia(content) {

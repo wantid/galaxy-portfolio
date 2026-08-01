@@ -25,6 +25,7 @@ ensureDir(join(root, 'src', 'data'));
 ensureDir(join(root, 'public', 'content'));
 
 copyFile(join(root, 'data', 'planets.json'), join(root, 'src', 'data', 'planets.json'));
+copyFile(join(root, 'data', 'github-sync.json'), join(root, 'src', 'data', 'github-sync.json'));
 copyFile(join(root, 'data', 'tabs.json'), join(root, 'src', 'data', 'tabs.json'));
 copyFile(join(root, 'data', 'welcome.json'), join(root, 'src', 'data', 'welcome.json'));
 copyDir(join(root, 'content'), join(root, 'public', 'content'));

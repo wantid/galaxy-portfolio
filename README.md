@@ -25,6 +25,7 @@
 
 - **3D galaxy** — each project or job is a planet orbiting the sun; click to open Markdown details
 - **JSON-driven** — edit `data/welcome.json`, `data/planets.json`, and `content/` — no code changes needed
+- **GitHub auto-planets** — public repos from your GitHub account appear as planets at runtime (see [`data/github-sync.json`](data/github-sync.json))
 - **Welcome page** — classic CV layout for recruiters; export selected sections to PDF
 - **Multilingual** — locale keys (`en`, `ru`, `sr`) with SVG country flags via [flag-icons](https://github.com/lipis/flag-icons)
 - **Horizontal carousels** — projects and skills scroll sideways; overflow cards expand with Show more
@@ -63,6 +64,7 @@ npm run dev
 |------|------------------------|
 | [`data/welcome.json`](data/welcome.json) | Hero, work history, skills, contacts |
 | [`data/planets.json`](data/planets.json) | Your projects and roles |
+| [`data/github-sync.json`](data/github-sync.json) | GitHub username and repo filters for auto-planets |
 | [`data/tabs.json`](data/tabs.json) | GitHub link, About tabs |
 | [`content/`](content/) | Markdown files and images |
 | [`vite.config.js`](vite.config.js) | `base: '/your-repo-name/'` |
@@ -114,7 +116,8 @@ Configured in `data/tabs.json`:
 galaxy-portfolio/
 ├── data/              # JSON config (edit these)
 │   ├── welcome.json   # Resume / welcome page (multilingual)
-│   ├── planets.json   # 3D planets (projects)
+│   ├── planets.json   # 3D planets (manual projects & jobs)
+│   ├── github-sync.json # GitHub username & filters for auto-planets
 │   └── tabs.json      # Top navigation bar
 ├── content/           # Markdown + images
 ├── src/
