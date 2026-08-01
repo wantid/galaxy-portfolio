@@ -15,7 +15,7 @@ export class Scene3D {
         this.raycaster = new THREE.Raycaster();
         this.mouse = new THREE.Vector2();
         this.onPlanetClick = null;
-        this.isAnimating = true;
+        this.isAnimating = false;
         this.isPaused = false;
         this.pauseButton = null;
         
@@ -26,7 +26,6 @@ export class Scene3D {
         this.createSun();
         this.setupControls();
         this.createPauseButton();
-        this.startAnimation();
         this.setupEventListeners();
     }
 
@@ -40,7 +39,8 @@ export class Scene3D {
         this.renderer = new THREE.WebGLRenderer({ 
             canvas: document.getElementById('canvas'),
             antialias: true,
-            alpha: true
+            alpha: true,
+            preserveDrawingBuffer: true,
         });
         this.renderer.setSize(width, height);
         this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -102,14 +102,24 @@ export class Scene3D {
         if (this.labelsLayer) return;
         const layer = document.createElement('div');
         layer.id = 'labels-layer';
+        layer.style.display = 'none';
+        layer.addEventListener('selectstart', (event) => event.preventDefault());
+        layer.addEventListener('pointerdown', () => this.clearTextSelection());
         this.container.appendChild(layer);
         this.labelsLayer = layer;
+    }
+
+    clearTextSelection() {
+        const selection = window.getSelection();
+        if (selection && selection.rangeCount > 0) {
+            selection.removeAllRanges();
+        }
     }
 
     createPauseButton() {
         const button = document.createElement('button');
         button.id = 'pause-time-button';
-        button.className = 'pause-time-button';
+        button.className = 'pause-time-button hidden';
         button.innerHTML = '⏸';
         button.title = 'Pause/Resume Time';
         button.addEventListener('click', () => {
@@ -169,6 +179,38 @@ export class Scene3D {
         this.controls.minDistance = 10;
         this.controls.maxDistance = 200;
         this.controls.enablePan = true;
+
+        this.renderer.domElement.addEventListener('selectstart', (event) => event.preventDefault());
+        this.renderer.domElement.addEventListener('pointerdown', () => this.clearTextSelection());
+    }
+
+    fitCameraToUniverse() {
+        if (!this.planets.length || !this.camera || !this.controls) {
+            return;
+        }
+
+        let maxReach = 0;
+
+        for (const planet of this.planets) {
+            const planetRadius = planet.mesh.geometry.parameters.radius * 1.2;
+            maxReach = Math.max(maxReach, planet.orbitRadius + planetRadius);
+        }
+
+        const universeRadius = Math.max(maxReach, 18);
+        const verticalFov = THREE.MathUtils.degToRad(this.camera.fov);
+        const horizontalFov = 2 * Math.atan(Math.tan(verticalFov / 2) * this.camera.aspect);
+        const fitFov = Math.min(verticalFov, horizontalFov);
+        const distance = universeRadius / (Math.tan(fitFov / 2) * 0.78);
+        const elevationRatio = 0.36;
+        const cameraY = distance * elevationRatio;
+        const cameraZ = distance * Math.cos(Math.asin(elevationRatio));
+
+        this.camera.position.set(0, cameraY, cameraZ);
+        this.camera.lookAt(0, 0, 0);
+        this.controls.target.set(0, 0, 0);
+        this.controls.minDistance = 8;
+        this.controls.maxDistance = Math.max(250, distance * 2.4);
+        this.controls.update();
     }
 
     addPlanet(planetData, index, totalPlanets) {
@@ -209,6 +251,13 @@ export class Scene3D {
         this.renderer.render(this.scene, this.camera);
     }
 
+    renderFrame() {
+        if (this.controls) {
+            this.controls.update();
+        }
+        this.renderer.render(this.scene, this.camera);
+    }
+
     startAnimation() {
         this.isAnimating = true;
         this.animate();
@@ -222,6 +271,14 @@ export class Scene3D {
         if (this.labelsLayer) {
             this.labelsLayer.style.display = visible ? 'block' : 'none';
         }
+    }
+
+    updateAllLabelPositions() {
+        this.planets.forEach((planet) => {
+            if (planet.labelElement) {
+                planet.updateLabelPosition(this.camera);
+            }
+        });
     }
 
     setupEventListeners() {
@@ -412,6 +469,9 @@ class Planet3D {
         
         label.addEventListener('click', (e) => {
             e.stopPropagation();
+            if (this.scene3D) {
+                this.scene3D.clearTextSelection();
+            }
             if (this.scene3D && this.scene3D.onPlanetClick) {
                 this.scene3D.onPlanetClick(this.data);
             }

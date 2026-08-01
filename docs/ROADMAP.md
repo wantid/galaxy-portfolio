@@ -16,6 +16,8 @@ Planned improvements for Galaxy Portfolio. Completed items are kept for referenc
 - [x] Export welcome page to PDF
 - [x] Planet hash routes (`#/planet/{slug}`)
 - [x] Fetch github repos for planet auto generation
+- [x] Fix transition from welcome to galaxy page
+- [x] Remove text selection at galaxy page
 
 ## Planned
 
@@ -23,8 +25,6 @@ Planned improvements for Galaxy Portfolio. Completed items are kept for referenc
 - [ ] Filter labels by planet tags
 - [ ] Flexible date formats (e.g. `13 Aug 2025`, `Aug – Sep 2025`)
 - [ ] Showcase section in README ("Built with Galaxy Portfolio")
-- [ ] Fix transition from welcome to galaxy page
-- [ ] Remove text selection at galaxy page
 
 ## Ideas
 

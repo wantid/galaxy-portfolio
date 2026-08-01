@@ -8,6 +8,11 @@ import githubSyncConfig from './data/github-sync.json';
 import globalTabsData from './data/tabs.json';
 import welcomeData from './data/welcome.json';
 import { fetchGithubPlanets, mergePlanets } from './github-planets.js';
+import {
+    captureWelcomeSnapshot,
+    captureUniverseSnapshot,
+    runDoomMelt,
+} from './transition.js';
 import { jsPDF } from 'jspdf';
 
 function checkWebGL() {
@@ -48,6 +53,7 @@ class App {
         this.suppressModalRoute = false;
         this.mergedPlanetsData = null;
         this.universeInitPromise = null;
+        this.universeReady = false;
         this.init();
     }
 
@@ -89,6 +95,7 @@ class App {
             bottomActions.classList.remove('hidden');
         }
         this.setupWelcomePage();
+        this.scheduleUniversePreload();
         this.setupEventListeners();
         this.setupRouting();
         this.handleInitialRoute();
@@ -114,6 +121,84 @@ class App {
             this.exportPdfButton.textContent = langData.exportButton || 'Download CV';
         }
         this.renderExportSectionsModal();
+    }
+
+    scheduleUniversePreload() {
+        const run = () => {
+            this.ensureUniverseReady().catch((error) => {
+                console.warn('Universe preload failed:', error);
+            });
+        };
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(run, { timeout: 5000 });
+        } else {
+            setTimeout(run, 1500);
+        }
+    }
+
+    async ensureUniverseReady() {
+        if (this.universeReady && this.scene3D) {
+            return;
+        }
+
+        if (!checkWebGL()) {
+            this.showWebGLError();
+            throw new Error('WebGL unavailable');
+        }
+
+        await this.initUniverse();
+
+        if (!this.scene3D) {
+            throw new Error('Universe failed to initialize');
+        }
+
+        this.scene3D.renderFrame();
+        this.scene3D.fitCameraToUniverse();
+        this.scene3D.setLabelsVisible(false);
+        this.scene3D.stopAnimation();
+
+        const pauseButton = document.getElementById('pause-time-button');
+        if (pauseButton) {
+            pauseButton.classList.add('hidden');
+        }
+
+        this.universeReady = true;
+    }
+
+    rollbackUniverseViewSwitch() {
+        if (this.welcomePage) {
+            this.welcomePage.classList.remove('hidden');
+        }
+
+        if (this.universeScene) {
+            this.universeScene.classList.add('hidden');
+        }
+
+        if (this.authorLink) {
+            this.authorLink.classList.add('hidden');
+        }
+
+        if (this.languageSwitcher) {
+            this.languageSwitcher.classList.remove('hidden');
+        }
+
+        const pauseButton = document.getElementById('pause-time-button');
+        if (pauseButton) {
+            pauseButton.classList.add('hidden');
+        }
+
+        const bottomActions = document.getElementById('welcome-bottom-actions');
+        if (bottomActions) {
+            bottomActions.classList.remove('hidden');
+        }
+
+        if (this.scene3D) {
+            this.scene3D.stopAnimation();
+            this.scene3D.setLabelsVisible(false);
+        }
+
+        this.currentView = 'welcome';
     }
 
     getExportUiLabels() {
@@ -921,21 +1006,17 @@ class App {
 
     transitionToUniverse() {
         if (this.currentView === 'universe' || this.isTransitioning) return;
-        
-        this.playTransition(this.welcomePage, () => {
-            this.showUniverse();
+
+        void this.playTransition(this.welcomePage, async () => {
+            await this.prepareUniverseView();
             setRoute({ view: 'universe' });
         });
     }
 
     transitionToWelcome() {
         if (this.currentView === 'welcome' || this.isTransitioning) return;
-        
-        this.playTransition(this.universeScene, () => {
-            if (this.scene3D) {
-                this.scene3D.stopAnimation();
-                this.scene3D.setLabelsVisible(false);
-            }
+
+        void this.playTransition(this.universeScene, async () => {
             this.suppressModalRoute = true;
             this.modal.hide();
             this.suppressModalRoute = false;
@@ -944,360 +1025,141 @@ class App {
         });
     }
 
+    waitForPaint(frames = 2) {
+        return new Promise((resolve) => {
+            let remaining = frames;
+            const tick = () => {
+                remaining -= 1;
+                if (remaining <= 0) {
+                    resolve();
+                    return;
+                }
+                requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        });
+    }
+
+    finishTransition(overlay) {
+        if (overlay) {
+            overlay.innerHTML = '';
+            overlay.classList.remove('transition-lock');
+            overlay.classList.add('hidden');
+        }
+        this.isTransitioning = false;
+        document.body.classList.remove('transition-active');
+
+        if (this.currentView === 'universe' && this.scene3D) {
+            this.scene3D.startAnimation();
+        }
+    }
+
+    showTransitionLock(overlay) {
+        if (!overlay) return;
+        overlay.innerHTML = '';
+        overlay.classList.remove('hidden');
+        overlay.classList.add('transition-lock');
+    }
+
     async playTransition(sourceElement, callback) {
         if (this.isTransitioning) return;
         this.isTransitioning = true;
+        document.body.classList.add('transition-active');
+        window.getSelection()?.removeAllRanges();
 
         const overlay = document.getElementById('transition-overlay');
-        if (!overlay) {
-            this.isTransitioning = false;
-            callback();
-            return;
+        this.showTransitionLock(overlay);
+
+        if (this.scene3D && this.currentView === 'universe') {
+            this.scene3D.stopAnimation();
         }
 
-        const sourceCanvas = await this.capturePageAsync(sourceElement, this.scene3D);
-        if (!sourceCanvas) {
-            this.isTransitioning = false;
-            callback();
-            return;
+        await this.waitForPaint(1);
+
+        try {
+            const sourceCanvas = await this.capturePageAsync(sourceElement, this.scene3D);
+            await runDoomMelt({
+                sourceCanvas,
+                overlay,
+                onSwitch: callback,
+                onComplete: (targetOverlay) => this.finishTransition(targetOverlay),
+                waitForPaint: (frames) => this.waitForPaint(frames),
+            });
+        } catch (error) {
+            console.error('Transition failed:', error);
+            this.finishTransition(overlay);
         }
-
-        overlay.classList.remove('hidden');
-        overlay.style.pointerEvents = 'auto';
-        overlay.innerHTML = '';
-        
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d', { alpha: true });
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        overlay.appendChild(canvas);
-
-        ctx.drawImage(sourceCanvas, 0, 0, canvas.width, canvas.height);
-
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                callback();
-            });
-        });
-
-        const stripWidth = 3;
-        const numStrips = Math.ceil(canvas.width / stripWidth);
-        const strips = [];
-
-        for (let x = 0; x < numStrips; x++) {
-            const stripX = x * stripWidth;
-            const width = Math.min(stripWidth, canvas.width - stripX);
-            const imageData = ctx.getImageData(stripX, 0, width, canvas.height);
-            
-            strips.push({
-                x: stripX,
-                width: width,
-                imageData: imageData,
-                delay: Math.random() * 0.5
-            });
-        }
-
-        const duration = 0.8;
-        const fallSpeed = canvas.height * 1.5;
-        const startTime = performance.now();
-
-        const animate = (currentTime) => {
-            const elapsed = (currentTime - startTime) / 1000;
-
-            ctx.save();
-            ctx.globalCompositeOperation = 'source-over';
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.restore();
-            
-            let allFinished = true;
-            
-            strips.forEach(strip => {
-                const adjustedTime = Math.max(0, elapsed - strip.delay);
-                const progress = Math.min(1, adjustedTime / duration);
-                
-                if (progress < 1) {
-                    allFinished = false;
-                    const fallDistance = progress * fallSpeed;
-                    
-                    if (fallDistance < canvas.height + fallSpeed) {
-                        ctx.putImageData(strip.imageData, strip.x, fallDistance);
-                    }
-                }
-            });
-
-            if (!allFinished) {
-                requestAnimationFrame(animate);
-            } else {
-                setTimeout(() => {
-                    overlay.innerHTML = '';
-                    overlay.classList.add('hidden');
-                    overlay.style.pointerEvents = 'none';
-                    this.isTransitioning = false;
-                }, 100);
-            }
-        };
-
-        requestAnimationFrame(animate);
     }
 
     async capturePageAsync(element, scene3D = null) {
         if (!element) return null;
 
-        return new Promise((resolve) => {
-            if (element.id === 'universe-scene') {
-                const canvas = document.createElement('canvas');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                const ctx = canvas.getContext('2d');
-                
-                const canvas3D = document.getElementById('canvas');
-                if (canvas3D && scene3D && scene3D.renderer) {
-                    ctx.fillStyle = '#000';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    
-                    const capture3D = () => {
-                        try {
-                            if (canvas3D.width > 0 && canvas3D.height > 0) {
-                                if (scene3D && scene3D.renderer && scene3D.scene && scene3D.camera) {
-                                    scene3D.renderer.render(scene3D.scene, scene3D.camera);
-                                }
-                                ctx.drawImage(canvas3D, 0, 0, canvas.width, canvas.height);
-                                resolve(canvas);
-                            } else {
-                                setTimeout(capture3D, 16);
-                            }
-                        } catch (e) {
-                            console.warn('Could not capture 3D canvas:', e);
-                            ctx.fillStyle = '#000';
-                            ctx.fillRect(0, 0, canvas.width, canvas.height);
-                            resolve(canvas);
-                        }
-                    };
-                    
-                    requestAnimationFrame(() => {
-                        requestAnimationFrame(capture3D);
-                    });
-                } else {
-                    ctx.fillStyle = '#000';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    setTimeout(() => resolve(canvas), 50);
-                }
-                return;
-            }
+        const overlay = document.getElementById('transition-overlay');
 
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-            
-            const elementsToCapture = [];
-            const walker = document.createTreeWalker(
-                element,
-                NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
-                {
-                    acceptNode: (node) => {
-                        if (node.id === 'transition-overlay' || node.id === 'explore-button') {
-                            return NodeFilter.FILTER_REJECT;
-                        }
-                        if (node.nodeType === Node.ELEMENT_NODE) {
-                            const nodeStyle = window.getComputedStyle(node);
-                            if (nodeStyle.display === 'none' || nodeStyle.visibility === 'hidden') {
-                                return NodeFilter.FILTER_REJECT;
-                            }
-                        }
-                        return NodeFilter.FILTER_ACCEPT;
-                    }
-                }
-            );
+        if (element.id === 'universe-scene') {
+            return captureUniverseSnapshot(scene3D);
+        }
 
-            let node;
-            while (node = walker.nextNode()) {
-                if (node.nodeType === Node.ELEMENT_NODE) {
-                    const rect = node.getBoundingClientRect();
-                    if (rect.width > 0 && rect.height > 0) {
-                        if (node.tagName === 'IMG') {
-                            try {
-                                const img = node;
-                                if (img.complete && img.naturalWidth > 0) {
-                                    const elStyle = window.getComputedStyle(node);
-                                    elementsToCapture.push({ 
-                                        type: 'image', 
-                                        node: img, 
-                                        rect: { left: rect.left, top: rect.top, width: rect.width, height: rect.height },
-                                        style: elStyle
-                                    });
-                                }
-                            } catch (e) {
-                                console.warn('Could not capture image:', e);
-                            }
-                        } else if (node.tagName === 'CANVAS') {
-                            try {
-                                elementsToCapture.push({ 
-                                    type: 'canvas', 
-                                    node: node, 
-                                    rect: { left: rect.left, top: rect.top, width: rect.width, height: rect.height }
-                                });
-                            } catch (e) {
-                                console.warn('Could not capture canvas:', e);
-                            }
-                        }
-                    }
-                } else if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                    const parent = node.parentElement;
-                    if (parent && parent.children.length === 0) {
-                        const rect = parent.getBoundingClientRect();
-                        if (rect.width > 0 && rect.height > 0) {
-                            const elStyle = window.getComputedStyle(parent);
-                            elementsToCapture.push({ 
-                                type: 'text', 
-                                node: parent, 
-                                text: node.textContent.trim(), 
-                                rect: { left: rect.left, top: rect.top, width: rect.width, height: rect.height },
-                                style: elStyle
-                            });
-                        }
-                    }
-                }
-            }
+        if (element.id === 'welcome-page') {
+            const bottomActions = document.getElementById('welcome-bottom-actions');
+            return captureWelcomeSnapshot(this.welcomePage, bottomActions, overlay);
+        }
 
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                    const ctx = canvas.getContext('2d');
-                    
-                    const style = window.getComputedStyle(element);
-                    ctx.fillStyle = style.backgroundColor || '#fafafa';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                    elementsToCapture.forEach(item => {
-                        if (item.type === 'image') {
-                            try {
-                                ctx.drawImage(item.node, item.rect.left, item.rect.top, item.rect.width, item.rect.height);
-                            } catch (e) {
-                                console.warn('Could not draw image:', e);
-                            }
-                        } else if (item.type === 'canvas') {
-                            try {
-                                ctx.drawImage(item.node, item.rect.left, item.rect.top, item.rect.width, item.rect.height);
-                            } catch (e) {
-                                console.warn('Could not draw canvas:', e);
-                            }
-                        } else if (item.type === 'text') {
-                            const elStyle = item.style;
-                            const fontSize = parseFloat(elStyle.fontSize) || 16;
-                            const fontFamily = elStyle.fontFamily || 'Arial';
-                            const fontWeight = elStyle.fontWeight || 'normal';
-                            const fontStyle = elStyle.fontStyle || 'normal';
-                            const textAlign = elStyle.textAlign || 'left';
-                            
-                            ctx.save();
-                            ctx.fillStyle = elStyle.color || '#1a1a1a';
-                            ctx.font = `${fontStyle} ${fontWeight} ${fontSize}px ${fontFamily}`;
-                            ctx.textAlign = textAlign;
-                            ctx.textBaseline = 'top';
-                            
-                            let x = item.rect.left;
-                            if (textAlign === 'center') {
-                                x = item.rect.left + item.rect.width / 2;
-                            } else if (textAlign === 'right') {
-                                x = item.rect.left + item.rect.width;
-                            }
-                            
-                            ctx.fillText(item.text, x, item.rect.top);
-                            ctx.restore();
-                        }
-                    });
-
-                    resolve(canvas);
-                });
-            });
-        });
+        return null;
     }
 
-    showUniverse() {
-        if (!checkWebGL()) {
-            this.showWebGLError();
-            return;
-        }
+    async prepareUniverseView() {
+        await this.ensureUniverseReady();
 
-        if (this.welcomePage) {
-            this.welcomePage.classList.add('hidden');
-        }
+        this.scene3D.renderFrame();
 
-        if (this.universeScene) {
-            this.universeScene.classList.remove('hidden');
-        }
-
-        if (this.authorLink) {
-            this.authorLink.classList.remove('hidden');
-        }
-
-        if (this.languageSwitcher) {
-            this.languageSwitcher.classList.add('hidden');
-        }
-
-        const pauseButton = document.getElementById('pause-time-button');
-        if (pauseButton) {
-            pauseButton.classList.remove('hidden');
-        }
-
-        const bottomActions = document.getElementById('welcome-bottom-actions');
-        if (bottomActions) {
-            bottomActions.classList.add('hidden');
-        }
-
-        if (!this.scene3D) {
-            void this.initUniverse().then(() => this.openPendingPlanet());
-        } else {
+        if (!this.isTransitioning) {
             this.scene3D.startAnimation();
-            this.scene3D.setLabelsVisible(true);
-            this.openPendingPlanet();
         }
 
-        this.currentView = 'universe';
+        try {
+            if (this.welcomePage) {
+                this.welcomePage.classList.add('hidden');
+            }
+
+            if (this.universeScene) {
+                this.universeScene.classList.remove('hidden');
+            }
+
+            if (this.authorLink) {
+                this.authorLink.classList.remove('hidden');
+            }
+
+            if (this.languageSwitcher) {
+                this.languageSwitcher.classList.add('hidden');
+            }
+
+            const pauseButton = document.getElementById('pause-time-button');
+            if (pauseButton) {
+                pauseButton.classList.remove('hidden');
+            }
+
+            const bottomActions = document.getElementById('welcome-bottom-actions');
+            if (bottomActions) {
+                bottomActions.classList.add('hidden');
+            }
+
+            this.scene3D.fitCameraToUniverse();
+            this.scene3D.setLabelsVisible(true);
+            this.scene3D.updateAllLabelPositions();
+            this.scene3D.renderFrame();
+            this.openPendingPlanet();
+            this.currentView = 'universe';
+        } catch (error) {
+            this.rollbackUniverseViewSwitch();
+            throw error;
+        }
     }
 
     showUniverseDirect() {
-        if (!checkWebGL()) {
-            this.showWebGLError();
-            return;
-        }
-
-        if (this.welcomePage) {
-            this.welcomePage.classList.add('hidden');
-        }
-
-        if (this.universeScene) {
-            this.universeScene.classList.remove('hidden');
-        }
-
-        if (this.authorLink) {
-            this.authorLink.classList.remove('hidden');
-        }
-
-        if (this.languageSwitcher) {
-            this.languageSwitcher.classList.add('hidden');
-        }
-
-        const pauseButton = document.getElementById('pause-time-button');
-        if (pauseButton) {
-            pauseButton.classList.remove('hidden');
-        }
-
-        const bottomActions = document.getElementById('welcome-bottom-actions');
-        if (bottomActions) {
-            bottomActions.classList.add('hidden');
-        }
-
-        if (!this.scene3D) {
-            void this.initUniverse().then(() => this.openPendingPlanet());
-        } else {
-            this.scene3D.startAnimation();
-            this.scene3D.setLabelsVisible(true);
-            this.openPendingPlanet();
-        }
-
-        this.currentView = 'universe';
+        void this.prepareUniverseView().catch((error) => {
+            console.error('Failed to open universe:', error);
+        });
     }
 
     async loadMergedPlanetsData() {
@@ -1464,7 +1326,7 @@ class App {
             return;
         }
 
-        this.scene3D = new Scene3D(document.getElementById('app'));
+        this.scene3D = new Scene3D(this.universeScene);
 
         data.forEach((planetData, index) => {
             const planet = this.scene3D.addPlanet(planetData, index, data.length);
@@ -1476,6 +1338,7 @@ class App {
         };
 
         this.setupGlobalTabs(globalTabsData);
+        this.scene3D.fitCameraToUniverse();
     }
 
     setupGlobalTabs(tabsData) {
